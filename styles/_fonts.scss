@@ -1,0 +1,13 @@
+@import "mixin";
+
+$fonts:
+        'Inter-Light' 300,
+        'Inter-Regular' 400,
+        'Inter-Medium' 500,
+        'Inter-SemiBold' 600,
+        'Inter-Bold' 700,
+        'Inter-ExtraBold' 800;
+
+@each $name, $weight in $fonts {
+  @include font-face('Inter', $weight, $name);
+}

@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background-color: #fff;
+  font-family: $font-primary;
+  font-size: 16px;
+  line-height: normal;
+  color: $color-black;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 1420px;
+  padding: 0 40px;
+  margin: 0 auto;
+  //border: 1px solid red;
+}
