@@ -1,0 +1,39 @@
+@import '/styles/variables';
+$border: 2px;
+
+.banner-advantages {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 435px;
+  max-width: 435px;
+  height: 210px;
+  max-height: 210px;
+  padding: 45px 50px;
+  color: #FFF;
+  background: #00000091;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 1em;
+
+  &__title {
+    margin: 0 0 20px 0;
+    font-size: 50px;
+    font-weight: 500;
+    color: $color-yellow;
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(343deg, rgb(44 37 37) 0%, rgb(111 111 111) 100%);
+  }
+}

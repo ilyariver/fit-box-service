@@ -11,8 +11,6 @@ export const Header = () => {
            <Link href="/">
                <a><img src={logo.src} alt="" className={style.logo_img}/></a>
            </Link>
-           <MainButton />
-           <PreviewMenu text={'Блины со сгухой'} />
        </header>
    )
 }

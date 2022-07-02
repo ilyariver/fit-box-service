@@ -1,0 +1,36 @@
+@import "/styles/variables";
+
+.options-day-btn {
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background-color: $color-black;
+    border: 1px solid $color-pink;
+    color: #fff;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($color-black, 10%);
+    }
+
+    &--active {
+      background-color: $color-pink;
+      //border: 1px solid $color-pink;
+
+      &:hover {
+        background-color: lighten($color-pink, 5%);
+      }
+    }
+  }
+
+  &:not(:last-child) {
+     margin-right: 10px;
+  }
+}
