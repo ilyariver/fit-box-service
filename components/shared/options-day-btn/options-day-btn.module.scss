@@ -7,9 +7,10 @@
     align-items: center;
     justify-content: center;
     height: 45px;
+    margin-bottom: 13px;
     padding: 0 20px;
     border-radius: 100px;
-    background-color: $color-black;
+    background-color: transparent;
     border: 1px solid $color-pink;
     color: #fff;
     transition: background-color 0.2s;
@@ -17,12 +18,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: lighten($color-black, 10%);
+      background-color: #C0343416;
     }
 
     &--active {
       background-color: $color-pink;
-      //border: 1px solid $color-pink;
 
       &:hover {
         background-color: lighten($color-pink, 5%);
@@ -30,7 +30,7 @@
     }
   }
 
-  &:not(:last-child) {
-     margin-right: 10px;
+  &:not(:nth-child(3n)) {
+     margin-right: 15px;
   }
 }

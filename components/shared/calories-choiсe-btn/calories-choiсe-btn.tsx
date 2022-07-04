@@ -5,13 +5,14 @@ interface CaloriesChoiceInterface {
 	title: string
 	cCal: number
 	active: boolean
+	right?: string
 }
 
-const CaloriesChoiceBtn: FC<CaloriesChoiceInterface> = ({title = '', cCal, active}) => {
+const CaloriesChoiceBtn: FC<CaloriesChoiceInterface> = ({title = '', cCal, active, right}) => {
 	return (
-		<div className={style['calories-choice-btn']}>
+		<div className={style['calories-choice-btn']} style={{marginRight: right}}>
 			<button
-				className={`${style['calories-choice-btn__button']} ${!active && style['calories-choice-btn__button--active']}`}>
+				className={`${style['calories-choice-btn__button']} ${active && style['calories-choice-btn__button--active']}`}>
 				<div className={style['calories-choice-btn__title']}>{title}</div>
 				<span className={style['calories-choice-btn__cCal']}>{cCal} ккал</span>
 			</button>

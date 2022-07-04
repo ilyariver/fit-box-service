@@ -1,0 +1,33 @@
+@import '../../../../styles/variables';
+
+.purpose_wrap {
+  margin-bottom: 120px;
+}
+
+.purpose {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 117px;
+}
+
+.left {
+  margin-right: 50px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.text {
+  margin-bottom: 30px;
+  width: 330px;
+  font-size: 14px;
+  line-height: 20px;
+}

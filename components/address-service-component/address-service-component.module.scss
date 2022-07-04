@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.address-service-component {
+  width: 460px;
+  min-width: 460px;
+  background-color: #fff;
+  padding: 53px 30px 50px 72px;
+  border-radius: 24px;
+
+  &__title {
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    margin-bottom: 35px;
+  }
+
+  &__address-text {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  &__small-text {
+    color: #2323234D;
+    line-height: 18px;
+    font-size: 12px;
+  }
+}
+

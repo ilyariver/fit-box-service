@@ -2,6 +2,7 @@ import 'normalize.css'
 import '../styles/main.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { wrapper } from './store/store'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,4 +15,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)

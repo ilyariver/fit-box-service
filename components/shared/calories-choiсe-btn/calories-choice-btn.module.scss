@@ -1,10 +1,6 @@
 @import "/styles/variables";
 
 .calories-choice-btn {
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
-
   &__button {
     display: flex;
     flex-direction: column;
@@ -13,22 +9,22 @@
     width: 160px;
     height: 45px;
     border-radius: 100px;
-    background-color: #fff;
-    border: 1px solid #fff;
+    background-color: transparent;
+    border: 1px solid $color-pink;
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.2s;
-
     &:hover {
-      background-color: darken(#fff, 10%);
+      background-color: #C0343416;
     }
 
     &--active {
-      background-color: $color-black;
-      border: 1px solid $color-pink;
-      color: #fff;
+      background-color: #fff;
       font-weight: 500;
+      color: $color-black;
+      border: 1px solid #fff;
       &:hover {
-        background-color: lighten($color-black, 10%);
+        background-color: darken(#fff, 10%);
       }
     }
   }

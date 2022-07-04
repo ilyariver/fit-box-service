@@ -1,58 +1,39 @@
+import React from 'react'
 import style from './../styles/ui-page.module.scss'
 import { MainButton } from '../components/shared/mainButton/mainButton'
 import PreviewMenu from '../components/shared/preview-menu/preview-menu'
 import Program from '../components/shared/program/program'
 import CaloriesChoiceBtn from '../components/shared/calories-choiсe-btn/calories-choiсe-btn'
-import OptionsDayBtn from '../components/shared/options-day-btn/options-day-btn'
+import OptionsDayBt from '../components/shared/options-day-btn/options-day-btn'
 import WeekDaysIndicator from '../components/shared/week-days-indicator/week-days-indicator'
-import runImgIcon from '../public/images/icons/icon-runner.png'
-import personImgIcon from '../public/images/icons/icon-person.png'
-import workerImgIcon from '../public/images/icons/icon-worker.png'
-import sportImgIcon from '../public/images/icons/icon-sport.png'
-import gymImgIcon from '../public/images/icons/icon-gym.png'
 import BannerAdvantages from '../components/shared/banner-advantages/banner-advantages'
+import HowToWorks from '../components/shared/how-to-works/how-to-works'
+import OrderComponent from '../components/order-component/order-component'
+import plat from '../public/images/plate@x1.png'
+import { state } from './mockDate'
+import OptionsDayBtn from '../components/shared/options-day-btn/options-day-btn'
+import ChoiceProgramComponent from '../components/choice-program-component/choice-program-component'
+import HintComponent from '../components/hint-component/hint-component'
+import FeedbackComponent from '../components/feedback-component/feedback-component'
+import AboutServiceComponent from '../components/about-service-component/about-service-component'
+import AddressServiceComponent from '../components/address-service-component/address-service-component'
+import SeparatorLineComponent from '../components/separator-line-component/separator-line-component'
+import Link from 'next/link'
+import SectionTitle from '../components/shared/section-title/section-title'
 
 const UiPage = () => {
-    const programList = [
-        {title: 'Кушай на работе больше', img: workerImgIcon.src, black: false},
-        {title: 'Похудей активно', img: sportImgIcon.src, black: true},
-        {title: 'Не готовь весь день', img: personImgIcon.src, black: true},
-        {title: 'Будь в форме', img: runImgIcon.src, black: true},
-        {title: 'Набери форму', img: gymImgIcon.src, black: true},
-    ]
-    const cCalBtns: {title: string, cCal: number, active: boolean}[] = [
-        {title: 'Офис', cCal: 250, active: true},
-        {title: 'Офис+', cCal: 250, active: false},
-        {title: 'Фитнес', cCal: 250, active: false},
-        {title: 'Классик мини', cCal: 250, active: false},
-        {title: 'Классик', cCal: 250, active: false},
-        {title: 'Классик+', cCal: 250, active: false},
-    ]
-    const optionsBtns: {title: string, active: boolean}[] = [
-        {title: 'Пробный день', active: true},
-        {title: '5 дней', active: false},
-        {title: '6 дней', active: false},
-        {title: '7 дней', active: false},
-        {title: '14 дней', active: false},
-        {title: '28 дней', active: false},
-    ]
-    const weekDays: {title: string, active: boolean}[] = [
-        {title: 'ПН', active: true},
-        {title: 'ВТ', active: false},
-        {title: 'СР', active: false},
-        {title: 'ЧТ', active: false},
-        {title: 'ПТ', active: false},
-        {title: 'СБ', active: false},
-        {title: 'ВС', active: false},
-    ]
-    const bannerAdvantagesInfo: {title: string, text: string}[] = [
-        {title: 'До 15 часов', text: 'Экономия времени в неделю на походах в магазин и приготовлении еды'},
-        {title: '14 дней', text: 'Разнообразное и вкусное меню без повторений '},
-        {title: 'Баланс', text: 'Сбалансированный по БЖУ и калориям рацион'},
-    ]
+    const blockStyle: React.CSSProperties = {
+        position: 'relative',
+        display: 'flex',
+        marginBottom: '80px',
+        zIndex: 0
+    }
 
     return (
         <>
+            <Link href={'/'}>
+                <a className={style.back}>НАЗАД</a>
+            </Link>
             <div className="container">
                 <div className={style.header}>
                     <h1 className={style.header__title}>UI компоненты</h1>
@@ -65,65 +46,92 @@ const UiPage = () => {
             </div>
             <div className={`${style.background} ${style.background_yellow}`}>
                 <div className="container">
-                    <PreviewMenu text={'Омлет с куриным филе'}/>
+                    <SectionTitle title="Заголовок для секций сайта" color="#2C2B2B" bottom="30px" />
+                    <div style={blockStyle}>
+                        <PreviewMenu text={'Омлет с куриным филе'} img={plat.src}/>
+                    </div>
+                    <div style={blockStyle}>
+                        <HintComponent text="Тому, кто хочет похудеть"/>
+                        <HintComponent text="Тому, кому нужно увеличить массу тела"/>
+                        <HintComponent text="Тому, кому нужно увеличить массу тела"/>
+                    </div>
+                    <div style={blockStyle}>
+                        <div style={{marginRight: '50px'}}>
+                            <AboutServiceComponent title={state.aboutService.title} description={state.aboutService.text} />
+                        </div>
+                        <AddressServiceComponent {...state.addressService} />
+                    </div>
                 </div>
             </div>
             <div className={`${style.background} ${style.background_black}`}>
-                <div className="container" style={{display: 'flex'}}>
-                    {
-                        programList.map(item =>
-                            <Program key={item.title} text={item.title} img={item.img} black={item.black}/> )
-                    }
-                </div>
-            </div>
-            <div className={`${style.background} ${style.background_black}`}>
-                <div className="container" style={{display: 'flex'}}>
-                    {
-                        cCalBtns.map(btn => <CaloriesChoiceBtn
-                            key={btn.title}
-                            title={btn.title}
-                            cCal={btn.cCal}
-                            active={btn.active}/>)
-                    }
-                </div>
-            </div>
-            <div className={`${style.background} ${style.background_black}`}>
-                <div className="container" style={{display: 'flex'}}>
-                    {
-                        optionsBtns.map(btn => <OptionsDayBtn
-                            key={btn.title}
-                            title={btn.title}
-                            active={btn.active}/>)
-                    }
-                </div>
-            </div>
-            <div className={`${style.background} ${style.background_black}`}>
-                <div className="container" style={{display: 'flex'}}>
-                    {
-                        weekDays.map(btn => <WeekDaysIndicator
-                            key={btn.title}
-                            title={btn.title}
-                            active={btn.active}/>)
-                    }
-                </div>
-            </div>
-            <div className={`${style.background} ${style.background_black}`}>
-                <div
-                    className="container"
-                    style={{display: 'flex', justifyContent: 'space-between'}}
-                >
-                    {
-                        bannerAdvantagesInfo.map(banner => <BannerAdvantages
-                            key={banner.title}
-                            title={banner.title}
-                            text={banner.text}
-                        />)
-                    }
-                </div>
-            </div>
-            <div className={`${style.background} ${style.background_yellow}`}>
                 <div className="container">
-                    <PreviewMenu text={'Омлет с куриным филе'}/>
+                    <div style={blockStyle}>
+                        {
+                            state.programList.map(item =>
+                              <Program key={item.title} text={item.title} img={item.img} black={item.black}/> )
+                        }
+                    </div>
+                    <div style={blockStyle}>
+                        {
+                            state.cCalBtns.map(btn => <CaloriesChoiceBtn
+                              key={btn.title}
+                              title={btn.title}
+                              cCal={btn.cCal}
+                              active={btn.active}/>)
+                        }
+                    </div>
+                    <div style={blockStyle}>
+                        {
+                            state.optionsBtns.map(btn => <OptionsDayBtn
+                              key={btn.title}
+                              title={btn.title}
+                              active={btn.active}/>)
+                        }
+                    </div>
+                    <div style={blockStyle}>
+                        {
+                            state.weekDays.map(btn => <WeekDaysIndicator
+                              key={btn.title}
+                              title={btn.title}
+                              active={btn.active}/>)
+                        }
+                    </div>
+                    <div style={{...blockStyle, justifyContent: 'space-between'}}>
+                        {
+                            state.bannerAdvantagesInfo.map(banner => <BannerAdvantages
+                              key={banner.title}
+                              title={banner.title}
+                              text={banner.text}
+                            />)
+                        }
+                    </div>
+                    <div style={{...blockStyle, justifyContent: 'space-between'}}>
+                        {
+                            state.howToWorkInfo.map(info => <HowToWorks
+                              key={info.title}
+                              title={info.title}
+                              text={info.text}
+                              img={info.img}
+                            />)
+                        }
+                    </div>
+                    <div style={blockStyle}>
+                        <ChoiceProgramComponent />
+                    </div>
+                    <div style={{...blockStyle, justifyContent: 'space-between'}}>
+                        {
+                            state.feedbackPeople.map(person => <FeedbackComponent
+                                key={person.name}
+                                img={person.img}
+                                name={person.name}
+                                comment={person.comment}
+                            />)
+                        }
+                    </div>
+                    <div style={{marginBottom: '30px'}}>
+                        <SeparatorLineComponent title="выберите цель" />
+                    </div>
+                    <SectionTitle title="Кому подойдет питание" color="#fff" bottom="30px" />
                 </div>
             </div>
         </>

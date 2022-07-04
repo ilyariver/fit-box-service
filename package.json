@@ -13,12 +13,18 @@
     "mini-css-extract-plugin": "^2.6.1",
     "next": "12.1.6",
     "next-compose-plugins": "^2.2.1",
+    "next-redux-wrapper": "^7.0.5",
     "next-transpile-modules": "^9.0.0",
     "normalize.css": "^8.0.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "sass": "^1.52.3",
-    "sass-loader": "^13.0.0"
+    "sass-loader": "^13.0.0",
+    "swiper": "^8.2.6"
   },
   "devDependencies": {
     "@types/node": "17.0.42",

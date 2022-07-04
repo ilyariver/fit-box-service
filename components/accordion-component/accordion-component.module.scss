@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.accordion-component {
+  margin-bottom: 20px;
+  padding: 0 223px;
+  color: #fff;
+
+  &__open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__title-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    padding: 10px 0;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__description {
+    padding: 0 20px;
+  }
+}
+
+

@@ -9,15 +9,16 @@ interface Weekday {
 const WeekDaysIndicator: FC<Weekday> = ({title, active}) => {
     return (
         <div className={style['weekday-indicator']}>
-            <div
-                className={`${style['weekday-indicator__title']} ${active && style['weekday-indicator__title--active']}`}
-            >
-                {title}
-            </div>
+
             <button
                 aria-label="День недели"
                 className={`${style['weekday-indicator__btn']} ${active && style['weekday-indicator__btn--active']}`}
             >
+                <div
+                    className={`${style['weekday-indicator__title']} ${active && style['weekday-indicator__title--active']}`}
+                >
+                    {title}
+                </div>
             </button>
         </div>
     )

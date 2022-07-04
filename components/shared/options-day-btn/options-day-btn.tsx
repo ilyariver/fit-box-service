@@ -1,10 +1,6 @@
 import {FC} from 'react'
 import style from './options-day-btn.module.scss'
-
-interface OptionsBtn {
-    title: string
-    active: boolean
-}
+import { OptionsBtn } from './options-btn'
 
 const OptionsDayBtn: FC<OptionsBtn> = ({title, active}) => {
     return (

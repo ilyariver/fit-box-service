@@ -1,0 +1,55 @@
+.choice-program {
+  &__buttons {
+    display: flex;
+    margin-bottom: 60px;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__slider-wrap {
+    position: relative;
+    margin-bottom: 50px;
+    width: 1150px;
+  }
+
+  &__list {
+    display: flex;
+    margin-top: -15px;
+  }
+
+  &__item {
+    margin-right: 33px;
+    color: #fff;
+  }
+
+  &__img {
+    min-width: 687px;
+  }
+
+  &__dish-figcaption {
+    display: flex;
+    margin-top: -5px;
+    padding-left: 90px;
+  }
+
+  &__figcaption-title {
+    margin-right: 55px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__figcaption-composition-products-text {
+    width: 215px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+
+}
+

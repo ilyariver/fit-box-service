@@ -1,0 +1,15 @@
+@import '../../../styles/variables';
+
+.black_back {
+  position: relative;
+  background-image: $gradient-black;
+  z-index: 0;
+}
+
+.yellow_back {
+  position: relative;
+  padding-top: 85px;
+  background-color: $color-yellow;
+  overflow: hidden;
+  z-index: 0;
+}

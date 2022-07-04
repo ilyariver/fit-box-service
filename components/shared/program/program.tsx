@@ -5,12 +5,13 @@ interface ProgramContent {
 	text: string
 	img: string
 	black?: boolean
+	right?: string
 }
 
-const Program: FC<ProgramContent> = ({text = 'Кушай на работе больше', img, black }) => {
+const Program: FC<ProgramContent> = ({text , img, black, right }) => {
 
 	return (
-		<div className={`${style.program} ${black && style.program_black}`}>
+		<div style={{marginRight: right}} className={`${style.program} ${black && style.program_black}`}>
 			<div>
 				<img src={img} alt={text} className={style.program_img}/>
 			</div>

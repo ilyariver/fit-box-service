@@ -1,0 +1,28 @@
+.feedback {
+  padding: 25px;
+  height: 347px;
+  width: 325px;
+  background-color: #fff;
+  border-radius: 15px;
+
+  &__avatar {
+    margin-bottom: 35px;
+    width: 80px;
+    height: 80px;
+  }
+
+  &__img {
+
+  }
+
+  &__name {
+    margin-bottom: 35px;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  &__comment {
+    min-height: 110px;
+    font-size: 14px;
+  }
+}

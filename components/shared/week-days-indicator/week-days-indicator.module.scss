@@ -2,10 +2,11 @@
 
 .weekday-indicator {
   &:not(:last-child) {
-    margin-right: 14px;
+    margin-right: 15px;
   }
 
   &__title {
+    margin-top: -41px;
     font-size: 24px;
     font-weight: 500;
     color: #fff;
@@ -25,6 +26,13 @@
     border: 1px solid #fff;
     background-color: transparent;
     opacity: 0.5;
+    transition: opacity 0.2s;
+    cursor: pointer;
+
+    &:not(&--active ):hover {
+      opacity: 0.8;
+      box-shadow: 0 0 5px 0 #fff;
+    }
 
     &--active {
       background-color: #fff;

@@ -11,8 +11,9 @@ $color-black: #232323;
 
 // GRADIENT
 $gradient-green: transparent linear-gradient(90deg, #31c1a6 0%, #1e938d 100%) 0% 0% no-repeat padding-box;
+$gradient-black: radial-gradient(80.35% 104.45% at 76.87% 41.73%, #3D3B3B 0%, #121212 100%);
 
-// FONTS
+  // FONTS
 // stylelint-disable-next-line,
 $font-primary: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 

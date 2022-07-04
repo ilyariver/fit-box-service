@@ -1,0 +1,23 @@
+.how-to-works {
+  width: 325px;
+  max-height: 345px;
+  background-color: #fff;
+  padding: 35px 25px;
+  border-radius: 15px;
+
+  &__img-wrap {
+    height: 105px;
+  }
+
+  &__title {
+    margin: 0 0 32px 0;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 23px;
+  }
+}

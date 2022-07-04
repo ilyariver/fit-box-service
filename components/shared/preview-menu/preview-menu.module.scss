@@ -3,22 +3,26 @@
 .preview_menu {
   display: flex;
   align-items: center;
+  width: 350px;
+  margin-left: -35px;
 
   &__image {
     &_wrap {
       position: relative;
+      //min-width: 208px;
+      min-width: 350px;
       z-index: 2;
     }
   }
 
   &__text_wrap {
     position: relative;
-    left: -150px;
+    left: -295px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 114px;
-    width: 290px;
+    min-width: 290px;
     padding: 10px;
     background-color: $color-white;
     border-radius: 10px;

@@ -7,17 +7,16 @@ $border: 2px;
   align-items: center;
   width: 435px;
   max-width: 435px;
-  height: 210px;
   max-height: 210px;
-  padding: 45px 50px;
+  padding: 33px 50px 45px 57px;
   color: #FFF;
   background: #00000091;
-  background-clip: padding-box; /* !importanté */
-  border: solid $border transparent; /* !importanté */
-  border-radius: 1em;
+  background-clip: padding-box;
+  border: solid $border transparent;
+  border-radius: 24px;
 
   &__title {
-    margin: 0 0 20px 0;
+    margin: 0 0 27px 0;
     font-size: 50px;
     font-weight: 500;
     color: $color-yellow;
@@ -25,6 +24,7 @@ $border: 2px;
 
   &__text {
     margin: 0;
+    line-height: 25px;
   }
 
   &:before {
@@ -32,8 +32,21 @@ $border: 2px;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     z-index: -1;
-    margin: -$border; /* !importanté */
-    border-radius: inherit; /* !importanté */
+    margin: -$border;
+    border-radius: inherit;
     background: linear-gradient(343deg, rgb(44 37 37) 0%, rgb(111 111 111) 100%);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    width: 240px;
+    height: 100px;
+    background-color: #40b0522e;
+    filter: blur(50px);
+    border-radius: 100%;
+    z-index: 2;
   }
 }

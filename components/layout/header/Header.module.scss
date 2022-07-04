@@ -1,0 +1,88 @@
+@import '../../../styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 5px 0;
+  background-color: #fff;
+  z-index: 20;
+
+  &_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &_right {
+    display: flex;
+  }
+}
+
+.logo {
+  display: block;
+  margin-right: 40px;
+}
+
+.phone_number, .phone_link, .geo {
+  display: flex;
+  align-items: center;
+}
+
+.phone_number {
+  margin-right: 10px;
+}
+
+.phone_icon {
+  display: block;
+  margin-right: 5px;
+}
+
+.geo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin-right: 28px;
+  cursor: pointer;
+
+  &_icon {
+    margin-right: 15px;
+  }
+}
+
+.callback_btn {
+  background-color: transparent;
+  color: $color-green;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.navigator {
+  &_list {
+    display: flex;
+  }
+
+  &_item:not(:last-child) {
+    margin-right: 45px;
+  }
+}
+
+.cart_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,8 +1,9 @@
 @import "/styles/variables";
 
 .button {
+  position: relative;
   min-height: 55px;
-  padding: 0 50px;
+  padding: 0 30px;
   background-color: $color-pink;
   border-radius: 50px;
   border: none;
@@ -11,6 +12,7 @@
   color: #fff;
   cursor: pointer;
   transition: background-color 0.2s;
+  z-index: 3;
 
   &:hover {
     background-color: lighten($color-pink, 5%);

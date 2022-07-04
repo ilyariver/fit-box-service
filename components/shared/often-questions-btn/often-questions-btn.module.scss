@@ -1,0 +1,35 @@
+@import "/styles/variables";
+
+.often-questions-btn {
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    margin-bottom: 13px;
+    padding: 0 40px;
+    border-radius: 100px;
+    background-color: transparent;
+    border: 1px solid $color-pink;
+    color: #fff;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #C0343416;
+    }
+
+    &--active {
+      background-color: #fff;
+      font-weight: 500;
+      color: $color-black;
+      border: 1px solid #fff;
+      &:hover {
+        background-color: darken(#fff, 10%);
+      }
+    }
+  }
+}
