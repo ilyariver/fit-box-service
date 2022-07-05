@@ -1,1 +1,41 @@
 @import '../../../../styles/variables';
+
+.top_content {
+  margin-bottom: 150px;
+}
+
+.service {
+  display: flex;
+}
+
+.plates {
+  position: relative;
+  margin-left: 45px;
+  width: 100%;
+}
+
+.plate {
+  position: absolute;
+}
+
+.salad {
+  z-index: 2;
+}
+
+.pasta {
+  right: -30px;
+  top: 300px;
+}
+
+.rice {
+  top: 100px;
+  right: 60px;
+}
+
+.top_bottom {
+  position: relative;
+}
+
+.holodos {
+
+}

@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .accordion-component {
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   padding: 0 223px;
   color: #fff;
 
@@ -11,15 +11,19 @@
     align-items: center;
     padding: 0;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.4s $easing-back-out;
   }
 
   &__title-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
     height: 90px;
     border-bottom: 1px solid #fff;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
   }
 
   &__title {
@@ -29,8 +33,12 @@
   }
 
   &__description {
+    margin-bottom: 20px;
     padding: 0 20px;
+    overflow: hidden;
+    line-height: 24px;
+    font-size: 14px;
+    transition: all 0.3s $easing-back-out;
   }
 }
-
 

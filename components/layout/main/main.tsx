@@ -5,6 +5,8 @@ import ProgramSection from '../sections/program-section/program-section'
 import AnswersSection from '../sections/answers-section/answers-section'
 import ForWhomSection from '../sections/for-whom-section/for-whom-section'
 import FaqSection from '../sections/faq-section/faq-section'
+import CommentsSection from '../sections/comments-section/comments-section'
+import ServiceSection from '../sections/service-section/service-section'
 
 const Main = () => {
 	return (
@@ -21,9 +23,15 @@ const Main = () => {
 				<ForWhomSection />
 			</div>
 			<div className={style.black_back} style={{
-				padding: '80px 0'
+				padding: '80px 0 120px 0'
 			}}>
 				<FaqSection />
+				<CommentsSection />
+			</div>
+			<div className={style.yellow_back} style={{
+				padding: '100px 0 0'
+			}}>
+				<ServiceSection />
 			</div>
 		</main>
 	)
