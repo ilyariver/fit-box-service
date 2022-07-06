@@ -26,8 +26,8 @@ const AccordionComponent: FC<AboutServiceTypes> = ({title, description}) => {
 				<div className={style['accordion-component__title']}>{title}</div>
 				<button className={`${style['accordion-component__open']}`} style={styles} aria-label="открыть подсказку" onClick={clickOpen}>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M12 0L12 24" stroke="#FF576A" stroke-width="2"/>
-						<path d="M24 12L-5.96046e-08 12" stroke="#FF576A" stroke-width="2"/>
+						<path d="M12 0L12 24" stroke="#FF576A" strokeWidth="2"/>
+						<path d="M24 12L-5.96046e-08 12" stroke="#FF576A" strokeWidth="2"/>
 					</svg>
 				</button>
 			</div>

@@ -1,80 +1,111 @@
 @import '../../../styles/variables';
 
-.header {
-  display: flex;
-  align-items: center;
-  height: 80px;
-  padding: 5px 0;
-
-  &_content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: 500;
-    font-size: 14px;
-  }
-
-  &_right {
-    display: flex;
-  }
+.footer {
+  background-color: $color-background;
+  padding: 100px 0 135px;
+  color: #fff;
 }
 
-.logo {
+.min_container {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.copyrights {
   display: block;
-  margin-right: 50px;
+  margin-bottom: 100px;
+  padding-left: 150px;
 }
 
-.phone_number, .phone_link, .geo {
+.navigation_wrap {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.phone_number {
-  margin-right: 10px;
-}
-
-.phone_icon {
-  display: block;
-  margin-right: 5px;
-}
-
-.geo {
+.list {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  margin-right: 28px;
-  cursor: pointer;
+  text-transform: uppercase;
+}
 
-  &_icon {
-    margin-right: 15px;
+.item {
+  &:not(:last-child) {
+    margin-right: 84px;
   }
 }
 
-.callback_btn {
-  background-color: transparent;
-  color: $color-green;
+.connection {
+  padding-top: 20px;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.input, .button {
+  height: 50px;
   border: none;
+}
+
+.button {
+  background-color: #000;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0 18px;
+  border-radius: 0 20px 20px 0;
   cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: lighten(#000, 5%);
+  }
+}
+
+.input {
+  width: 195px;
+  background: #FFFFFF;
+  padding-left: 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: #666666;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.socials {
+  display: flex;
+}
+
+.instagram {
+  margin-right: 30px;
+}
+
+.copyrights, .public_offer {
+  letter-spacing: 1px;
+  font-size: 10px;
+  color: #666666;
+  text-transform: uppercase;
+}
+
+.public_offer {
   text-decoration: underline;
-}
-
-.navigator {
-  &_list {
-    display: flex;
-  }
-
-  &_item:not(:last-child) {
-    margin-right: 45px;
-  }
-}
-
-.cart_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }

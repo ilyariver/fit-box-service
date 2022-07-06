@@ -6,8 +6,11 @@ import plateSalad from '../../../../public/images/plate-salad.png'
 import platePasta from '../../../../public/images/plate-pasta.png'
 import plateRice from '../../../../public/images/plate-riсe.png'
 import holodos from '../../../../public/images/holodos.png'
+import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
+import { MainButton } from '../../../shared/mainButton/mainButton'
 
 const ServiceSection = () => {
+
 	return (
 		<div>
 			<div className="container">
@@ -23,7 +26,15 @@ const ServiceSection = () => {
 				</div>
 				<div className={style.top_bottom}>
 					<div className={style.holodos}>
-						<img src={holodos.src} alt="Холодильник" className={style.holodos}/>
+						<img src={holodos.src} alt="Холодильник" className={style.holodos} />
+					</div>
+					<div className={style.text_content}>
+						<SeparatorLineComponent title="Микромаркет здоровой еды в вашем офисе или тц" color="#312929"/>
+						<p className={style.text}>
+							Бесплатно  установим мини-магазин со свежей едой прямо у вас в офисе
+						</p>
+						<div className={style.prod_text}>Без продавцов: нужны только розетка и один квадратный метр</div>
+						<MainButton title="Хочу холодильник с едой в офис" fontSize="18px" width="380px" />
 					</div>
 				</div>
 			</div>

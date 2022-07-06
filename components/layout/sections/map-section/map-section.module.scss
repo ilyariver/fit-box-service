@@ -1,1 +1,12 @@
 @import '../../../../styles/variables';
+
+.map_section {
+  position: relative;
+  margin-top: -250px;
+}
+
+.address {
+  position: absolute;
+  top: 50px;
+  left: 370px;
+}

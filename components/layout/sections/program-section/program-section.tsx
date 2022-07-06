@@ -2,10 +2,11 @@ import React from 'react'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import ChoiceProgramComponent from '../../../choice-program-component/choice-program-component'
 import BannerAdvantages from '../../../shared/banner-advantages/banner-advantages'
+import style from './program-section.module.scss'
 
 const ProgramSection = () => {
 	return (
-		<div>
+		<div className={style.program_section}>
 			<div className="container">
 				<SeparatorLineComponent title="выберите программу" bottom="56px" />
 				<div style={{ marginBottom: '115px' }}>

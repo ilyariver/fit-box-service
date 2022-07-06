@@ -9,14 +9,13 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: #FFFFFF99;
     text-transform: uppercase;
     white-space: nowrap;
   }
 
   &__line {
-    background-color: #FFFFFF66;
     height: 2px;
     width: 100%;
+    opacity: 0.4;
   }
 }

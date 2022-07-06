@@ -1,7 +1,7 @@
 @import '../../../../styles/variables';
 
 .top_content {
-  margin-bottom: 150px;
+  margin-bottom: 170px;
 }
 
 .service {
@@ -34,8 +34,43 @@
 
 .top_bottom {
   position: relative;
+  display: flex;
 }
 
 .holodos {
+  position: relative;
+  margin-right: 68px;
 
+  img {
+    min-width: 490px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -160px;
+    bottom: 20px;
+    width: 710px;
+    height: 710px;
+    background-image: url("#{$IMG_PATH}/red-ellipse.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.text_content {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.text {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+  text-transform: uppercase;
+}
+
+.prod_text {
+  margin-bottom: 50px;
 }

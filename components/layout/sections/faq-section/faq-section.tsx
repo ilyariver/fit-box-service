@@ -19,7 +19,7 @@ const FaqSection = () => {
 				<div className={style.accordion}>
 					{
 						state.accordionContent.map(item =>
-							<AccordionComponent key={item.title} title={item.title} description={item.description} />)
+							<AccordionComponent key={item.title + item.description} title={item.title} description={item.description} />)
 					}
 				</div>
 			</div>
