@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import style from './choice-program-component.module.scss'
 import CaloriesChoiceBtn from '../shared/calories-choiсe-btn/calories-choiсe-btn'
-import { state } from '../../pages/mockDate'
+import { state } from '../../mockDate'
 import OrderComponent from '../order-component/order-component'
 import dish from '../../public/images/dish.png'
 import WeekDaysIndicator from '../shared/week-days-indicator/week-days-indicator'

@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutServiceComponent from '../../../about-service-component/about-service-component'
 import style from './service-section.module.scss'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 import plateSalad from '../../../../public/images/plate-salad.png'
 import platePasta from '../../../../public/images/plate-pasta.png'
 import plateRice from '../../../../public/images/plate-riсe.png'
@@ -18,9 +18,18 @@ const ServiceSection = () => {
 					<div className={style.service}>
 						<AboutServiceComponent title={state.aboutService.title} description={state.aboutService.text} />
 						<div className={style.plates}>
-							<img className={`${style.salad} ${style.plate}`} src={plateSalad.src} alt="Таредлка"/>
-							<img className={`${style.pasta} ${style.plate}`} src={platePasta.src} alt="Таредлка"/>
-							<img className={`${style.rice} ${style.plate}`} src={plateRice.src} alt="Таредлка"/>
+							<picture>
+								<source srcSet={plateSalad.src} type="image/webp" />
+								<img className={`${style.salad} ${style.plate}`} src={plateSalad.src} alt="Тарелка"/>
+							</picture>
+							<picture>
+								<source srcSet={platePasta.src} type="image/webp" />
+								<img className={`${style.pasta} ${style.plate}`} src={platePasta.src} alt="Тарелка"/>
+							</picture>
+							<picture>
+								<source srcSet={plateRice.src} type="image/webp" />
+								<img className={`${style.rice} ${style.plate}`} src={plateRice.src} alt="Тарелка"/>
+							</picture>
 						</div>
 					</div>
 				</div>

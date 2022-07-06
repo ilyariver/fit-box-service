@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionTitle from '../../../shared/section-title/section-title'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 import HowToWorks from '../../../shared/how-to-works/how-to-works'
 
 const AnswersSection = () => {

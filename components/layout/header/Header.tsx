@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import logo from '../../../public/images/logo.svg'
+import logo from '../../../public/images/logo.png'
 import location from '../../../public/images/icons/icon-location.svg'
 import call from '../../../public/images/icons/icon-call.svg'
 import style from './Header.module.scss'
+import React from 'react'
 
 const Header = () => {
 
@@ -13,17 +14,28 @@ const Header = () => {
                   <div className={style.header_right}>
                       <div className={style.logo}>
                           <Link href="/">
-                              <a><img src={logo.src} alt="Логотип" className={style.logo_img}/></a>
+                              <a>
+                                  <picture>
+                                      <source srcSet={logo.src} type="image/webp" />
+                                      <img src={logo.src} alt="Логотип" className={style.logo_img}/>
+                                  </picture>
+                              </a>
                           </Link>
                       </div>
                       <div className={style.phone_number}>
                           <a className={style.phone_link} href={`tel:+79009999999`}>
-                              <img src={call.src} alt="Трубка" className={style.phone_icon}/>
+                              <picture>
+                                  <source srcSet={call.src} type="image/webp" />
+                                  <img src={call.src} alt="Трубка" className={style.phone_icon}/>
+                              </picture>
                               <div className={style.phone_number}>8 900 999 99 99</div>
                           </a>
                       </div>
                       <button className={style.geo}>
-                          <img src={location.src} alt="Локация" className={style.geo_icon}/>
+                          <picture>
+                              <source srcSet={location.src} type="image/webp" />
+                              <img src={location.src} alt="Локация" className={style.geo_icon}/>
+                          </picture>
                           <div className={style.city}>Ульяновск</div>
                       </button>
                       <button className={style.callback_btn}>Заказать звонок</button>

@@ -3,7 +3,7 @@ import style from './faq-section.module.scss'
 import SectionTitle from '../../../shared/section-title/section-title'
 import OftenQuestionsBtn from '../../../shared/often-questions-btn/often-questions-btn'
 import AccordionComponent from '../../../accordion-component/accordion-component'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 
 const FaqSection = () => {
 	return (

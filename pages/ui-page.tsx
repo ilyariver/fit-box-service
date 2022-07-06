@@ -10,7 +10,7 @@ import BannerAdvantages from '../components/shared/banner-advantages/banner-adva
 import HowToWorks from '../components/shared/how-to-works/how-to-works'
 import OrderComponent from '../components/order-component/order-component'
 import plat from '../public/images/plate@x1.png'
-import { state } from './mockDate'
+import { state } from '../mockDate'
 import OptionsDayBtn from '../components/shared/options-day-btn/options-day-btn'
 import ChoiceProgramComponent from '../components/choice-program-component/choice-program-component'
 import HintComponent from '../components/hint-component/hint-component'

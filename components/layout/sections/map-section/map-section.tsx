@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './map-section.module.scss'
 import AddressServiceComponent from '../../../address-service-component/address-service-component'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 
 const MapSection = () => {
 	return (

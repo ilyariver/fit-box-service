@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import React, {FC} from 'react'
 import style from './program.module.scss'
 
 interface ProgramContent {
@@ -13,7 +13,10 @@ const Program: FC<ProgramContent> = ({text , img, black, right }) => {
 	return (
 		<div style={{marginRight: right}} className={`${style.program} ${black && style.program_black}`}>
 			<div>
-				<img src={img} alt={text} className={style.program_img}/>
+				<picture>
+					<source srcSet={img} type="image/webp" />
+					<img src={img} alt={text} className={style.program_img}/>
+				</picture>
 			</div>
 			<div className={style.program_text}>{text}</div>
 		</div>

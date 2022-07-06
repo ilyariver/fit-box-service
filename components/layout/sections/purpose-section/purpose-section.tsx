@@ -3,7 +3,7 @@ import style from './purpose-section.module.scss'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import Program from '../../../shared/program/program'
 import { MainButton } from '../../../shared/mainButton/mainButton'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 
 const PurposeSection = () => {
 	return (

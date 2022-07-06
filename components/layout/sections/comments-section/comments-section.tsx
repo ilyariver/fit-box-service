@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionTitle from '../../../shared/section-title/section-title'
 import FeedbackComponent from '../../../feedback-component/feedback-component'
-import { state } from '../../../../pages/mockDate'
+import { state } from '../../../../mockDate'
 
 const CommentsSection = () => {
 	return (
