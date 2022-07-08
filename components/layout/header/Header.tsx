@@ -1,12 +1,10 @@
 import Link from 'next/link'
-import logo from '../../../public/images/logo.png'
-import location from '../../../public/images/icons/icon-location.svg'
-import call from '../../../public/images/icons/icon-call.svg'
+import Image from 'next/image'
 import style from './Header.module.scss'
-import React from 'react'
+import { state } from '../../../mockDate'
 
 const Header = () => {
-
+    console.log('===',state.header.logo)
     return (
        <header className={style.header}>
            <div className="container">
@@ -15,42 +13,33 @@ const Header = () => {
                       <div className={style.logo}>
                           <Link href="/">
                               <a>
-                                  <picture>
-                                      <source srcSet={logo.src} type="image/webp" />
-                                      <img src={logo.src} alt="Логотип" className={style.logo_img}/>
-                                  </picture>
+                                  <Image src={state.header.logo.img} alt={state.header.logo.alt} width={70} height={47}/>
                               </a>
                           </Link>
                       </div>
                       <div className={style.phone_number}>
-                          <a className={style.phone_link} href={`tel:+79009999999`}>
-                              <picture>
-                                  <source srcSet={call.src} type="image/webp" />
-                                  <img src={call.src} alt="Трубка" className={style.phone_icon}/>
-                              </picture>
+                          <a className={style.phone_link} href={state.header.tel.link}>
+                              <Image className={style.phone_icon} src={state.header.tel.icon} width={17} height={17} />
                               <div className={style.phone_number}>8 900 999 99 99</div>
                           </a>
                       </div>
                       <button className={style.geo}>
-                          <picture>
-                              <source srcSet={location.src} type="image/webp" />
-                              <img src={location.src} alt="Локация" className={style.geo_icon}/>
-                          </picture>
-                          <div className={style.city}>Ульяновск</div>
+                          <Image className={style.geo_icon} src={state.header.location.icon} width={17} height={17} />
+                          <div className={style.geo_cities}>
+                              { state.header.location.cities.map(city => <div key={city} className={style.city}>{city}</div>) }
+                          </div>
                       </button>
                       <button className={style.callback_btn}>Заказать звонок</button>
                   </div>
                   <nav className={style.navigator}>
                       <ul className={style.navigator_list}>
-                          <li className={style.navigator_item}>
-                              <a href="#" className={style.navigator_link}>Рационы меню</a>
-                          </li>
-                          <li className={style.navigator_item}>
-                              <a href="#" className={style.navigator_link}>Рационы меню</a>
-                          </li>
-                          <li className={style.navigator_item}>
-                              <a href="#" className={style.navigator_link}>Рационы меню</a>
-                          </li>
+                          {
+                              state.header.navigation.map(item =>
+                                  <li key={item} className={style.navigator_item}>
+                                      <a href="#" className={style.navigator_link}>{item}</a>
+                                  </li>
+                              )
+                          }
                       </ul>
                   </nav>
                   <button className={style.cart_btn}>

@@ -39,11 +39,11 @@
 
 .phone_number {
   margin-right: 10px;
+  margin-left: 5px;
 }
 
 .phone_icon {
   display: block;
-  margin-right: 5px;
 }
 
 .geo {
@@ -56,7 +56,10 @@
   cursor: pointer;
 
   &_icon {
-    margin-right: 15px;
+  }
+
+  &_cities {
+    margin-left: 15px;
   }
 }
 

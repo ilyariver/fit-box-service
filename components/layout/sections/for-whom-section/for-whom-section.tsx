@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import SectionTitle from '../../../shared/section-title/section-title'
 import asianGirl from '../../../../public/images/girl-2@x1.png'
 import style from './for-whom-section.module.scss'
@@ -9,10 +10,7 @@ const ForWhomSection = () => {
 		<div className={style.whom}>
 			<SectionTitle title="Кому подойдет питание" color="#2C2B2B" bottom="56px" />
 			<div className={style.content}>
-				<picture>
-					<source srcSet={asianGirl.src} type="image/webp" />
-					<img src={asianGirl.src} alt="Девушка" className={style.img}/>
-				</picture>
+				<Image src={asianGirl} alt="Девушка" className={style.img} placeholder="blur"/>
 				<div className={style.ellipse}>
 					<svg width="710" height="722" viewBox="0 0 710 722" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M658.5 360.874C658.5 532.537 521.825 670.249 355 670.249C188.175 670.249 51.5 532.537 51.5 360.874C51.5 189.212 188.175 51.5 355 51.5C521.825 51.5 658.5 189.212 658.5 360.874Z" stroke="url(#paint0_radial_790_956)" strokeWidth="103"/>

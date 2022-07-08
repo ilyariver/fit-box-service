@@ -1,24 +1,29 @@
 import React from 'react'
+import Image from 'next/image'
 import style from './first-section.module.scss'
 import { MainButton } from '../../../shared/mainButton/mainButton'
 import PreviewMenu from '../../../shared/preview-menu/preview-menu'
-import plate from '../../../../public/images/plate@x1.png'
-import instagram from '../../../../public/images/icons/icon-instagram.svg'
 import girl from '../../../../public/images/girl-1@x1.png'
 import Link from 'next/link'
+import { state } from '../../../../mockDate'
 
 const FirstSection = () => {
+	console.log(state.menu)
 	return (
 		<section className={style.first_section}>
-			<div className={style.girl} style={{backgroundImage: `url(${girl.src})`}}></div>
 			<div className="container">
+				{/*.{style.}*/}
 				<h1 className={style.title}>
 					Правильное питание <br />с доставкой <br />в Ульяновске
 				</h1>
 				<MainButton title="Выбрать меню" width="214px" bottom="35px" />
 				<div style={{display: 'flex', marginBottom: "70px"}}>
-					<PreviewMenu text="Омлет с куриным филе" img={plate.src} right="30px" />
-					<PreviewMenu text="Омлет с куриным филе" img={plate.src} />
+					{
+						state.menu.map((item, i) =>
+							<PreviewMenu key={item.id} text={item.title} img={item.img} right={(i+1 === 1) ? '30px' : ''}/>
+
+						)
+					}
 				</div>
 				<div className={style.socials}>
 					<div className={style.telegram}>

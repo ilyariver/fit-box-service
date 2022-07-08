@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import AboutServiceComponent from '../../../about-service-component/about-service-component'
 import style from './service-section.module.scss'
 import { state } from '../../../../mockDate'
@@ -18,24 +19,21 @@ const ServiceSection = () => {
 					<div className={style.service}>
 						<AboutServiceComponent title={state.aboutService.title} description={state.aboutService.text} />
 						<div className={style.plates}>
-							<picture>
-								<source srcSet={plateSalad.src} type="image/webp" />
-								<img className={`${style.salad} ${style.plate}`} src={plateSalad.src} alt="Тарелка"/>
-							</picture>
-							<picture>
-								<source srcSet={platePasta.src} type="image/webp" />
-								<img className={`${style.pasta} ${style.plate}`} src={platePasta.src} alt="Тарелка"/>
-							</picture>
-							<picture>
-								<source srcSet={plateRice.src} type="image/webp" />
-								<img className={`${style.rice} ${style.plate}`} src={plateRice.src} alt="Тарелка"/>
-							</picture>
+							<div className={`${style.salad} ${style.plate}`}>
+								<Image src={plateSalad} alt="Тарелка" placeholder="blur"/>
+							</div>
+							<div className={`${style.pasta} ${style.plate}`}>
+								<Image src={platePasta} alt="Тарелка" placeholder="blur"/>
+							</div>
+							<div className={`${style.rice} ${style.plate}`}>
+								<Image src={plateRice} alt="Тарелка" placeholder="blur"/>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div className={style.top_bottom}>
 					<div className={style.holodos}>
-						<img src={holodos.src} alt="Холодильник" className={style.holodos} />
+						<Image src={holodos} alt="Холодильник" className={style.holodos} placeholder="blur" />
 					</div>
 					<div className={style.text_content}>
 						<SeparatorLineComponent title="Микромаркет здоровой еды в вашем офисе или тц" color="#312929"/>
