@@ -15,9 +15,7 @@ const AddressServiceComponent: FC<AddressServiceTypes> = (content) => {
 		<div className={style['address-service-component']}>
 			<div className={style['address-service-component__title']}>{content.title}</div>
 			<div className={style['address-service-component__description']}>{content.description}</div>
-			<div className={style['address-service-component__button']}>
-				<MainButton title={content.phoneNumber} width="316px" fontSize="18px" />
-			</div>
+			<MainButton className={style['address-service-component__button']}>{content.phoneNumber}</MainButton>
 			<div className={style['address-service-component__address-text']}>{content.addressText}</div>
 			<div className={style['address-service-component__small-text']}>{content.smallText}</div>
 		</div>

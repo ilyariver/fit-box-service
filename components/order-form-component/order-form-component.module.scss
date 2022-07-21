@@ -1,0 +1,99 @@
+@import '../../styles/scss/variables';
+$border: 2px;
+$width-container: 768px;
+
+.order-form-component {
+  position: relative;
+  width: $width-container;
+  max-width: $width-container;
+  min-width: $width-container;
+  color: #fff;
+  background: #00000091;
+  background-clip: padding-box;
+  border: solid $border transparent;
+  border-radius: 24px;
+  padding: 70px 115px 80px;
+
+  &__block {
+    margin-bottom: 50px;
+  }
+
+  &__area-title {
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__plan {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__address {
+    margin-bottom: 30px;
+  }
+
+  &__promocode {
+    margin-bottom: 40px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border;
+    border-radius: inherit;
+    background-image: linear-gradient(343deg, rgb(44 37 37) 0%, rgb(111 111 111) 100%);
+  }
+
+  &:after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    width: 470px;
+    height: 540px;
+    background: rgb(64,176,82);
+    background: -moz-linear-gradient(311deg, rgba(235, 218, 22) 10%, rgba(255,87,106,1) 100%);
+    background: -webkit-linear-gradient(311deg, rgba(235, 218, 22) 10%, rgba(255,87,106,1) 100%);
+    background: linear-gradient(311deg, rgb(235, 218, 22) 10%, rgb(255, 87, 106) 100%);
+    filter: blur(100px);
+    border-radius: 100%;
+    opacity: 0.2;
+    z-index: 2;
+  }
+}
+
+.select, .date {
+  height: 35px;
+  padding: 5px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  outline: none;
+
+  option {
+    color: $color-black;
+  }
+}
+
+.date::-webkit-calendar-picker-indicator {
+  color: #fff;
+  opacity: 1;
+  display: block;
+  background: url(#{$IMG_PATH}/icons/icon-calendar.svg) no-repeat 100%;
+  width: 18px;
+  height: 18px;
+  //border-width: thin;
+}

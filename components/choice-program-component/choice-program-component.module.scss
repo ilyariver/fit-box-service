@@ -1,17 +1,91 @@
+@import '../../styles/scss/variables';
+@import '../../styles/scss/breakpoint';
+
+$font-size-title: 18px;
+$font-size-title-x-l: 14px;
+$font-size-text: 14px;
+$font-size-text-x-l: 12px;
+$line-height: 1.5;
+$lines-to-show: 2;
+
+
 .choice-program {
   &__buttons {
     display: flex;
     margin-bottom: 60px;
+
+    @include x-large {
+      justify-content: space-between;
+    }
+
+    @include tablets {
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button {
+    @include tablets {
+      width: calc(100% / 2 - 30px);
+      margin-bottom: 25px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+
+      @include x-large {
+        margin-right: 0;
+      }
+    }
   }
 
   &__content {
     display: flex;
+
+    @include tablets {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__calc-wrap {
+    margin-right: 32px;
+
+    @include tablets {
+      margin-right: 0;
+    }
   }
 
   &__slider-wrap {
     position: relative;
     margin-bottom: 50px;
     width: 1150px;
+
+    @include x-large {
+      width: 880px;
+    }
+
+    @include large {
+      width: 520px;
+      padding-left: 60px;
+    }
+
+    @include large {
+      //width: 520px;
+      padding-left: 0;
+    }
+
+    @include tablets {
+      width: 590px;
+    }
+
+    @include small {
+      margin-bottom: 18px;
+    }
+
+    @include x-small {
+      margin-bottom: 23px;
+    }
   }
 
   &__list {
@@ -22,34 +96,124 @@
   &__item {
     margin-right: 33px;
     color: #fff;
+
+    @include x-large {
+      width: 530px;
+    }
+
+    @include large {
+      width: 450px;
+    }
+
+    @include tablets {
+      display: flex;
+      justify-content: center;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  &__figure {
+    @include tablets {
+      width: 470px;
+    }
+
+    @include small {
+      width: 300px;
+    }
   }
 
   &__img {
-    min-width: 687px;
+    //min-width: 687px;
+    @include tablets {
+      margin-bottom: 10px;
+    }
   }
 
   &__dish-figcaption {
     display: flex;
     margin-top: -5px;
     padding-left: 90px;
+
+    @include x-large {
+      padding-left: 40px;
+    }
+
+    @include tablets {
+      flex-direction: column;
+    }
+
+    @include small {
+      padding-left: 0;
+    }
   }
 
   &__figcaption-title {
     margin-right: 55px;
+    max-width: 225px;
+    min-width: 225px;
+    display: block;
+    display: -webkit-box;
+    height: $font-size-title*$line-height*$lines-to-show;
+    font-size: $font-size-title;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 500;
-    font-size: 18px;
+
+    @include x-large {
+      max-width: 190px;
+      min-width: 190px;
+      height: 80px;
+      font-size: $font-size-title-x-l;
+      -webkit-line-clamp: 0;
+      -webkit-box-orient: unset;
+    }
+
+    @include tablets {
+      height: auto;
+      margin-right: 0;
+      margin-bottom: 15px;
+      max-width: 320px;
+    }
   }
 
   &__figcaption-composition-products-text {
     width: 215px;
-    font-size: 14px;
-    line-height: 22px;
+    display: block;
+    display: -webkit-box;
+    height: $font-size-text*$line-height*$lines-to-show;
+    font-size: $font-size-text;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include x-large {
+      height: $font-size-text-x-l*$line-height*$lines-to-show;
+      font-size: $font-size-text-x-l;
+    }
+
+    @include tablets {
+      width: 350px;
+    }
   }
 
   figure {
     margin: 0;
   }
 
+  &__weekdays {
+    display: flex;
+    padding-left: 20px;
 
+    @include tablets {
+      padding-left: 0;
+      justify-content: center;
+    }
+  }
 }
 

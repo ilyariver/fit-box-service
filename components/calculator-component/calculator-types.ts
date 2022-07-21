@@ -1,4 +1,4 @@
-export interface OrderTypes {
+export interface CalculatorTypes {
 	title: string
 	cCal: number
 	description: string

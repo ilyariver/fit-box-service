@@ -33,15 +33,15 @@ const ServiceSection = () => {
 				</div>
 				<div className={style.top_bottom}>
 					<div className={style.holodos}>
-						<Image src={holodos} alt="Холодильник" className={style.holodos} placeholder="blur" />
+						<Image src={holodos} alt="Холодильник" placeholder="blur"/>
 					</div>
 					<div className={style.text_content}>
-						<SeparatorLineComponent title="Микромаркет здоровой еды в вашем офисе или тц" color="#312929"/>
+						<SeparatorLineComponent className={style.separate} title="Микромаркет здоровой еды в вашем офисе или тц" color="#312929"/>
 						<p className={style.text}>
 							Бесплатно  установим мини-магазин со свежей едой прямо у вас в офисе
 						</p>
 						<div className={style.prod_text}>Без продавцов: нужны только розетка и один квадратный метр</div>
-						<MainButton title="Хочу холодильник с едой в офис" fontSize="18px" width="380px" />
+						<MainButton className={style.button}>Хочу холодильник с едой в офис</MainButton>
 					</div>
 				</div>
 			</div>

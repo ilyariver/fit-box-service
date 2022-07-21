@@ -9,7 +9,6 @@ $color-background: #141414;
 $color-black: #232323;
 
 // PATHES
-
 $IMG_PATH: '/images';
 
 
@@ -31,12 +30,21 @@ $easing-in: ease-in;
 // vieport width
 $desk: 768px;
 
-// Settings
-$desktop-min: 1360;
-$desktop: 768;
-$desktop-xl: 1800;
-$laptop: 1800;
-$laptop-xs: 1600;
-$tablet: 768;
-$mobile: 375;
-$desktop-vh: 750;
+// without scroll for margin-right
+$without-scroll-width: calc(-1 * (100vw - 100%));
+
+// Breakpoints
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// Containers
+$sm-c: 540px;
+$md-c: 720px;
+$lg-c: 960px;
+$xl-c: 1140px;
+$xxl-c: 1320px;
+

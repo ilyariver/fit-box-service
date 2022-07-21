@@ -1,0 +1,43 @@
+@import "../../../styles/scss/variables";
+
+.week-days-indicator-cart {
+  &:not(:last-child) {
+    margin-right: 17px;
+  }
+
+  &__title {
+    margin-top: -53px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    line-height: 52px;
+    opacity: 0.5;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__btn {
+    width: 80px;
+    min-width: 80px;
+    height: 7px;
+    border-radius: 9px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    cursor: pointer;
+
+    &:not(&--active ):hover {
+      opacity: 0.8;
+      box-shadow: 0 0 5px 0 #fff;
+    }
+
+    &--active {
+      background-color: #fff;
+      opacity: 1;
+    }
+  }
+}

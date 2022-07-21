@@ -1,0 +1,23 @@
+@import '../../styles/scss/variables';
+
+.cart-dish-component {
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 23px;
+  max-width: 230px;
+
+  &__img-wrap {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    width: 80%;
+    font-weight: 600;
+  }
+
+  &__text {
+    min-height: 60px;
+    font-size: 12px;
+  }
+}

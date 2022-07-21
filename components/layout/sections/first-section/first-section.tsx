@@ -3,26 +3,31 @@ import Image from 'next/image'
 import style from './first-section.module.scss'
 import { MainButton } from '../../../shared/mainButton/mainButton'
 import PreviewMenu from '../../../shared/preview-menu/preview-menu'
-import girl from '../../../../public/images/girl-1@x1.png'
+import girl from '../../../../public/images/girl@x3.png'
 import Link from 'next/link'
 import { state } from '../../../../mockDate'
 
 const FirstSection = () => {
-	console.log(state.menu)
+
 	return (
 		<section className={style.first_section}>
 			<div className="container">
-				{/*.{style.}*/}
+				<div className={style.girl_wrap}>
+					<Image src={girl} alt="Девушка" width={637} height={786} />
+				</div>
 				<h1 className={style.title}>
 					Правильное питание <br />с доставкой <br />в Ульяновске
 				</h1>
-				<MainButton title="Выбрать меню" width="214px" bottom="35px" />
+				<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
 				<div style={{display: 'flex', marginBottom: "70px"}}>
 					{
-						state.menu.map((item, i) =>
-							<PreviewMenu key={item.id} text={item.title} img={item.img} right={(i+1 === 1) ? '30px' : ''}/>
-
-						)
+						state.menu.map(item => {
+							return (
+								<div className={style.wrap_preview} key={item.id}>
+									<PreviewMenu text={item.title} img={item.img} />
+								</div>
+							)
+						})
 					}
 				</div>
 				<div className={style.socials}>
@@ -34,7 +39,7 @@ const FirstSection = () => {
 						</a>
 					</div>
 					<div className={style.instagram}>
-						<Link href={'/ui-page'}>
+						<Link href="#">
 							<a aria-label="Инстаграм">
 								<svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g clipPath="url(#clip0_790_1152)">

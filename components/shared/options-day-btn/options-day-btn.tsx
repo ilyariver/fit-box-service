@@ -1,13 +1,18 @@
 import {FC} from 'react'
 import style from './options-day-btn.module.scss'
-import { OptionsBtn } from './options-btn'
+import { OptionsBtns } from '../../../types/programTypes'
+import { useActions } from '../../../hooks/useAction'
 
-const OptionsDayBtn: FC<OptionsBtn> = ({title, active}) => {
+const OptionsDayBtn: FC<OptionsBtns> = ({number, active}) => {
+    const { numberOfDaysActive } = useActions()
+
     return (
         <div className={style['options-day-btn']}>
             <button
-                className={`${style['options-day-btn__button']} ${active && style['options-day-btn__button--active']}`}>
-                {title}
+                onClick={() => numberOfDaysActive(number)}
+                className={`${style['options-day-btn__button']} ${active && style['options-day-btn__button--active']}`}
+            >
+                {number === 1 ? 'Пробный день' : `${number} дней`}
             </button>
         </div>
     )
