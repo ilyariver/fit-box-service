@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import style from './main.module.scss'
 import FirstSection from '../sections/first-section/first-section'
 import PurposeSection from '../sections/purpose-section/purpose-section'
@@ -8,30 +9,47 @@ import FaqSection from '../sections/faq-section/faq-section'
 import CommentsSection from '../sections/comments-section/comments-section'
 import ServiceSection from '../sections/service-section/service-section'
 import MapSection from '../sections/map-section/map-section'
+import PurposeSectionSwiper from '../sections/purpose-section-swiper/purpose-section-swiper'
 
 const Main = () => {
+	const [width, setWidth] = useState(false)
+	const [activeSwiper, setActiveSwiper] = useState(false)
+
+	const updateDimensions = () => {
+		if (typeof typeof window !== 'undefined') {
+			if (window.innerWidth > 768) {
+				setActiveSwiper(false)
+			} else {
+				setActiveSwiper(true)
+			}
+		}
+	}
+
+	useEffect(() => {
+		setWidth(window.innerWidth < 768)
+		if (typeof typeof window !== 'undefined') {
+			window.addEventListener('resize', updateDimensions)
+			return () => window.removeEventListener('resize', updateDimensions)
+		}
+	},[])
+
 	return (
 		<main>
 			<FirstSection />
-			<section className={style.black_back} style={{
-				padding: '110px 0'
-			}}>
-				<PurposeSection />
+			<section className={style.black_back} >
+				{ (!width && !activeSwiper) && <PurposeSection/> }
+				{ (width || activeSwiper) && <PurposeSectionSwiper/> }
 				<ProgramSection />
 			</section>
 			<section className={style.yellow_back}>
 				<AnswersSection />
 				<ForWhomSection />
 			</section>
-			<section className={style.black_back} style={{
-				padding: '80px 0 120px 0'
-			}}>
+			<section className={`${style.black_back} ${style.faq}`}>
 				<FaqSection />
 				<CommentsSection />
 			</section>
-			<section className={style.yellow_back} style={{
-				padding: '100px 0 0'
-			}}>
+			<section className={`${style.yellow_back} ${style.service_section}`}>
 				<ServiceSection />
 			</section>
 			<MapSection />

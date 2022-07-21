@@ -1,12 +1,26 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
 
 .map_section {
   position: relative;
   margin-top: -250px;
+
+  @include small {
+    margin-top: 0;
+  }
 }
 
 .address {
   position: absolute;
   top: 50px;
-  left: 370px;
+  right: 57%;
+
+  @include large {
+    right: 50%;
+  }
+
+  @include tablets {
+    position: static;
+
+  }
 }

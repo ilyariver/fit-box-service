@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  min-width: 430px;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+
+  @include x-small {
+    padding: 0 25px;
+  }
+
+  @include x-large {
+    max-width: $xxl-c;
+  }
+
+  @include large {
+    max-width: $xl-c;
+  }
+
+  @include tablets {
+    max-width: $lg-c;
+  }
+
+  @include small {
+    max-width: $md-c;
+  }
+
+  @include x-small {
+    max-width: $sm-c;
+  }
+}

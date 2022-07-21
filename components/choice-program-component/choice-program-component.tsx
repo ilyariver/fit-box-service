@@ -1,30 +1,47 @@
-import React, {FC} from 'react'
 import style from './choice-program-component.module.scss'
 import CaloriesChoiceBtn from '../shared/calories-choiсe-btn/calories-choiсe-btn'
-import { state } from '../../mockDate'
-import OrderComponent from '../order-component/order-component'
+import CalculatorComponent from '../calculator-component/calculator-component'
 import WeekDaysIndicator from '../shared/week-days-indicator/week-days-indicator'
+import MenuItem from './menu-item'
+import { ProgramMenuList } from '../../types/programTypes'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
 import 'swiper/css/navigation';
-import MenuItem from './menu-item'
 
 
 const ChoiceProgramComponent = () => {
+	let programsArray = useTypedSelector(state => state.program)
+	let currentWeekDay: ProgramMenuList[] = []
+
+	programsArray.choiceWeek
+		.forEach(item => {
+			item.days.forEach(weekday => {
+				if (weekday.active && weekday.menu)
+					return currentWeekDay = weekday.menu
+			})
+		})
+
 	return (
 		<div className={style['choice-program']}>
 			<div className={style['choice-program__buttons']}>
 				{
-					state.cCalBtns.map(days =>
-						(<div className={style['choice-program__button']} key={days.title}>
-							<CaloriesChoiceBtn title={days.title} cCal={days.cCal} active={days.active} right="30px" />
+					programsArray.programs?.map(program =>
+						(<div className={style['choice-program__button']} key={program.type.title}>
+							<CaloriesChoiceBtn id={program.id} type={program.type} active={program.active} />
 						</div>))
 				}
 			</div>
 			<div className={style['choice-program__content']}>
-				<div style={{marginRight: '32px'}}>
-					<OrderComponent {...state.orderInfo} />
+				<div className={style['choice-program__calc-wrap']}>
+					{
+						programsArray.programs?.map(program => {
+							if (program.active) {
+								return <CalculatorComponent key={program.id} program={program} numberDishes={currentWeekDay.length} />
+							}
+						})
+					}
 				</div>
 				<div>
 					<div className={style['choice-program__slider-wrap']}>
@@ -32,21 +49,32 @@ const ChoiceProgramComponent = () => {
 							style={{color: 'white'}}
 							className={style['choice-program__list']}
 							modules={[Navigation]}
-							loop={true}
-							slidesPerView={1.59}
-							onSlideChange={() => console.log('slide change')}
+							slidesPerView={1}
 							navigation
+							breakpoints={{
+								1200: {
+									slidesPerView: 1.59,
+								}
+							}}
 						>
-							<SwiperSlide>{MenuItem()}</SwiperSlide>
-							<SwiperSlide>{MenuItem()}</SwiperSlide>
-							<SwiperSlide>{MenuItem()}</SwiperSlide>
-							<SwiperSlide>{MenuItem()}</SwiperSlide>
+							{
+								currentWeekDay.map((day,i) => {
+									return (
+										<SwiperSlide key={day.id}>
+											{ <MenuItem context={day} /> }
+										</SwiperSlide>
+									)
+								})
+							}
 						</Swiper>
 					</div>
-					<div style={{display: 'flex', paddingLeft: '20px'}}>
+					<div className={style['choice-program__weekdays']}>
 						{
-							state.weekDays.map(day =>
-								<WeekDaysIndicator key={day.title} title={day.title} active={day.active}/>)
+							programsArray.choiceWeek.map(day => {
+								return day.days.map(day => {
+									return <WeekDaysIndicator key={day.title} title={day.title} active={day.active} />
+								})
+							})
 						}
 					</div>
 				</div>

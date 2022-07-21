@@ -1,51 +1,149 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
 
 .whom {
   position: relative;
   min-height: 800px;
+
+  @include tablets {
+    min-height: auto;
+  }
+}
+
+.whom_title {
+  @include tablets {
+    margin-bottom: 45px;
+    width: 45%;
+  }
+}
+
+.title {
+  text-align: center;
+
+  @include tablets {
+    text-align: left;
+  }
 }
 
 .content {
+  @include tablets {
+  }
+}
+
+.img_wrap {
   position: absolute;
   left: 50%;
-  bottom: 80px;
+  bottom: 120px;
   transform: translateX(-42%);
-  img {
-    width: 520px;
+  z-index: 2;
+
+   @include tablets {
+     width: 470px;
+     left: 70%;
+     bottom: -130px;
+   }
+
+  @include small {
+    width: 413px;
+    left: 79%;
+    bottom: -122px;
   }
 }
 
 .ellipse {
   position: absolute;
-  left: 50%;
-  bottom: -110px;
+  width: 710px;
+  height: 722px;
+  left: 52%;
+  bottom: -30px;
   transform: translateX(-52%);
   z-index: -1;
+
+  @include tablets {
+    width: 550px;
+    left: 69%;
+    bottom: -320px;
+  }
 }
 
 .hint {
   position: absolute;
 
-  &:nth-child(6) {
-    right: 18%;
-    top: 55%;
+  &_1 {
+    top: 213px;
+    right: 68%;
   }
-  &:nth-child(7) {
-    right: 14%;
-    top: 27%;
+  &_2 {
+    top: 440px;
+    right: 59%;
+    z-index: 2;
+  }
+  &_3 {
+    bottom: 63px;
+    right: 31%;
+    z-index: 2;
+  }
+  &_4 {
+    top: 440px;
+    right: 340px;
+    z-index: 3;
+  }
+  &_5 {
+    top: 213px;
+    right: 262px;
+    z-index: 3;
   }
 
-  &:nth-child(3) {
-    left: 14%;
-    top: 27%;
+  @include x-large {
+    &_3 {
+      right: 29%;
+    }
+    &_4 {
+      right: 190px;
+    }
+    &_5 {
+      right: 100px;
+    }
   }
-  &:nth-child(4) {
-    left: 21%;
-    top: 55%;
+
+  @include large {
+    &_1 {
+      right: 64%;
+    }
+    &_3 {
+      right: 26%;
+    }
+    &_4 {
+      right: 110px;
+    }
+    &_5 {
+      right: 40px;
+    }
   }
-  &:nth-child(5) {
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-37%);
+
+  @include tablets {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    &_2 {
+      z-index: 1;
+    }
+    &_3 {
+      z-index: 1;
+    }
+  }
+
+  @include tablets {
+    position: relative;
+    width: 400px;
+    padding-left: 25px;
+    transform: translateX(0);
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
   }
 }

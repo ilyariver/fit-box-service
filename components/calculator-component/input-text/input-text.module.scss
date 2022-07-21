@@ -1,0 +1,31 @@
+@import '../../../styles/scss/variables';
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__label {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    color: #ffffffB3;
+    font-size: 14px;
+    transform: translateY(100%);
+    transition: transform 0.2s $easing-back-out;
+
+    &.active {
+      transform: translateY(0);
+    }
+  }
+
+  &__input {
+    height: 35px;
+    padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+  }
+}

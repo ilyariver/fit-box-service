@@ -1,0 +1,36 @@
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@mixin x-small {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@mixin small {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+// `lg` applies to medium devices (tablets, less than 992px)
+@mixin tablets {
+  @media (max-width: $lg) {
+    @content;
+  }
+}
+
+// `xl` applies to large devices (desktops, less than 1200px)
+@mixin large {
+  @media (max-width: 1199.98px) {
+    @content;
+  }
+}
+
+// `xxl` applies to x-large devices (large desktops, less than 1400px)
+@mixin x-large {
+  @media (max-width: 1399.98px) {
+    @content;
+  }
+}
+
+

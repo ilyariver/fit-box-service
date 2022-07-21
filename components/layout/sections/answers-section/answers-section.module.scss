@@ -1,1 +1,35 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
+
+.answer_section {
+  margin-bottom: 120px;
+
+  @include tablets {
+    margin-bottom: 60px;
+  }
+
+  @include small {
+    margin-bottom: 37px;
+  }
+}
+
+.section_title {
+  margin-bottom: 56px;
+
+  @include x-small {
+    margin-bottom: 35px;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+
+  @include large {
+    flex-wrap: wrap;
+  }
+}

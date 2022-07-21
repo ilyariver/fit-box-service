@@ -1,4 +1,5 @@
-@import '../../styles/variables';
+@import '../../styles/scss/variables';
+@import '../../styles/scss/breakpoint';
 
 .address-service-component {
   width: 460px;
@@ -6,6 +7,12 @@
   background-color: #fff;
   padding: 53px 30px 50px 72px;
   border-radius: 24px;
+
+  @include small {
+    width: auto;
+    min-width: auto;
+    padding: 43px 30px 50px 26px;
+  }
 
   &__title {
     margin-bottom: 30px;
@@ -15,11 +22,26 @@
 
   &__description {
     margin-bottom: 20px;
+
+    @include small {
+      margin-bottom: 25px;
+    }
   }
 
   &__button {
     margin-bottom: 35px;
+    width: 316px;
+    font-size: 18px;
+
+    @include small {
+      margin-bottom: 25px;
+      width: 200px;
+      height: 40px;
+      font-size: 14px;
+    }
   }
+
+
 
   &__address-text {
     margin-bottom: 20px;

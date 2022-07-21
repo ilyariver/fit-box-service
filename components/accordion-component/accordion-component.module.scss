@@ -1,18 +1,21 @@
-@import '../../styles/variables';
+@import '../../styles/scss/variables';
+@import '../../styles/scss/breakpoint';
 
 .accordion-component {
   //margin-bottom: 20px;
   padding: 0 223px;
   color: #fff;
+  cursor: pointer;
+
+  @include tablets {
+    padding: 0;
+  }
 
   &__open {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
     transition: transform 0.4s $easing-back-out;
   }
 
@@ -27,9 +30,13 @@
   }
 
   &__title {
-    padding: 10px 0;
+    padding: 10px 10px 10px 0;
     font-weight: 500;
     font-size: 18px;
+
+    @include large {
+      font-size: 16px;
+    }
   }
 
   &__description {
@@ -39,6 +46,7 @@
     line-height: 24px;
     font-size: 14px;
     transition: all 0.3s $easing-back-out;
+    opacity: 0.5;
   }
 }
 

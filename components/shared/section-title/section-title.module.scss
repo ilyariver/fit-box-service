@@ -1,10 +1,14 @@
-@import '/styles/variables';
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/breakpoint';
 
 .section-title {
   &__title {
     font-weight: 600;
     font-size: 40px;
-    text-align: center;
     text-transform: uppercase;
+
+    @include tablets {
+      font-size: 28px;
+    }
   }
 }

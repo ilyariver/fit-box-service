@@ -1,17 +1,37 @@
-@import "/styles/variables";
+@import "../../../styles/scss/variables";
+@import "../../../styles/scss/breakpoint";
 
 .weekday-indicator {
   &:not(:last-child) {
     margin-right: 15px;
+
+    @include x-large {
+      margin-right: 25px;
+    }
+
+    @include large {
+      margin-right: 25px;
+    }
   }
 
   &__title {
-    margin-top: -41px;
+    margin-top: -53px;
     font-size: 24px;
     font-weight: 500;
     color: #fff;
     text-align: center;
+    line-height: 52px;
     opacity: 0.5;
+
+    @include large {
+      font-size: 21px;
+    }
+
+    @include x-small {
+      margin-top: -35px;
+      font-size: 10px;
+      line-height: 37px;
+    }
 
     &--active {
       opacity: 1;
@@ -32,6 +52,21 @@
     &:not(&--active ):hover {
       opacity: 0.8;
       box-shadow: 0 0 5px 0 #fff;
+    }
+
+    @include x-large {
+      width: 70px;
+      min-width: 70px;
+    }
+
+    @include large {
+      width: 50px;
+      min-width: 50px;
+    }
+
+    @include x-small {
+      width: 32px;
+      min-width: 32px;
     }
 
     &--active {

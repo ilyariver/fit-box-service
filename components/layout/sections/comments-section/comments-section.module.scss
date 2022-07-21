@@ -1,1 +1,28 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
+
+.comments_title {
+  margin-top: 0;
+  margin-bottom: 50px;
+
+  @include small {
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.comment_slide {
+  width: calc(100% / 4);
+  margin-right: 5px;
+
+  &:not(:last-child) {
+  }
+}
+
+.comments_wrap {
+  display: flex;
+  justify-content: space-between;
+}

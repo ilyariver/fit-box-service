@@ -1,25 +1,19 @@
 import React, {FC} from 'react'
 import style from './program.module.scss'
+import { useActions } from '../../../hooks/useAction'
+import { PurposeState } from '../../../types/purposeTypes'
 
-interface ProgramContent {
-	text: string
-	img: string
-	black?: boolean
-	right?: string
-}
-
-const Program: FC<ProgramContent> = ({text , img, black, right }) => {
+const Program: FC<PurposeState> = ({id,title , img, active }) => {
+	const { purposeActive } = useActions()
+	const setActivePurpose = () => purposeActive(id)
 
 	return (
-		<div style={{marginRight: right}} className={`${style.program} ${black && style.program_black}`}>
-			<div>
-				<picture>
-					<source srcSet={img} type="image/webp" />
-					<img src={img} alt={text} className={style.program_img}/>
-				</picture>
-			</div>
-			<div className={style.program_text}>{text}</div>
-		</div>
+		<button
+			onClick={setActivePurpose}
+			className={`${style.program} ${!active && style.program_black}`}>
+			<div className={style.program_img} style={{ backgroundImage: `url(${img})` }}></div>
+			<div className={style.program_text}>{title}</div>
+		</button>
 	)
 }
 

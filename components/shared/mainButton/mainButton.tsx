@@ -2,24 +2,43 @@ import React, {FC} from 'react'
 import style from './main-button.module.scss'
 
 export interface TextButton {
-    title: string
+    onClick?: () => void,
+    children: React.ReactNode
     width?: string
     fontSize?: string
     bottom?: string
     right?: string
+    pink?: boolean
+    className?: string
 }
 
-export const MainButton: FC<TextButton> = ({title , width, fontSize, bottom, right}) => {
+export const MainButton: FC<TextButton> = (
+    {
+        onClick,
+        children ,
+        width,
+        fontSize,
+        bottom,
+        right,
+        pink = true,
+        className
+    }
+    ) => {
     return (
         <button
+            onClick={onClick}
             style={
                 {
                     width,
-                    minWidth: width,
                     fontSize,
                     marginBottom: bottom,
-                    marginRight: right}
+                    marginRight: right
+                }
             }
-            className={style.button}>{title}</button>
+
+            className={`${style.button} ${pink ? style.pink : ''} ${className}`}
+        >
+            { children }
+        </button>
     )
 }

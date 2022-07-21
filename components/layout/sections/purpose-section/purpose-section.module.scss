@@ -1,28 +1,81 @@
-@import '../../../../styles/variables';
-
-.purpose_wrap {
-  margin-bottom: 120px;
-}
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
 
 .purpose {
   display: flex;
   align-items: center;
   color: #fff;
-  margin-bottom: 117px;
+  margin-bottom: 120px;
+
+  @include x-large {
+    justify-content: space-between;
+  }
+
+  @include tablets {
+    flex-direction: column-reverse;
+    margin-bottom: 60px;
+  }
 }
 
 .left {
   margin-right: 50px;
+
+  @include large {
+    margin-right: 30px;
+  }
+
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+  }
 }
 
 .buttons {
   display: flex;
+
+  @include x-large {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  @include tablets {
+    margin-bottom: 30px;
+  }
+}
+
+.button_wrap {
+  &:not(:last-child) {
+    margin-right: 30px;
+
+    @include x-large {
+      margin-right: 20px;
+    }
+
+    @include large {
+      margin-right: 0;
+    }
+  }
+}
+
+.separate {
+  margin-bottom: 50px;
 }
 
 .title {
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 32px;
+
+  @include large {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .text {
@@ -30,4 +83,14 @@
   width: 330px;
   font-size: 14px;
   line-height: 20px;
+
+  @include large {
+    margin-bottom: 20px;
+    width: 290px;
+    font-size: 12px;
+  }
+
+  @include tablets {
+    text-align: center;
+  }
 }

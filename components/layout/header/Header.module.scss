@@ -1,4 +1,6 @@
-@import '../../../styles/variables';
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/responsive';
+@import '../../../styles/scss/breakpoint';
 
 .header {
   position: fixed;
@@ -6,33 +8,129 @@
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
+  margin-right: $without-scroll-width;
   display: flex;
   align-items: center;
   height: 80px;
   padding: 5px 0;
   background-color: #fff;
   z-index: 20;
+  transition: all 0.2s ease-in;
+
+  &.active {
+    height: 60px;
+    backdrop-filter: blur(10px);
+    background-color: #fff9;
+    padding: 0;
+  }
 
   &_content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     font-weight: 500;
     font-size: 14px;
+
+    @include x-large {
+      font-size: 12px;
+    }
+
+    @include large {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 110px 20px 50px;
+      background-color: #fff;
+      width: 60%;
+      height: 100vh;
+      box-shadow: -5px 0 8px 0 #0000001a;
+      transform: translateX(150%);
+      transition: transform 0.2s ease;
+
+      &.active {
+        transform: translateX(0);
+        transition: transform 0.2s ease-in;
+      }
+    }
+
+    @include tablets {
+      width: 100%;
+    }
+
+    @include x-small {
+      font-size: 10px;
+    }
   }
 
   &_right {
     display: flex;
+
+    @include large {
+      width: 100%;
+    }
+  }
+
+  @include large {
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #EABF11;
+      filter: blur(130px);
+      width: 350px;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.container {
+  display: flex;
+
+  @include large {
+    justify-content: space-between;
   }
 }
 
 .logo {
   display: block;
   margin-right: 40px;
+  min-width: 70px;
 }
 
-.phone_number, .phone_link, .geo {
+.burger {
+  display: none;
+
+  @include large {
+    position: relative;
+    display: block;
+    width: 52px;
+    height: 52px;
+    background-color: #fff;
+    background-image: url(#{$IMG_PATH}/icons/icon-burger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: none;
+    z-index: 5;
+  }
+}
+
+.left_menu {
+  display: flex;
+  align-items: center;
+
+  @include large {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+
+.phone_link, .geo {
   display: flex;
   align-items: center;
 }
@@ -40,6 +138,10 @@
 .phone_number {
   margin-right: 10px;
   margin-left: 5px;
+
+  @include large {
+    cursor: auto;
+  }
 }
 
 .phone_icon {
@@ -55,11 +157,12 @@
   margin-right: 28px;
   cursor: pointer;
 
-  &_icon {
-  }
-
   &_cities {
     margin-left: 15px;
+  }
+
+  @include large {
+    cursor: auto;
   }
 }
 
@@ -69,6 +172,10 @@
   border: none;
   cursor: pointer;
   text-decoration: underline;
+
+  @include large {
+    cursor: auto;
+  }
 }
 
 .navigator {
@@ -79,6 +186,27 @@
   &_item:not(:last-child) {
     margin-right: 45px;
   }
+
+  @include large {
+    &_list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &_item {
+      text-transform: uppercase;
+      font-size: 30px;
+
+      a {
+        cursor: auto;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 50px;
+      }
+    }
+  }
 }
 
 .cart_btn {
@@ -88,4 +216,8 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  @include large {
+    cursor: auto;
+  }
 }

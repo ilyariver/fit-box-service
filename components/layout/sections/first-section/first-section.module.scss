@@ -1,23 +1,83 @@
-@import '../../../../styles/variables';
-@import '../../../../styles/responsive';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/responsive';
+@import '../../../../styles/scss/breakpoint';
 
 .first_section {
   background-color: $color-yellow;
   padding-top: 160px;
   padding-bottom: 100px;
   overflow: hidden;
+
+  @include small {
+    padding-top: 120px;
+    padding-bottom: 170px;
+  }
 }
 
-.container_s {
-  position: relative;
+.girl_wrap {
+  position: absolute;
+  right: 0;
+  bottom: -120px;
+
+  @include x-large {
+    width: 600px;
+    right: 5%;
+  }
+
+  @include large {
+    width: 540px;
+    right: -5%;
+  }
+
+  @include tablets {
+    width: 390px;
+    right: 5%;
+    bottom: -115px;
+  }
+
+  @include small {
+    width: 420px;
+    right: -20%;
+    bottom: -250px;
+  }
+
+  @include x-small {
+    right: -36%;
+  }
+}
+
+.wrap_preview {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  @include large {
+    &:not(:last-child) {
+      margin-right: 230px;
+    }
+  }
+
+  @include tablets {
+    display: none;
+  }
 }
 
 .title {
   margin: 0 0 30px 0;
   font-weight: 700;
-  font-size: vw1360(43);
+  font-size: 60px;
   text-transform: uppercase;
-  line-height: vw1360(55);
+  line-height: 77px;
+
+  @include x-large {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  @include tablets {
+    font-size: 28px;
+    line-height: 126.02%;
+  }
 }
 
 .socials {
@@ -26,14 +86,4 @@
 
 .telegram {
   margin-right: 32px
-}
-
-.girl {
-  position: absolute;
-  right: vw1360(150);
-  bottom: 200px;
-  width: 1050px;
-  height: 690px;
-  background-size: contain;
-  background-repeat: no-repeat;
 }

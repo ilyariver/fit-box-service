@@ -3,13 +3,13 @@ import style from './separator-line-component.module.scss'
 
 interface SeparatorLineTypes {
 	title: string
-	bottom?: string
 	color?: string
+	className?: string
 }
 
-const SeparatorLineComponent: FC<SeparatorLineTypes> = ({ title,bottom,color = '#FFFFFF99'}) => {
+const SeparatorLineComponent: FC<SeparatorLineTypes> = ({ title,color = '#FFFFFF99', className}) => {
 	return (
-		<div className={style['separator-line-component']} style={{marginBottom: bottom}}>
+		<div className={`${style['separator-line-component']} ${className}`}>
 			<div className={style['separator-line-component__title']} style={{color}}>{title}</div>
 			<div className={style['separator-line-component__line']} style={{backgroundColor: color}} aria-label="Линия заголовка"></div>
 		</div>

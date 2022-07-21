@@ -1,8 +1,10 @@
-@import "variables";
-@import "globals";
-@import "mixin";
-@import "fonts";
-@import "breakpoint";
-@import "responsive";
-@import "fonts";
+@import "scss/variables";
+@import "scss/breakpoint";
+@import "scss/responsive";
+@import "scss/mixin";
+@import "scss/global";
+@import "scss/container";
+@import "scss/fonts";
+
+@import "swiper-custom";
 

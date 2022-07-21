@@ -1,16 +1,19 @@
-import {FC} from 'react'
+import React, {FC} from 'react'
 import style from './section-title.module.scss'
 
 interface SectionTitleTypes {
     title: string
     color: string
-    bottom: string
+    className?: string
 }
 
-const SectionTitle: FC<SectionTitleTypes> = ({title, color, bottom}) => {
+const SectionTitle: FC<SectionTitleTypes> = ({title, color, className}) => {
+
     return (
-        <div className={style['section-title']} style={{marginBottom: bottom}}>
-           <h2 className={style['section-title__title']} style={{color}}>{title}</h2>
+        <div className="container">
+            <div className={style['section-title']}>
+                <h2 className={`${style['section-title__title']} ${className}`} style={{color}}>{title}</h2>
+            </div>
         </div>
     )
 }

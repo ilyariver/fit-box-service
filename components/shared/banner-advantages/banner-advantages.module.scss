@@ -1,4 +1,6 @@
-@import '/styles/variables';
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/breakpoint';
+
 $border: 2px;
 
 .banner-advantages {
@@ -15,16 +17,64 @@ $border: 2px;
   border: solid $border transparent;
   border-radius: 24px;
 
+  @include x-large {
+    max-width: none;
+
+    width: calc(100% / 3 - 20px);
+    padding: 25px 40px 25px 40px;
+  }
+
+  @include large {
+    width: calc(100% / 3 - 15px);
+    padding: 23px 35px 23px 35px;
+  }
+
+  @include tablets {
+    width: 100%;
+    min-height: 160px;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
   &__title {
     margin: 0 0 27px 0;
     font-size: 50px;
     font-weight: 500;
     color: $color-yellow;
+
+    @include x-large {
+      margin: 0 0 20px 0;
+      font-size: 40px;
+    }
+
+    @include large {
+      font-size: 31px;
+    }
+
+    @include tablets {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
   }
 
   &__text {
     margin: 0;
     line-height: 25px;
+
+    @include x-large {
+      font-size: 14px;
+    }
+
+    @include large {
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @include tablets {
+      font-size: 16px;
+    }
   }
 
   &:before {

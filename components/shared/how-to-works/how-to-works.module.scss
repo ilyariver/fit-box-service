@@ -1,3 +1,7 @@
+@import "../../../styles/scss/variables";
+@import "../../../styles/scss/breakpoint";
+
+
 .how-to-works {
   width: 325px;
   max-height: 345px;
@@ -5,19 +9,57 @@
   padding: 35px 25px;
   border-radius: 15px;
 
-  &__img-wrap {
+  @include x-large {
+    width: calc(100% / 4 - 10px);
+    padding: 30px 15px;
+  }
+
+  @include large {
+    width: calc(100% / 2 - 10px);
+    margin-bottom: 20px;
+  }
+
+  @include x-small {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 45px 25px;
+  }
+
+  &__img {
     height: 105px;
+    width: 44px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include x-large {
+      height: 75px;
+    }
+
+    @include x-small {
+      height: 30px;
+      width: 30px;
+      margin-bottom: 30px;
+    }
   }
 
   &__title {
     margin: 0 0 32px 0;
     font-weight: 500;
     font-size: 22px;
+
+    @include x-large {
+      margin: 0 0 20px 0;
+      font-size: 18px;
+    }
   }
 
   &__text {
     margin: 0;
     font-size: 14px;
     line-height: 23px;
+
+    @include x-large {
+      line-height: 1.5;
+    }
   }
 }

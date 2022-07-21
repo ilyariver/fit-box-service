@@ -1,7 +1,16 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
 
 .faq {
-  margin-bottom: 108px;
+  margin-bottom: 110px;
+}
+
+.faq_title {
+  margin-bottom: 50px;
+}
+
+.title {
+  text-align: center;
 }
 
 .buttons {
@@ -9,4 +18,41 @@
   justify-content: space-between;
   margin-bottom: 33px;
   padding: 0 280px;
+
+  @include x-large {
+    padding: 0 223px;
+  }
+
+  @include large {
+    flex-wrap: wrap;
+  }
+
+  @include tablets {
+    padding: 0;
+  }
+
+  @include small {
+    margin-bottom: 5px;
+  }
+}
+
+.button_wrap {
+  @include large {
+    width: calc(100% / 2 - 10px);
+  }
+
+  @include tablets {
+  }
+
+  @include small {
+
+  }
+
+  &:not(:last-child) {
+    margin-right: 24px;
+
+    @include x-large {
+      margin-right: 0;
+    }
+  }
 }

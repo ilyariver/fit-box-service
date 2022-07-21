@@ -12,7 +12,7 @@ const AboutServiceComponent: FC<AboutServiceTypes> = ({title, description}) => {
 		<div className={style['about-service-component']}>
 			<h3 className={style['about-service-component__title']}>{title}</h3>
 			<p className={style['about-service-component__description']}>{description}</p>
-			<MainButton title="Узнать о нас больше" width="300px" fontSize="18px" />
+			<MainButton className={style['about-service-component__button']}>Узнать о нас больше</MainButton>
 		</div>
 	)
 }

@@ -4,13 +4,12 @@ import style from './preview-menu.module.scss'
 interface PreviewText {
     text: string
     img?: any
-    right?: string
 }
 
-const PreviewMenu: FC<PreviewText> = ({text, img, right}) => {
-    console.log(img)
+const PreviewMenu: FC<PreviewText> = ({text, img}) => {
+
     return (
-        <div className={style.preview_menu} style={{marginRight:right}}>
+        <div className={style.preview_menu}>
             <div className={style.preview_menu__image_wrap}>
                 <Image className={style.preview_menu__image} src={img} alt={text} width={208} height={171} placeholder="blur" />
             </div>

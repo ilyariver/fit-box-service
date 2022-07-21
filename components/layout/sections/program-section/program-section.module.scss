@@ -1,5 +1,13 @@
-@import '../../../../styles/variables';
+@import '../../../../styles/scss/variables';
 
-.program_section {
-  overflow-x: hidden;
+.program_section {}
+
+.separate {
+  margin-bottom: 50px;
+}
+
+.tiles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
