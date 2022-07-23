@@ -43,7 +43,7 @@ const ChoiceProgramComponent = () => {
 						})
 					}
 				</div>
-				<div>
+				<div className={style['choice-program__slider']}>
 					<div className={style['choice-program__slider-wrap']}>
 						<Swiper
 							style={{color: 'white'}}

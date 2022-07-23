@@ -107,6 +107,10 @@ $border: 2px;
       background-color: #fff;
       color: #131313;
     }
+
+    @include small {
+      font-size: 12px;
+    }
   }
 
   &__deliveryText {
@@ -199,6 +203,10 @@ $border: 2px;
 
     @include tablets {
       background: transparent;
+    }
+
+    @include small {
+      height: auto;
     }
   }
 }

@@ -16,7 +16,7 @@ const FirstSection = () => {
 					<Image src={girl} alt="Девушка" width={637} height={786} />
 				</div>
 				<h1 className={style.title}>
-					Правильное питание <br />с доставкой <br />в Ульяновске
+					Правильное питание <br />с&nbsp;доставкой <br />в&nbsp;Ульяновске
 				</h1>
 				<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
 				<div style={{display: 'flex', marginBottom: "70px"}}>

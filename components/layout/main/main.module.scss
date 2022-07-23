@@ -5,6 +5,7 @@
   position: relative;
   padding: 110px 0;
   background-image: $gradient-black;
+  overflow: hidden;
   z-index: 0;
 
   @include large {

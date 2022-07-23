@@ -1,5 +1,5 @@
 import 'normalize.css'
-import '../styles/main.scss'
+import '../styles/scss/main.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { wrapper } from '../store/store'

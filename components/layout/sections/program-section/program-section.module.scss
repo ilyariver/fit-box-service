@@ -1,9 +1,18 @@
 @import '../../../../styles/scss/variables';
+@import '../../../../styles/scss/breakpoint';
 
 .program_section {}
 
 .separate {
   margin-bottom: 50px;
+}
+
+.choice {
+  margin-bottom: 115px;
+
+  @include small {
+    margin-bottom: 70px;
+  }
 }
 
 .tiles {

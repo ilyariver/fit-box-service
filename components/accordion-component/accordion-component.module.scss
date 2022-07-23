@@ -27,6 +27,10 @@
     height: 90px;
     border-bottom: 1px solid #fff;
     //margin-bottom: 20px;
+
+    @include small {
+      height: 70px;
+    }
   }
 
   &__title {
@@ -36,6 +40,12 @@
 
     @include large {
       font-size: 16px;
+    }
+
+    @include small {
+      padding: 10px 40px 10px 0;
+      font-size: 13px;
+      line-height: 1.5;
     }
   }
 

@@ -18,6 +18,10 @@
     @include small {
       margin-right: 10px;
     }
+
+    @include x-small {
+      font-size: 10px;
+    }
   }
 
   &__line {

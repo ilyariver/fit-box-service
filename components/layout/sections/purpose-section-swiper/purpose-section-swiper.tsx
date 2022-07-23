@@ -16,7 +16,7 @@ const PurposeSectionSwiper = () => {
 	return (
 		<div className={style.purpose}>
 			<div className="container">
-				<SeparatorLineComponent title="выберите цель" />
+				<SeparatorLineComponent className={style.separate} title="выберите цель" />
 				<div className={style.purpose_wrap}>
 					<Swiper
 						modules={[Navigation]}

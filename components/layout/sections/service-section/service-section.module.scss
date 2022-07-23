@@ -11,6 +11,10 @@
   @include tablets {
     margin-bottom: 440px;
   }
+
+  @include x-small {
+    margin-bottom: 320px;
+  }
 }
 
 .service {
@@ -55,6 +59,10 @@
   @include small {
     width: 310px;
   }
+
+  @include x-small {
+    width: 220px;
+  }
 }
 
 .pasta {
@@ -74,6 +82,12 @@
     left: 220px;
     width: 190px;
   }
+
+  @include x-small {
+    top: 100px;
+    left: 170px;
+    width: 130px;
+  }
 }
 
 .rice {
@@ -90,6 +104,12 @@
     top: 58px;
     left: 268px;
     width: 100px;
+  }
+
+  @include x-small {
+    top: -12px;
+    left: 168px;
+    width: 80px;
   }
 }
 

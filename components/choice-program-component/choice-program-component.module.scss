@@ -54,7 +54,14 @@ $lines-to-show: 2;
     @include tablets {
       margin-right: 0;
     }
+
+    @include small {
+      margin-bottom: 70px;
+    }
   }
+
+  &__slider { max-width: 100%; }
+
 
   &__slider-wrap {
     position: relative;
@@ -76,10 +83,12 @@ $lines-to-show: 2;
     }
 
     @include tablets {
+      min-width: 320px;
       width: 590px;
     }
 
     @include small {
+      width: 100%;
       margin-bottom: 18px;
     }
 
@@ -109,7 +118,7 @@ $lines-to-show: 2;
       display: flex;
       justify-content: center;
       margin-right: 0;
-      width: 100%;
+      width: auto;
     }
   }
 
@@ -212,7 +221,7 @@ $lines-to-show: 2;
 
     @include tablets {
       padding-left: 0;
-      justify-content: center;
+      justify-content: space-evenly;
     }
   }
 }

@@ -23,6 +23,10 @@
       width: 100%;
     }
 
+    @include small {
+      font-size: 12px;
+    }
+
     &:hover {
       background-color: #C0343416;
     }

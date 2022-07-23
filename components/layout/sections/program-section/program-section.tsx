@@ -9,7 +9,7 @@ const ProgramSection = () => {
 		<div className={style.program_section}>
 			<div className="container">
 				<SeparatorLineComponent className={style.separate} title="выберите программу"/>
-				<div style={{ marginBottom: '115px' }}>
+				<div className={style.choice} style={{ marginBottom: '115px' }}>
 					<ChoiceProgramComponent />
 				</div>
 				<div className={style.tiles}>

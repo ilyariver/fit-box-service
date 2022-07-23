@@ -62,6 +62,10 @@ $tiles-bottom: 20px;
     @include small {
       left: 99px !important;
     }
+
+    @include x-small {
+      left: 0 !important;
+    }
   }
   .swiper-button-next {
     right: 425px !important;
@@ -80,6 +84,10 @@ $tiles-bottom: 20px;
 
     @include small {
       right: 100px !important;
+    }
+
+    @include x-small {
+      right: 0 !important;
     }
   }
 }

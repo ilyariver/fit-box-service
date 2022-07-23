@@ -1,3 +1,11 @@
+// `xsm` applies to x-small devices (portrait phones, less than 420px)
+@mixin xx-small {
+  @media (max-width: 419.98px) {
+    @content;
+  }
+}
+
+
 // `sm` applies to x-small devices (portrait phones, less than 576px)
 @mixin x-small {
   @media (max-width: 575.98px) {

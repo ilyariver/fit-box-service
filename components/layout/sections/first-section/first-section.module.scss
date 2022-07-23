@@ -44,6 +44,10 @@
   @include x-small {
     right: -36%;
   }
+
+  @include xx-small {
+    right: -46%;
+  }
 }
 
 .wrap_preview {
@@ -77,6 +81,11 @@
   @include tablets {
     font-size: 28px;
     line-height: 126.02%;
+  }
+
+  @include xx-small {
+    font-size: 26px;
+    line-height: 1.4;
   }
 }
 

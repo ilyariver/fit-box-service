@@ -9,8 +9,8 @@
       margin-right: 25px;
     }
 
-    @include large {
-      margin-right: 25px;
+    @include x-small {
+      margin-right: 0;
     }
   }
 
@@ -34,7 +34,7 @@
     }
 
     &--active {
-      opacity: 1;
+      opacity: 0.9;
     }
   }
 
