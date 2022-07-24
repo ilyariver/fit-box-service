@@ -12,12 +12,13 @@ import MapSection from '../sections/map-section/map-section'
 import PurposeSectionSwiper from '../sections/purpose-section-swiper/purpose-section-swiper'
 
 const Main = () => {
+	const largeScreen = 768
 	const [width, setWidth] = useState(false)
 	const [activeSwiper, setActiveSwiper] = useState(false)
 
 	const updateDimensions = () => {
 		if (typeof typeof window !== 'undefined') {
-			if (window.innerWidth > 768) {
+			if (window.innerWidth > largeScreen) {
 				setActiveSwiper(false)
 			} else {
 				setActiveSwiper(true)
@@ -26,7 +27,7 @@ const Main = () => {
 	}
 
 	useEffect(() => {
-		setWidth(window.innerWidth < 768)
+		setWidth(window.innerWidth < largeScreen)
 		if (typeof typeof window !== 'undefined') {
 			window.addEventListener('resize', updateDimensions)
 			return () => window.removeEventListener('resize', updateDimensions)
@@ -37,8 +38,8 @@ const Main = () => {
 		<main>
 			<FirstSection />
 			<section className={style.black_back} >
-				{ (!width && !activeSwiper) && <PurposeSection/> }
-				{ (width || activeSwiper) && <PurposeSectionSwiper/> }
+				{ (!width && !activeSwiper) && <PurposeSection /> }
+				{ (width || activeSwiper) && <PurposeSectionSwiper /> }
 				<ProgramSection />
 			</section>
 			<section className={style.yellow_back}>

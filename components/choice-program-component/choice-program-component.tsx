@@ -5,10 +5,10 @@ import WeekDaysIndicator from '../shared/week-days-indicator/week-days-indicator
 import MenuItem from './menu-item'
 import { ProgramMenuList } from '../../types/programTypes'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
-import { Navigation } from 'swiper';
+import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 
 const ChoiceProgramComponent = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
+import style from './comments-section.module.scss'
 import SectionTitle from '../../../shared/section-title/section-title'
 import FeedbackComponent from '../../../feedback-component/feedback-component'
 import { state } from '../../../../mockDate'
-import style from './comments-section.module.scss'
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';

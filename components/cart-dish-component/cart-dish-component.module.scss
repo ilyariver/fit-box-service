@@ -1,10 +1,16 @@
 @import '../../styles/scss/variables';
+@import '../../styles/scss/breakpoint';
 
 .cart-dish-component {
   padding: 15px 20px;
-  background: #fff;
+  background-color: #fff;
   border-radius: 23px;
   max-width: 230px;
+
+  @include large {
+    background-color: transparent;
+    max-width: 280px;
+  }
 
   &__img-wrap {
     margin-bottom: 12px;
@@ -14,6 +20,11 @@
     margin-bottom: 15px;
     width: 80%;
     font-weight: 600;
+
+    @include large {
+      width: auto;
+      font-size: 14px;
+    }
   }
 
   &__text {

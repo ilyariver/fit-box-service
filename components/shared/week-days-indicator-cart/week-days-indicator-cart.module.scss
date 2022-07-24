@@ -1,8 +1,13 @@
 @import "../../../styles/scss/variables";
+@import "../../../styles/scss/breakpoint";
 
 .week-days-indicator-cart {
   &:not(:last-child) {
     margin-right: 17px;
+
+    @include x-large {
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -14,14 +19,18 @@
     line-height: 52px;
     opacity: 0.5;
 
+    @include large {
+      margin-top: -43px;
+      font-size: 10px;
+    }
+
     &--active {
-      opacity: 1;
+      opacity: 0.9;
     }
   }
 
   &__btn {
-    width: 80px;
-    min-width: 80px;
+    width: 100%;
     height: 7px;
     border-radius: 9px;
     border: 1px solid #fff;
@@ -29,6 +38,7 @@
     opacity: 0.5;
     transition: opacity 0.2s;
     cursor: pointer;
+    text-align: center;
 
     &:not(&--active ):hover {
       opacity: 0.8;
@@ -37,7 +47,7 @@
 
     &--active {
       background-color: #fff;
-      opacity: 1;
+      opacity: 0.9;
     }
   }
 }

@@ -27,18 +27,26 @@
   }
 }
 
-// `xl` applies to large devices (desktops, less than 1200px)
+// `l` applies to large devices (desktops, less than 1200px)
 @mixin large {
   @media (max-width: 1199.98px) {
     @content;
   }
 }
 
-// `xxl` applies to x-large devices (large desktops, less than 1400px)
+// `xl` applies to x-large devices (x-large desktops, less than 1400px)
 @mixin x-large {
   @media (max-width: 1399.98px) {
     @content;
   }
 }
+
+// `xxl` applies to x-large devices (xx-large desktops, less than 1400px)
+@mixin xx-large {
+  @media (max-width: 1539.98px) {
+    @content;
+  }
+}
+
 
 

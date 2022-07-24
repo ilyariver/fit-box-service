@@ -12,9 +12,9 @@ const Order = () => {
 		<>
 			<Header/>
 			<OrderPage />
-			<ModalWindow active={activeModal}>
-				<CartComponent />
-			</ModalWindow>
+			{/*<ModalWindow active={activeModal}>*/}
+				{/*<CartComponent />*/}
+			{/*</ModalWindow>*/}
 		</>
 	)
 }

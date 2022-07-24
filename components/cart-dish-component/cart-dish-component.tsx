@@ -7,7 +7,7 @@ const CartDishComponent: FC<CartDishesTypes> = ({img, title, text}) => {
 	return (
 		<div className={style['cart-dish-component']}>
 			<div className={style['cart-dish-component__img-wrap']}>
-				<Image src={img} alt={title} width={190} height={137} placeholder="blur"/>
+				<Image src={img} alt={title} width={279} height={170} placeholder="blur"/>
 			</div>
 			<div className={style['cart-dish-component__title']} title={title}>{title}</div>
 			<div className={style['cart-dish-component__text']} title={title}>{text}</div>

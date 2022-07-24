@@ -1,45 +1,133 @@
 @import '../../styles/scss/variables';
+@import '../../styles/scss/breakpoint';
+
 $border: 2px;
-$width-container: 768px;
 
 .order-form-component {
   position: relative;
-  width: $width-container;
-  max-width: $width-container;
-  min-width: $width-container;
+  width: 768px;
   color: #fff;
   background: #00000091;
   background-clip: padding-box;
   border: solid $border transparent;
   border-radius: 24px;
-  padding: 70px 115px 80px;
+  padding: 70px 115px 60px;
+
+  @include large {
+    width: 660px;
+  }
+
+  @include small {
+    width: 530px;
+    padding: 39px 95px 80px;
+  }
+
+  @include x-small {
+    width: 100%;
+    padding: 39px 22px 40px;
+  }
 
   &__block {
     margin-bottom: 50px;
+
+    @include small {
+      margin-bottom: 40px;
+    }
+
+    &--inputs {
+      margin-bottom: 60px;
+
+      @include small {
+        margin-bottom: 20px;
+      }
+    }
+
+    &--date {
+      @include small {
+        margin-bottom: 20px;
+      }
+    }
   }
 
   &__area-title {
     margin-bottom: 25px;
     font-weight: 500;
     font-size: 18px;
+
+    &--pay {
+      @include small {
+        display: none;
+      }
+    }
+
+    &--promocode {
+      @include small {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+
+  .main_btn {
+    margin-bottom: 50px;
+
+    @include small {
+      margin-bottom: 40px;
+      height: 45px;
+    }
+  }
+
+  .main_btn_pay {
+    margin-bottom: 0;
+
+    @include small {
+      margin-bottom: 20px;
+      height: 45px;
+    }
   }
 
   &__inputs {
     display: flex;
     justify-content: space-between;
+
+    @include large {
+      flex-direction: column;
+    }
   }
 
   &__plan {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+
+    @include large {
+      flex-direction: column;
+    }
+  }
+
+  &__select-content {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include small {
+        margin-bottom: 42px;
+      }
+    }
   }
 
   &__address {
     margin-bottom: 30px;
+
+    @include small {
+      margin-bottom: 23px;
+    }
   }
 
   &__promocode {
-    margin-bottom: 40px;
+    @include small {
+      margin-bottom: 40px;
+    }
   }
 
   &:before {
@@ -88,6 +176,45 @@ $width-container: 768px;
   }
 }
 
+.selects {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+
+  @include large {
+    width: 100%;
+  }
+}
+
+.select {
+  width: 220px;
+
+  @include large {
+    width: 100%;
+  }
+}
+
+.date {
+  width: 220px;
+
+  @include large {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  @include small {
+    margin-bottom: 22px;
+  }
+}
+
+.select_time {
+  width: 135px;
+
+  @include large {
+    width: calc(100% / 2 - 20px);
+  }
+}
+
 .date::-webkit-calendar-picker-indicator {
   color: #fff;
   opacity: 1;
@@ -96,4 +223,16 @@ $width-container: 768px;
   width: 18px;
   height: 18px;
   //border-width: thin;
+}
+
+.main_btn_order {
+  width: 370px;
+
+  @include x-small {
+    width: 330px;
+  }
+
+  @include xx-small {
+    width: 100%;
+  }
 }

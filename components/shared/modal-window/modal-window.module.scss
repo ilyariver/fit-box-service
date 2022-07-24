@@ -1,4 +1,5 @@
 @import "../../../styles/scss/variables";
+@import "../../../styles/scss/breakpoint";
 
 .modal {
   display: flex;
@@ -25,12 +26,22 @@
   &__wrap {
     max-height: 100vh;
     padding: 40px 0;
+
+    @include small {
+      padding: 0;
+      width: 100%;
+    }
   }
 
   &__content {
     background-color: #fff;
     transform: translateY(-100%);
     transition: 0.2s $easing-back-out;
+
+    @include small {
+      height: 100%;
+      width: 100%;
+    }
 
     &.active {
       transform: translateY(0);

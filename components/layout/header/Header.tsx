@@ -76,7 +76,10 @@ const Header = () => {
                             </ul>
                         </nav>
                         <button
-                            onClick={() => modalActive()}
+                            onClick={() => {
+                                openRightMenu()
+                                modalActive()
+                            }}
                             className={style.cart_btn}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path

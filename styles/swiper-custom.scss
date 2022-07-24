@@ -1,4 +1,5 @@
 $tiles-bottom: 20px;
+$mergeCards: 10px;
 
 .choice-program-component_choice-program__slider-wrap__VgRoe {
   .swiper-button-next, .swiper-button-prev {
@@ -153,6 +154,144 @@ $tiles-bottom: 20px;
       height: 100%!important;
       min-width: 100%;
       margin-right: 35px !important;
+    }
+  }
+}
+
+.cart-component_cart-component__dishes__3dGEp {
+  .swiper {
+    margin: 0;
+  }
+  // **** кнопки навигации
+  .swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    top: 210px !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 3;
+
+    @include x-large {
+      top: 170px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      min-height: 30px !important;
+    }
+
+    @include large {
+      top: 104px !important;
+    }
+
+    @include tablets {
+      top: 104px !important;
+    }
+
+    @include small {
+      top: 102px !important;
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
+      min-height: 38px !important;
+    }
+
+    &:after {
+      font-size: 15px !important;
+      color: #FF576A;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background-color: darken(#fff, 10%);
+    }
+  }
+
+  .swiper-button-prev {
+    display: none !important;
+
+    @include tablets {
+      display: flex !important;
+      left: 20px !important;
+    }
+
+    @include small {
+      left: 99px !important;
+    }
+
+    @include x-small {
+      left: 0 !important;
+    }
+  }
+  .swiper-button-next {
+    right: 425px !important;
+
+    @include x-large {
+      right: 325px !important;
+    }
+
+    @include large {
+      right: 37px !important;
+    }
+
+    @include tablets {
+      right: 20px !important;
+    }
+
+    @include small {
+      right: 100px !important;
+    }
+
+    @include x-small {
+      right: 0 !important;
+    }
+  }
+// ****
+
+.swiper-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include large {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .swiper-slide {
+    width: calc(100% / 3 - #{$mergeCards}) !important;
+    height: auto;
+    margin-right: 0!important;
+
+    @include large {
+      display: flex;
+      justify-content: center;
+      width: 100% !important;
+    }
+
+    &:first-child {
+      margin-bottom: $mergeCards * 2;
+
+      @include xx-large {
+        margin-bottom: $mergeCards * 2;
+      }
+
+      @include large {
+        margin-bottom: 0;
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
