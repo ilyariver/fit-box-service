@@ -48,7 +48,7 @@ export const state = {
 			icon: location,
 			cities: [cities[0].title],
 		},
-		navigation: ['Рационы меню', 'Доставка и оплата', 'Обеды в офис']
+		navigation: [{ title:'Рационы меню', link: '#section-menu' }, { title:'Доставка и оплата', link: '#section-cost' }, { title:'Обеды в офис', link: '#section-lunch' }]
 	},
 	menu: [
 		{id:1, title: 'Омлет с куриным филе', img: plate},

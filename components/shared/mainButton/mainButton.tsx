@@ -10,6 +10,7 @@ export interface TextButton {
     right?: string
     pink?: boolean
     className?: string
+    disabled?: boolean
 }
 
 export const MainButton: FC<TextButton> = (
@@ -21,11 +22,13 @@ export const MainButton: FC<TextButton> = (
         bottom,
         right,
         pink = true,
-        className
+        className,
+        disabled
     }
     ) => {
     return (
         <button
+            disabled={disabled}
             onClick={onClick}
             style={
                 {

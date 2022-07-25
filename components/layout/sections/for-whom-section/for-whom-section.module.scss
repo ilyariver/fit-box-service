@@ -50,6 +50,17 @@
   }
 }
 
+.yellow_left {
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  z-index: -2;
+
+  @include large {
+    display: none;
+  }
+}
+
 .ellipse {
   position: absolute;
   width: 710px;
@@ -63,6 +74,17 @@
     width: 550px;
     left: 69%;
     bottom: -320px;
+  }
+}
+
+.yellow_right {
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  z-index: -2;
+
+  @include large {
+    display: none;
   }
 }
 
@@ -80,7 +102,7 @@
   }
   &_3 {
     bottom: 63px;
-    right: 31%;
+    left: 42%;
     z-index: 2;
   }
   &_4 {

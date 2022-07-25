@@ -266,21 +266,33 @@ $mergeCards: 10px;
   }
 
   .swiper-slide {
+    min-width: 200px;
     width: calc(100% / 3 - #{$mergeCards}) !important;
     height: auto;
-    margin-right: 0!important;
+    min-height: 255px;
+    margin-right: 0 !important;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 15px !important;
+    }
+
+    @include x-large {
+      min-width: 180px;
+      min-height: 245px
+    }
 
     @include large {
       display: flex;
       justify-content: center;
       width: 100% !important;
+      min-height: 240px
     }
 
     &:first-child {
-      margin-bottom: $mergeCards * 2;
+      margin-bottom: 15px;
 
-      @include xx-large {
-        margin-bottom: $mergeCards * 2;
+      @include large {
+        margin-bottom: 10px;
       }
 
       @include large {

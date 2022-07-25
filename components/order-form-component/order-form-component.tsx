@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './order-form-component.module.scss'
 import InputText from '../calculator-component/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
@@ -10,7 +10,6 @@ const OrderFormComponent = () => {
 	const { programs, optionsBtns } = useTypedSelector(plan => plan.program)
 	// const programss = useTypedSelector(plan => plan)
 
-	console.log(cities)
 	return (
 		<form className={style['order-form-component']}>
 			<div className={style['order-form-component__wrap']}>

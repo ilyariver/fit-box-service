@@ -5,7 +5,13 @@ export interface ProgramState {
 	weekdays: WeekdaysTypes[]
 	choiceWeek: WeekdaysTypes[]
 	optionsBtns: OptionsBtns[]
-	order?: OrderTypes
+	order: {
+		id: number
+		active: boolean
+		cost: number
+		numberOfDays: number
+		menu: ProgramTypes[]
+	}
 	cart: OrderTypes[]
 }
 
@@ -17,7 +23,7 @@ export interface ProgramTypes {
 }
 
 export interface MenuTypes {
-	title: string
+	title: { min: string, full: string }
 	active: boolean
 	menu: ProgramMenuList[]
 }
@@ -33,9 +39,9 @@ export interface OptionsBtns {
 }
 
 export interface OrderTypes {
-	id?: number
-	cost?: number
-	numberOfDays?: number
+	id: number
+	cost: number
+	numberOfDays: number
 }
 
 export interface ProgramTypeSet {
@@ -56,6 +62,7 @@ export interface ProgramMenuList {
 	title: string
 	productComposition: string
 	img: any
+	minImg: any
 }
 
 export type CartList = OrderTypes

@@ -16,9 +16,9 @@ const FaqSection = () => {
 			<div className="container">
 				<div className={style.buttons}>
 					{
-						typeFaq.map(item => {
+						typeFaq.map((item, idx) => {
 							return (
-								<div className={style.button_wrap} key={item.id}>
+								<div className={style.button_wrap} key={item.id} data-aos="fade-up" data-aos-delay={idx * 100}>
 									<OftenQuestionsBtn context={item} />
 								</div>
 							)
@@ -29,8 +29,11 @@ const FaqSection = () => {
 					{
 						typeFaq.map(item => {
 							if (item.active) {
-								return item.questions?.map((question, i) => {
-									return <AccordionComponent key={question.title + i} title={question.title} description={question.description} />
+								return item.questions?.map((question, idx) => {
+									return <div key={question.title + idx} data-aos="fade-up" data-aos-delay={idx * 100}>
+										<AccordionComponent
+										title={question.title}
+										description={question.description} /></div>
 								})
 							}
 						})

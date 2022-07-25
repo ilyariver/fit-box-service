@@ -5,15 +5,15 @@ import { useActions } from '../../../hooks/useAction'
 interface Weekday {
     title: string
     active: boolean
+    idx: number
 }
 
-const WeekDaysIndicator: FC<Weekday> = ({title, active}) => {
+const WeekDaysIndicator: FC<Weekday> = ({title, active, idx= 0}) => {
     const { weekdayActive } = useActions()
-
     const choiceWeekDay = () => weekdayActive(title)
 
     return (
-        <div className={style['weekday-indicator']}>
+        <div className={style['weekday-indicator']} data-aos="fade-up" data-aos-delay={idx * 100}>
             <button
                 onClick={choiceWeekDay}
                 aria-label={title}

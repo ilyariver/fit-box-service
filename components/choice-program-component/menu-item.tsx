@@ -10,7 +10,7 @@ interface WeekMenuTypes {
 const MenuItem: FC<WeekMenuTypes> = ({context}) => {
 
 	return (
-		<div className={style['choice-program__item']}>
+		<div className={style['choice-program__item']} data-aos="fade-top">
 			<figure className={style['choice-program__figure']}>
 				<div>
 					<div className={style['choice-program__img']}>

@@ -14,7 +14,7 @@ const MapSection = () => {
 				<iframe src="https://yandex.ru/map-widget/v1/-/CBR15MxKOD" width="100%" height="490" frameBorder="1"
 						allowFullScreen={true} style={{ position: 'relative', border: 'none', filter: 'brightness(0.8)' }}></iframe>
 			</div>
-			<div className={style.address}>
+			<div className={style.address} data-aos="fade-right" data-aos-delay="50">
 				<AddressServiceComponent
 					title={state.addressService.title}
 					description={state.addressService.description}

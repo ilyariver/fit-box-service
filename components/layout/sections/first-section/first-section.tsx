@@ -1,10 +1,11 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { useEffect } from 'react'
 import style from './first-section.module.scss'
+import Image from 'next/image'
+import Link from 'next/link'
 import { MainButton } from '../../../shared/mainButton/mainButton'
 import PreviewMenu from '../../../shared/preview-menu/preview-menu'
 import girl from '../../../../public/images/girl@x3.png'
-import Link from 'next/link'
+import girlEllipse from '../../../../public/images/girl-ellipse.svg'
 import { state } from '../../../../mockDate'
 
 const FirstSection = () => {
@@ -12,18 +13,21 @@ const FirstSection = () => {
 	return (
 		<section className={style.first_section}>
 			<div className="container">
-				<div className={style.girl_wrap}>
+				<div className={`${style.girl_wrap}`} data-aos="zoom-out">
 					<Image src={girl} alt="Девушка" width={637} height={786} />
 				</div>
-				<h1 className={style.title}>
+				<div className={style.girl_ellipse} data-aos="zoom-in" data-aos-delay="1000">
+					<Image src={girlEllipse} alt="Круг"/>
+				</div>
+				<h1 className={style.title} data-aos="fade-right" >
 					Правильное питание <br />с&nbsp;доставкой <br />в&nbsp;Ульяновске
 				</h1>
 				<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
-				<div style={{display: 'flex', marginBottom: "70px"}}>
+				<div style={{display: 'flex', marginBottom: '70px', position: 'relative', zIndex: 2}}>
 					{
-						state.menu.map(item => {
+						state.menu.map((item,idx) => {
 							return (
-								<div className={style.wrap_preview} key={item.id}>
+								<div className={style.wrap_preview} key={item.id} data-aos="zoom-out" data-aos-delay={idx * 500}>
 									<PreviewMenu text={item.title} img={item.img} />
 								</div>
 							)

@@ -9,13 +9,17 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { MainButton } from '../shared/mainButton/mainButton'
+import { useActions } from '../../hooks/useAction'
 
 
 const ChoiceProgramComponent = () => {
+	const { order, choiceWeek } = useTypedSelector(buttons => buttons.program)
+	const { placeAnOrderActive } = useActions()
 	let programsArray = useTypedSelector(state => state.program)
 	let currentWeekDay: ProgramMenuList[] = []
 
-	programsArray.choiceWeek
+	choiceWeek
 		.forEach(item => {
 			item.days.forEach(weekday => {
 				if (weekday.active && weekday.menu)
@@ -27,8 +31,8 @@ const ChoiceProgramComponent = () => {
 		<div className={style['choice-program']}>
 			<div className={style['choice-program__buttons']}>
 				{
-					programsArray.programs?.map(program =>
-						(<div className={style['choice-program__button']} key={program.type.title}>
+					programsArray.programs?.map((program, idx) =>
+						(<div className={style['choice-program__button']} key={program.type.title} data-aos="fade-up" data-aos-delay={`${idx * 200}`}>
 							<CaloriesChoiceBtn id={program.id} type={program.type} active={program.active} />
 						</div>))
 				}
@@ -38,7 +42,7 @@ const ChoiceProgramComponent = () => {
 					{
 						programsArray.programs?.map(program => {
 							if (program.active) {
-								return <CalculatorComponent key={program.id} program={program} numberDishes={currentWeekDay.length} />
+								return <CalculatorComponent key={program.id} program={program} numberDishes={currentWeekDay.length}/>
 							}
 						})
 					}
@@ -71,12 +75,18 @@ const ChoiceProgramComponent = () => {
 					<div className={style['choice-program__weekdays']}>
 						{
 							programsArray.choiceWeek.map(day => {
-								return day.days.map(day => {
-									return <WeekDaysIndicator key={day.title} title={day.title} active={day.active} />
+								return day.days.map((day,idx) => {
+									return <WeekDaysIndicator idx={idx} key={day.title.min} title={day.title.min} active={day.active} />
 								})
 							})
 						}
 					</div>
+					<MainButton
+						disabled={order.cost === 0}
+						className={`${style['choice-program__btn_mobile']} ${order.cost === 0 ? style.disabled : ''}`}
+						onClick={() => placeAnOrderActive()}
+						width="100%"
+						fontSize="18px">Добавить в корзину</MainButton>
 				</div>
 			</div>
 		</div>

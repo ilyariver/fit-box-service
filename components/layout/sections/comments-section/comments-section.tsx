@@ -34,8 +34,8 @@ const CommentsSection = () => {
 
 					>
 						{
-							state.feedbackPeople.map(person =>
-								<SwiperSlide key={person.name} className={style.comments_slide}>
+							state.feedbackPeople.map((person, idx) =>
+								<SwiperSlide data-aos="fade-down" data-aos-delay={idx * 100} key={person.name} className={style.comments_slide}>
 									<FeedbackComponent img={person.img} name={person.name} comment={person.comment} />
 								</SwiperSlide>)
 						}

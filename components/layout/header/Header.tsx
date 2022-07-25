@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useActions } from '../../../hooks/useAction'
 import style from './Header.module.scss'
 import { state } from '../../../mockDate'
-import { useActions } from '../../../hooks/useAction'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 
 const Header = () => {
     const [openMenu, setOpenMenu] = useState(false)
     const [transition, setTransition] = useState(false)
     const [activeHeader, setActiveHeader] = useState(false)
     const { modalActive } = useActions()
+    const { cart } = useTypedSelector(cartList => cartList.program)
 
     const openRightMenu = () => {
         setOpenMenu(!openMenu)
@@ -70,8 +72,8 @@ const Header = () => {
                         </div>
                         <nav className={style.navigator}>
                             <ul className={style.navigator_list}>
-                                {state.header.navigation.map(item => <li key={item} className={style.navigator_item}>
-                                    <a href="#" className={style.navigator_link}>{item}</a>
+                                {state.header.navigation.map(item => <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
+                                    <Link href={item.link} className={style.navigator_link}>{item.title}</Link>
                                 </li>)}
                             </ul>
                         </nav>
@@ -81,6 +83,7 @@ const Header = () => {
                                 modalActive()
                             }}
                             className={style.cart_btn}>
+                            <span className={`${style.quantity_of_goods} ${cart.length !== 0 ? style.active : ''}`}>{cart.length}</span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"

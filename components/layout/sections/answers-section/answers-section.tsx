@@ -14,8 +14,8 @@ const AnswersSection = () => {
 				<div className={style.content}>
 					<div className={style.wrap}>
 						{
-							state.howToWorkInfo.map(banner =>
-								<HowToWorks key={banner.title} title={banner.title} text={banner.text} img={banner.img} />)
+							state.howToWorkInfo.map((banner, idx) =>
+								<HowToWorks key={banner.title} title={banner.title} text={banner.text} img={banner.img} idx={idx}/>)
 						}
 					</div>
 				</div>

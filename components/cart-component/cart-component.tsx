@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 import style from './cart-component.module.scss'
-import dishMin from '../../public/images/dish-min.png'
-import dishMin2 from '../../public/images/dish-min2.png'
 import arrowIcon from '../../public/images/icons/icon-arrow-right.svg'
 import CartDishComponent from '../cart-dish-component/cart-dish-component'
 import WeekDaysIndicatorCart from '../shared/week-days-indicator-cart/week-days-indicator'
@@ -11,19 +9,30 @@ import OptionsDayBtn from '../shared/options-day-btn/options-day-btn'
 import { useActions } from '../../hooks/useAction'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import Link from 'next/link'
-import { state } from '../../mockDate'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { ProgramMenuList } from '../../types/programTypes'
 
 
 const CartComponent = () => {
 	const largeScreen = 1200
-	const { optionsBtns } = useTypedSelector(btns => btns.program)
+	const { optionsBtns, cart, choiceWeek } = useTypedSelector(btns => btns.program)
 	const { modalActive } = useActions()
 	const [widthCart, setWidthCart] = useState(false)
 	const [activeSwiper, setActiveSwiper] = useState(false)
+	let currentWeekDay: ProgramMenuList[] = []
+
+	choiceWeek
+		.forEach(item => {
+			item.days.forEach(weekday => {
+				if (weekday.active && weekday.menu)
+					return currentWeekDay = weekday.menu
+			})
+		})
+
+	console.log('cart', cart)
 
 	const updateDimensions = () => {
 		if (typeof typeof window !== 'undefined') {
@@ -53,17 +62,29 @@ const CartComponent = () => {
 			<div className={style['cart-component__left']}>
 				<div className={style['cart-component__week']}>
 					{
-						state.weekDays.map(weekday =>
-							<WeekDaysIndicatorCart
-								key={weekday.title}
-								title={weekday.title}
-								active={weekday.active}
-								classList={style.weekday} />)
+						choiceWeek.map(day => {
+							return day.days.map(weekday => {
+								return <WeekDaysIndicatorCart
+									key={weekday.title.min}
+									title={weekday.title.min}
+									active={weekday.active}
+									classList={style.weekday} />
+							})
+						})
 					}
 				</div>
-				<div className={style['cart-component__title']}>
-					Рацион питания на {"понедельник"}
-				</div>
+				{
+					choiceWeek.map(day => {
+						return day.days.map(weekday => {
+							if (weekday.active) {
+								return <div key={weekday.title.full} className={style['cart-component__title']}>
+									Рацион питания на {weekday.title.full}
+								</div>
+							}
+						})
+					})
+				}
+
 				<div className={style['cart-component__dishes']}>
 					<Swiper
 						enabled={true}
@@ -81,18 +102,30 @@ const CartComponent = () => {
 						}}
 					>
 						{
-							[1,2,3,4,5,6].map(dish => {
+							currentWeekDay.map((dish,idx) => {
 								return (
-									<SwiperSlide key={dish}>
+									5 >= idx && <SwiperSlide key={dish.id}>
 										<div className={style['cart-component__dish-wrap']}>
-											{ dish !== 6 && <CartDishComponent img={dishMin2} title="Омлет с куриным филе"
-																text="куриное филе, молоко, яйца, помидоры, соль, микрозелень"/> }
-											{ dish === 6 && <button className={style['next-btn']}>
-												<div className={style['next-btn__day']}>Понедельник</div>
+											<CartDishComponent
+												img={dish.minImg}
+												title={dish.title}
+												text={dish.productComposition}/>
+										</div>
+									</SwiperSlide>
+								)
+							})
+						}
+						{
+							currentWeekDay.map((dish,idx) => {
+								return (
+									dish.id === currentWeekDay.length && <SwiperSlide key={dish.id}>
+										<div className={style['cart-component__dish-wrap']}>
+											<button className={style['next-btn']}>
+												<div className={style['next-btn__day']}>Следующая программа</div>
 												<div className={style['next-btn__arrow']}>
 													<Image src={arrowIcon} />
 												</div>
-											</button> }
+											</button>
 										</div>
 									</SwiperSlide>
 								)
@@ -126,8 +159,9 @@ const CartComponent = () => {
 				</div>
 				{ (!widthCart && !activeSwiper) && <Link href={'/order'}>
 					<a>
-						<MainButton onClick={() => modalActive()} width="312px" fontSize="18px">Оформить
-							заказ</MainButton>
+						<MainButton onClick={() => modalActive()} width="312px" fontSize="18px">
+						  Оформить заказ
+						</MainButton>
 					</a>
 				</Link> }
 			</div>

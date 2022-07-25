@@ -18,10 +18,11 @@
   position: absolute;
   right: 0;
   bottom: -120px;
+  z-index: 2;
 
   @include x-large {
     width: 600px;
-    right: 5%;
+    right: -8%;
   }
 
   @include large {
@@ -47,6 +48,39 @@
 
   @include xx-small {
     right: -46%;
+  }
+}
+
+.girl_ellipse {
+  position: absolute;
+  bottom: -190px;
+  right: -55px;
+  z-index: 1;
+
+  @include x-large {
+    right: -285px;
+  }
+
+  @include large {
+    right: -145px;
+    bottom: -290px;
+    width: 620px;
+  }
+
+  @include tablets {
+    right: 35px;
+    bottom: -220px;
+    width: 440px;
+  }
+
+  @include small {
+    right: -135px;
+    bottom: -320px;
+  }
+
+  @include x-small {
+    right: -185px;
+    bottom: -320px;
   }
 }
 

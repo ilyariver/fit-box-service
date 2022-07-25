@@ -40,9 +40,9 @@ const Main = () => {
 			<section className={style.black_back} >
 				{ (!width && !activeSwiper) && <PurposeSection /> }
 				{ (width || activeSwiper) && <PurposeSectionSwiper /> }
-				<ProgramSection />
+				<ProgramSection/>
 			</section>
-			<section className={style.yellow_back}>
+			<section className={style.yellow_back} id="section-menu">
 				<AnswersSection />
 				<ForWhomSection />
 			</section>

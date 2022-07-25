@@ -125,6 +125,8 @@ $border: 2px;
   }
 
   &__promocode {
+    margin-bottom: 50px;
+
     @include small {
       margin-bottom: 40px;
     }

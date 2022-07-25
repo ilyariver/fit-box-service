@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Link from 'next/link'
 import style from './purpose-section.module.scss'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import Program from '../../../shared/program/program'
@@ -19,9 +20,14 @@ const PurposeSection = () => {
 							if (menu.active) {
 								return (
 									<div key={menu.id} className={style.left}>
-										<div className={style.title}>{menu.title}</div>
-										<div className={style.text}>{menu.text}</div>
-										<MainButton  width="230px">Выбрать программу</MainButton>
+										<div className={style.title}
+										 data-aos="fade-top">{menu.title}</div>
+										<div className={style.text}
+										 data-aos="fade-bottom"
+											 data-aos-delay="150">{menu.text}</div>
+										<Link href="#section-lunch">
+											<MainButton width="230px">Выбрать программу</MainButton>
+										</Link>
 									</div>
 								)
 							}
@@ -29,8 +35,8 @@ const PurposeSection = () => {
 					}
 					{<div className={style.buttons}>
 						{
-							buttonsActive.map(item => {
-								return (<div className={style.button_wrap} key={item.title}>
+							buttonsActive.map((item,idx) => {
+								return (<div className={style.button_wrap} key={item.title} data-aos="fade-up" data-aos-delay={`${idx * 100}`}>
 									<Program id={item.id} title={item.title} img={item.img} active={item.active}/>
 								</div>)
 							})
