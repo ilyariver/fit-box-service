@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Image from 'next/image'
 import style from './cart-component.module.scss'
 import arrowIcon from '../../public/images/icons/icon-arrow-right.svg'
@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { ProgramMenuList } from '../../types/programTypes'
+import NextProgramButton from '../shared/next-program-button/next-program-button'
 
 
 const CartComponent = () => {
@@ -120,12 +121,7 @@ const CartComponent = () => {
 								return (
 									dish.id === currentWeekDay.length && <SwiperSlide key={dish.id}>
 										<div className={style['cart-component__dish-wrap']}>
-											<button className={style['next-btn']}>
-												<div className={style['next-btn__day']}>Следующая программа</div>
-												<div className={style['next-btn__arrow']}>
-													<Image src={arrowIcon} />
-												</div>
-											</button>
+											<NextProgramButton />
 										</div>
 									</SwiperSlide>
 								)
@@ -142,18 +138,44 @@ const CartComponent = () => {
 						optionsBtns.map(btn => <OptionsDayBtn
 							key={btn.number}
 							number={btn.number}
-							active={btn.active}/>)
+							active={btn.active}
+							className={style['cart-component__options-btn']}/>)
 					}
 				</div>
-				<div className={style['cart-component__cCal']}>1300 Ккал</div>
-				<div className={style['cart-component__info']}>
-					<div className={style['cart-component__about-plan']}>
-						<div className={style['cart-component__program']}>Программа питания<br />«Классик»</div>
-						<div className={style['cart-component__description']}>
-							Пятиразовое питание на 2 000 ккал/день для
-							поддержания оптимальной формы при тренировках
-							и просто активном образе жизни
-						</div>
+				<div>
+					<div className={style['cart-component__programs-list-wrap']}>
+						<ul className={style['cart-component__programs-list']}>
+							<li className={style['cart-component__programs-item']}>
+								<div className={style['cart-component__cCal']}>1300 Ккал</div>
+								<div className={style['cart-component__about-plan']}>
+									<div className={style['cart-component__program']}>Программа питания «Классик»</div>
+								</div>
+							</li>
+							<li className={style['cart-component__programs-item']}>
+								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__about-plan']}>
+									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+								</div>
+							</li>
+							<li className={style['cart-component__programs-item']}>
+								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__about-plan']}>
+									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+								</div>
+							</li>
+							<li className={style['cart-component__programs-item']}>
+								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__about-plan']}>
+									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+								</div>
+							</li>
+							<li className={style['cart-component__programs-item']}>
+								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__about-plan']}>
+									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 					<div className={style['cart-component__cost']}>17960 ₽</div>
 				</div>

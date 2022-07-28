@@ -1,0 +1,39 @@
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/breakpoint';
+
+.next-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  line-height: 1.4;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  @include large {
+    display: none;
+  }
+
+  &:hover &__arrow {
+    transform: translateX(5px);
+  }
+
+  &__day {
+    margin-right: 20px;
+    font-size: 12px;
+
+    @include xx-large {
+      margin-right: auto;
+      font-size: 9px;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    width: 25px;
+    transform: translateX(0);
+    transition: transform 0.3s $easing-back-out;
+  }
+}

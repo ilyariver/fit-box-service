@@ -12,7 +12,7 @@ const FirstSection = () => {
 
 	return (
 		<section className={style.first_section}>
-			<div className="container">
+			<div className={`${style.container} container`}>
 				<div className={`${style.girl_wrap}`} data-aos="zoom-out">
 					<Image src={girl} alt="Девушка" width={637} height={786} />
 				</div>
@@ -23,7 +23,7 @@ const FirstSection = () => {
 					Правильное питание <br />с&nbsp;доставкой <br />в&nbsp;Ульяновске
 				</h1>
 				<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
-				<div style={{display: 'flex', marginBottom: '70px', position: 'relative', zIndex: 2}}>
+				<div className={style.previews}>
 					{
 						state.menu.map((item,idx) => {
 							return (

@@ -36,6 +36,7 @@ export interface WeekdaysTypes {
 export interface OptionsBtns {
 	number: number
 	active: boolean
+	className?: string
 }
 
 export interface OrderTypes {

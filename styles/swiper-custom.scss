@@ -1,5 +1,7 @@
-$tiles-bottom: 20px;
-$mergeCards: 10px;
+$mergeCards: 25px;
+$tiles-bottom: 35px;
+$mergeCards-xxl: 15px;
+$tiles-bottom-xxl: 25px;
 
 .choice-program-component_choice-program__slider-wrap__VgRoe {
   .swiper-button-next, .swiper-button-prev {
@@ -276,9 +278,15 @@ $mergeCards: 10px;
       margin-right: 15px !important;
     }
 
+    @include xx-large {
+      width: calc(100% / 3 - #{$mergeCards-xxl}) !important;
+      min-width: 140px;
+      min-height: 200px;
+    }
+
     @include x-large {
-      min-width: 180px;
-      min-height: 245px
+      min-width: 0;
+      min-height: 155px;
     }
 
     @include large {
@@ -289,7 +297,11 @@ $mergeCards: 10px;
     }
 
     &:first-child {
-      margin-bottom: 15px;
+      margin-bottom: $tiles-bottom;
+
+      @include xx-large {
+        margin-bottom: 15px;
+      }
 
       @include large {
         margin-bottom: 10px;
@@ -302,7 +314,7 @@ $mergeCards: 10px;
 
     &:last-child {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
     }
   }

@@ -13,8 +13,6 @@ const weekdays = [
 					{id:1,title:'Булгур с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Макароны с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:3,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:4,title:'Перлова с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:5,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -25,7 +23,6 @@ const weekdays = [
 					{id:2,title:'Трава с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:3,title:'Рожки с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Вермишель с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:5,title:'Воппер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -95,11 +92,6 @@ const weekdays = [
 					{id:3,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Перлова с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Геркулес с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -109,11 +101,6 @@ const weekdays = [
 					{id:3,title:'Рожки с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Вермишель с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Воппер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -123,11 +110,6 @@ const weekdays = [
 					{id:3,title:'Длинный текст с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Тестовый тест с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -137,11 +119,6 @@ const weekdays = [
 					{id:3,title:'ОВСянка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Еда с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Винигрет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -151,11 +128,6 @@ const weekdays = [
 					{id:3,title:'Вишневок пюре с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -165,11 +137,6 @@ const weekdays = [
 					{id:3,title:'Утка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Пицца с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Чиабатта с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -179,11 +146,6 @@ const weekdays = [
 					{id:3,title:'Творог с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:4,title:'Мюсли с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:5,title:'Сельдь с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:6,title:'Гречка с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:7,title:'Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:8,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:9,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
-					{id:10,title:'ПТитими с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 		]
@@ -197,6 +159,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'3Омлет с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Яблоки с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Груши с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -205,6 +168,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'Булгур с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Трава с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Гранат с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -213,6 +177,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'Бургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Чизбургер с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Семена тыквы с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -221,6 +186,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'ЧТо-то с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Геркулес с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Дыня с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -229,6 +195,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'Бигус с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Йогурт с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Творожная масса с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -237,6 +204,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'Курица с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Петух с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Бычок с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 			{
@@ -245,6 +213,7 @@ const weekdays = [
 				menu: [
 					{id:1,title:'Свекла с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 					{id:2,title:'Яблоко с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
+					{id:3,title:'Карамель с куриным филе', productComposition:'Куриное филе, молоко, яйца, помидоры, соль, микрозелень', img: dish, minImg: dishMin},
 				]
 			},
 		]

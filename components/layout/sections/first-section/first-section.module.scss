@@ -14,6 +14,10 @@
   }
 }
 
+.container {
+  padding-bottom: 70px;
+}
+
 .girl_wrap {
   position: absolute;
   right: 0;
@@ -94,10 +98,6 @@
       margin-right: 230px;
     }
   }
-
-  @include tablets {
-    display: none;
-  }
 }
 
 .title {
@@ -120,6 +120,16 @@
   @include xx-small {
     font-size: 26px;
     line-height: 1.4;
+  }
+}
+.previews {
+  position: relative;
+  display: flex;
+  margin-bottom: 70px;
+  z-index: 2;
+
+  @include tablets {
+    display: none;
   }
 }
 
