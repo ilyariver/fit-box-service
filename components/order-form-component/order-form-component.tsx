@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import style from './order-form-component.module.scss'
 import InputText from '../calculator-component/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
@@ -8,7 +7,6 @@ import { cities } from '../../mockDate'
 
 const OrderFormComponent = () => {
 	const { programs, optionsBtns } = useTypedSelector(plan => plan.program)
-	// const programss = useTypedSelector(plan => plan)
 
 	return (
 		<form className={style['order-form-component']}>
@@ -62,7 +60,7 @@ const OrderFormComponent = () => {
 								}) }
 							</select>
 							<select className={`${style['select']} ${style['select_time']}`}>
-								<option value=""></option>
+								<option value=""> </option>
 								{ Array.from(Array(60).keys()).map(button => {
 									return <option key={button} value={button++}>{button++}</option>
 								}) }
@@ -81,7 +79,7 @@ const OrderFormComponent = () => {
 					</div>
 				</div>
 				<div style={{display: 'flex', justifyContent: 'center'}}>
-					<MainButton className={style.main_btn_order}  fontSize="18px" >Оформить заказ</MainButton>
+					<MainButton className={style.main_btn_order} fontSize="18px" >Оформить заказ</MainButton>
 				</div>
 			</div>
 		</form>

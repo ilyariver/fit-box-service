@@ -28,7 +28,7 @@ const Main = () => {
 
 	useEffect(() => {
 		setWidth(window.innerWidth < largeScreen)
-		if (typeof typeof window !== 'undefined') {
+		if (typeof window !== 'undefined') {
 			window.addEventListener('resize', updateDimensions)
 			return () => window.removeEventListener('resize', updateDimensions)
 		}
@@ -42,7 +42,7 @@ const Main = () => {
 				{ (width || activeSwiper) && <PurposeSectionSwiper /> }
 				<ProgramSection/>
 			</section>
-			<section className={style.yellow_back} id="section-menu">
+			<section className={style.yellow_back}>
 				<AnswersSection />
 				<ForWhomSection />
 			</section>

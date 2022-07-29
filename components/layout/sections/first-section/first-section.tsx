@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import style from './first-section.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,7 +21,11 @@ const FirstSection = () => {
 				<h1 className={style.title} data-aos="fade-right" >
 					Правильное питание <br />с&nbsp;доставкой <br />в&nbsp;Ульяновске
 				</h1>
-				<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
+				<Link href="#section-menu">
+					<a>
+						<MainButton width="214px" bottom="35px">Выбрать меню</MainButton>
+					</a>
+				</Link>
 				<div className={style.previews}>
 					{
 						state.menu.map((item,idx) => {

@@ -27,7 +27,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes } ) => {
 						<div className={`${style['calculator-component__title']} ${controlTitleFS ? style['little-title'] : ''}`} >{program.type.title}</div>
 						<div className={style['calculator-component__cCal']}>{program.type.cCal} ккал</div>
 					</div>
-					<div className={style['calculator-component__right']} data-aos="fade-bottom" data-aos-delay="50">
+					<div className={style['calculator-component__right']} data-aos="fade-bottom" data-aos-delay="150">
 						<div className={style['calculator-component__description']}>{program.offer.description.text}</div>
 						<div className={style['calculator-component__text']}>
 							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за {program.offer.description.cost} ₽
@@ -44,7 +44,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes } ) => {
 					}
 				</div>
 			</div>
-			<div className={style['calculator-component__dividing-line']}></div>
+			<div className={style['calculator-component__dividing-line']}> </div>
 			<div className={style['calculator-component__total-wrap']}>
 				<div className={style['calculator-component__total-text-wrap']}>
 					<div className={style['calculator-component__total-text']}>
@@ -54,8 +54,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes } ) => {
 					<div className={style['calculator-component__total-sum']}>{ order.cost } ₽</div>
 				</div>
 				<MainButton
-					disabled={order.cost === 0}
-					className={`${style.btn} ${order.cost === 0 ? style.disabled : ''}`}
+					className={style.btn}
 					onClick={() => placeAnOrderActive()}
 					width="100%"
 					fontSize="18px">Добавить в корзину</MainButton>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import style from './purpose-section-swiper.module.scss'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import Program from '../../../shared/program/program'
@@ -43,7 +43,11 @@ const PurposeSectionSwiper = () => {
 						}
 					</Swiper>
 					<div className={style.main_button}>
-						<MainButton width="178px" fontSize="14px" className={style.tablets}>Выбрать программу</MainButton>
+						<Link href="#section-menu" >
+							<a>
+								<MainButton width="178px" fontSize="14px" className={style.tablets}>Выбрать программу</MainButton>
+							</a>
+						</Link>
 					</div>
 				</div>
 			</div>

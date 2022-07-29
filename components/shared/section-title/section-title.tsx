@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import style from './section-title.module.scss'
 
 interface SectionTitleTypes {

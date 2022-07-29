@@ -25,8 +25,10 @@ const PurposeSection = () => {
 										<div className={style.text}
 										 data-aos="fade-bottom"
 											 data-aos-delay="150">{menu.text}</div>
-										<Link href="#section-lunch">
-											<MainButton width="230px">Выбрать программу</MainButton>
+										<Link href="#section-menu">
+											<a>
+												<MainButton width="230px">Выбрать программу</MainButton>
+											</a>
 										</Link>
 									</div>
 								)

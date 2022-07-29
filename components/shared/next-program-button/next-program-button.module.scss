@@ -27,6 +27,10 @@
       margin-right: auto;
       font-size: 9px;
     }
+
+    @include large {
+      margin-bottom: 6px;
+    }
   }
 
   &__arrow {

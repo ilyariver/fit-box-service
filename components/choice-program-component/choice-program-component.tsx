@@ -14,7 +14,7 @@ import { useActions } from '../../hooks/useAction'
 
 
 const ChoiceProgramComponent = () => {
-	const { order, choiceWeek } = useTypedSelector(buttons => buttons.program)
+	const { choiceWeek } = useTypedSelector(buttons => buttons.program)
 	const { placeAnOrderActive } = useActions()
 	let programsArray = useTypedSelector(state => state.program)
 	let currentWeekDay: ProgramMenuList[] = []
@@ -57,12 +57,12 @@ const ChoiceProgramComponent = () => {
 							navigation
 							breakpoints={{
 								1200: {
-									slidesPerView: 1.59,
-								}
+									slidesPerView: 1.65,
+								},
 							}}
 						>
 							{
-								currentWeekDay.map((day,i) => {
+								currentWeekDay.map(day => {
 									return (
 										<SwiperSlide key={day.id}>
 											{ <MenuItem context={day} /> }
@@ -82,8 +82,7 @@ const ChoiceProgramComponent = () => {
 						}
 					</div>
 					<MainButton
-						disabled={order.cost === 0}
-						className={`${style['choice-program__btn_mobile']} ${order.cost === 0 ? style.disabled : ''}`}
+						className={style['choice-program__btn_mobile']}
 						onClick={() => placeAnOrderActive()}
 						width="100%"
 						fontSize="18px">Добавить в корзину</MainButton>

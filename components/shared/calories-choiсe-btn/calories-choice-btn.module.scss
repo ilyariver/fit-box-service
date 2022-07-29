@@ -58,6 +58,10 @@
     @include tablets {
       font-size: 16px;
     }
+
+    @include x-small {
+      font-size: 13px;
+    }
   }
 
   &__cCal {

@@ -10,7 +10,7 @@ interface AboutServiceTypes {
 const AboutServiceComponent: FC<AboutServiceTypes> = ({title, description}) => {
 	return (
 		<div className={style['about-service-component']}
-			 data-aos="flip-left"
+			 data-aos="fade-right"
 			 data-aos-offset="200">
 			<h3 className={style['about-service-component__title']}>{title}</h3>
 			<p className={style['about-service-component__description']}>{description}</p>

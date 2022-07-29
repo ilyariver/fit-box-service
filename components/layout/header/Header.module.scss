@@ -2,6 +2,34 @@
 @import '../../../styles/scss/responsive';
 @import '../../../styles/scss/breakpoint';
 
+.fixed_cart {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  right: 30px;
+  bottom: 30px;
+  background-color: #fff;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 14px 0 #00000038;
+
+  @include large {
+    display: flex;
+  }
+
+  @include small {
+    right: 20px;
+  }
+}
+
+.cart_number {
+  top: -16px!important;
+  left: -14px!important;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -66,11 +94,7 @@
     }
 
     @include x-small {
-      font-size: 10px;
-    }
-
-    @include xx-small {
-      font-size: 8px;
+      font-size: 11px;
     }
   }
 
@@ -156,8 +180,13 @@
   margin-left: 5px;
 
   @include large {
+    margin: 0;
     cursor: auto;
   }
+}
+
+.phone_text {
+  padding-left: 10px;
 }
 
 .phone_icon {
@@ -175,10 +204,15 @@
 
   &_cities {
     margin-left: 15px;
+
+    @include small {
+      margin-left: 10px;
+    }
   }
 
   @include large {
     cursor: auto;
+    margin-right: 0;
   }
 }
 
@@ -230,42 +264,5 @@
         cursor: auto;
       }
     }
-  }
-}
-
-.cart_btn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  @include large {
-    cursor: auto;
-  }
-}
-
-.quantity_of_goods {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: -11px;
-  left: -10px;
-  width: 20px;
-  height: 20px;
-  background-color: $color-yellow;
-  border-radius: 50%;
-  color: $color-black;
-  font-size: 11px;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.2s $easing-back-out;
-
-  &.active {
-    transform: scale(1);
-    opacity: 0.9;
   }
 }

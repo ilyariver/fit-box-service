@@ -67,8 +67,9 @@
     }
 
     @include large {
-      background: transparent;
+      margin-bottom: 20px;
       padding: 50px 90px 0;
+      background: transparent;
       width: 100%;
     }
 
@@ -77,7 +78,7 @@
     }
 
     @include x-small {
-      padding: 40px 15px 0;
+      padding: 45px 15px 0;
     }
   }
 
@@ -115,7 +116,7 @@
     }
 
     @include small {
-      top: 25px;
+      top: 30px;
       right: 30px;
     }
 
@@ -193,6 +194,13 @@
     }
   }
 
+  &__programs-description {
+    @include large {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__programs-list-wrap {
     min-height: 340px;
     max-height: 340px;
@@ -207,6 +215,12 @@
     @include x-large {
       min-height: 110px;
       max-height: 110px;
+    }
+
+    @include large {
+      min-height: auto;
+      max-height: none;
+      margin-bottom: 0;
     }
 
     /* Работает в Firefox */
@@ -244,10 +258,22 @@
     @include x-large {
       margin-bottom: 10px;
     }
+
+    @include large {
+      border-bottom: none;
+
+      &:not(:first-child) {
+        display: none;
+      }
+    }
   }
 
   &__about-plan {
     padding: 10px 0 25px;
+
+    @include large {
+      padding: 10px 0 0;
+    }
   }
 
   &__cCal {
@@ -287,14 +313,13 @@
   }
 
   &__description {
+    display: none;
     line-height: 1.45;
-    font-size: 18px;
-
-    @include x-large {
-      font-size: 16px;
-    }
 
     @include large {
+      display: block;
+      width: 90%;
+
       font-size: 12px;
     }
   }
@@ -303,6 +328,7 @@
     margin-bottom: 30px;
     font-weight: 500;
     font-size: 50px;
+    white-space: nowrap;
     color: #ffffff80;
 
     @include xx-large {
@@ -311,7 +337,8 @@
 
     @include large {
       margin-bottom: 0;
-      width: 300px;
+      padding-top: 24px;
+      width: 120px;
       font-size: 24px;
     }
 
@@ -319,6 +346,10 @@
       width: 260px;
       white-space: nowrap;
     }
+  }
+
+  &__sum {
+    margin-bottom: 45px;
   }
 }
 
@@ -334,5 +365,17 @@
 
   @include large {
     width: calc(100% / 7 - 20px);
+  }
+}
+
+.next_btn {
+  display: none!important;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  white-space: normal;
+
+  @include large {
+    display: flex!important;
   }
 }

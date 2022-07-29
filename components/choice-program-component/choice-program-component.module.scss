@@ -49,7 +49,7 @@ $lines-to-show: 2;
   }
 
   &__calc-wrap {
-    margin-right: 32px;
+    //margin-right: 32px;
 
     @include tablets {
       margin-right: 0;
@@ -69,14 +69,14 @@ $lines-to-show: 2;
   &__slider-wrap {
     position: relative;
     margin-bottom: 50px;
-    width: 1150px;
+    width: 1190px;
 
     @include x-large {
-      width: 880px;
+      width: 900px;
     }
 
     @include large {
-      width: 520px;
+      width: 580px;
       padding-left: 60px;
     }
 
@@ -92,11 +92,11 @@ $lines-to-show: 2;
 
     @include small {
       width: 100%;
-      margin-bottom: 18px;
+      margin-bottom: 60px;
     }
 
     @include x-small {
-      margin-bottom: 23px;
+      margin-bottom: 45px;
     }
   }
 
@@ -110,7 +110,8 @@ $lines-to-show: 2;
     color: #fff;
 
     @include x-large {
-      width: 530px;
+      margin-right: 0;
+      width: 470px;
     }
 
     @include large {
@@ -184,6 +185,10 @@ $lines-to-show: 2;
       -webkit-box-orient: unset;
     }
 
+    @include large {
+      margin-right: 15px;
+    }
+
     @include tablets {
       height: auto;
       margin-right: 0;
@@ -222,9 +227,14 @@ $lines-to-show: 2;
     display: flex;
     padding-left: 20px;
 
-    @include tablets {
+    @include large {
       padding-left: 0;
+      padding-right: 40px;
       justify-content: space-evenly;
+    }
+
+    @include small {
+      padding: 0;
     }
   }
 

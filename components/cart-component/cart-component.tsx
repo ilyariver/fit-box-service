@@ -1,7 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import Image from 'next/image'
 import style from './cart-component.module.scss'
-import arrowIcon from '../../public/images/icons/icon-arrow-right.svg'
 import CartDishComponent from '../cart-dish-component/cart-dish-component'
 import WeekDaysIndicatorCart from '../shared/week-days-indicator-cart/week-days-indicator'
 import { MainButton } from '../shared/mainButton/mainButton'
@@ -18,7 +16,7 @@ import NextProgramButton from '../shared/next-program-button/next-program-button
 
 
 const CartComponent = () => {
-	const largeScreen = 1200
+	const largeScreen = 1199.98
 	const { optionsBtns, cart, choiceWeek } = useTypedSelector(btns => btns.program)
 	const { modalActive } = useActions()
 	const [widthCart, setWidthCart] = useState(false)
@@ -117,7 +115,7 @@ const CartComponent = () => {
 							})
 						}
 						{
-							currentWeekDay.map((dish,idx) => {
+							currentWeekDay.map(dish => {
 								return (
 									dish.id === currentWeekDay.length && <SwiperSlide key={dish.id}>
 										<div className={style['cart-component__dish-wrap']}>
@@ -131,7 +129,7 @@ const CartComponent = () => {
 				</div>
 			</div>
 			<div className={style['cart-component__right']}>
-				<button onClick={() => modalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"></button>
+				<button onClick={() => modalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
 				<div className={style['cart-component__right-title']}>Количество дней</div>
 				<div className={style['cart-component__buttons-group']}>
 					{
@@ -142,7 +140,7 @@ const CartComponent = () => {
 							className={style['cart-component__options-btn']}/>)
 					}
 				</div>
-				<div>
+				<div className={style['cart-component__programs-description']}>
 					<div className={style['cart-component__programs-list-wrap']}>
 						<ul className={style['cart-component__programs-list']}>
 							<li className={style['cart-component__programs-item']}>
@@ -152,32 +150,39 @@ const CartComponent = () => {
 								</div>
 							</li>
 							<li className={style['cart-component__programs-item']}>
-								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__cCal']}>1300 Ккал</div>
 								<div className={style['cart-component__about-plan']}>
-									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+									<div className={style['cart-component__program']}>Программа питания «Классик»</div>
 								</div>
 							</li>
 							<li className={style['cart-component__programs-item']}>
-								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__cCal']}>1300 Ккал</div>
 								<div className={style['cart-component__about-plan']}>
-									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+									<div className={style['cart-component__program']}>Программа питания «Классик»</div>
 								</div>
 							</li>
 							<li className={style['cart-component__programs-item']}>
-								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__cCal']}>1300 Ккал</div>
 								<div className={style['cart-component__about-plan']}>
-									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+									<div className={style['cart-component__program']}>Программа питания «Классик»</div>
 								</div>
 							</li>
 							<li className={style['cart-component__programs-item']}>
-								<div className={style['cart-component__cCal']}>1250 Ккал</div>
+								<div className={style['cart-component__cCal']}>1300 Ккал</div>
 								<div className={style['cart-component__about-plan']}>
-									<div className={style['cart-component__program']}>Программа питания «Классик&nbsp;мини»</div>
+									<div className={style['cart-component__program']}>Программа питания «Классик»</div>
 								</div>
 							</li>
 						</ul>
+						<div className={style['cart-component__description']}>
+							Пятиразовое питание на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни
+						</div>
 					</div>
-					<div className={style['cart-component__cost']}>17960 ₽</div>
+					<div className={style['cart-component__cost']}>
+						<div className={style['cart-component__sum']}>17960 ₽</div>
+						<NextProgramButton className={style.next_btn}/>
+					</div>
+
 				</div>
 				{ (!widthCart && !activeSwiper) && <Link href={'/order'}>
 					<a>
