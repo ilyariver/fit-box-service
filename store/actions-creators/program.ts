@@ -14,6 +14,9 @@ export const numberOfDaysActive = (payload: number): ProgramAction => {
 }
 
 export const placeAnOrderActive = (): ProgramAction => {
-	return { type: ProgramActionTypes.PLACE_AN_ORDER }
+	return { type: ProgramActionTypes.ADD_TO_CART }
 }
 
+export const nextMenuCards = (payload: number): ProgramAction => {
+	return { type: ProgramActionTypes.NEXT_CARDS, payload }
+}

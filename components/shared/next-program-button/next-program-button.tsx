@@ -4,9 +4,9 @@ import Image from 'next/image'
 import arrowIcon from '../../../public/images/icons/icon-arrow-right.svg'
 import { NextProgramButtonTypes } from '../../../types/nextProgramButtonTypes'
 
-const NextProgramButton: FC<NextProgramButtonTypes> = ({className}) => {
+const NextProgramButton: FC<NextProgramButtonTypes> = ({className, onClick}) => {
 	return (
-		<button className={`${style['next-btn']} ${className}`}>
+		<button className={`${style['next-btn']} ${className}`} onClick={onClick}>
 			<div className={style['next-btn__day']}>Следующая программа</div>
 			<div className={style['next-btn__arrow']}>
 				<Image src={arrowIcon} alt="Стрелка"/>

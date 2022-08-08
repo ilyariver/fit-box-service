@@ -10,12 +10,10 @@
     width: 1000px;
   }
 
-  @include x-large {
-  }
-
   @include large {
     flex-direction: column-reverse;
     width: 610px;
+    min-height: 520px;
     background-image: $gradient-black;
   }
 
@@ -26,11 +24,13 @@
   }
 
   &__left {
+    min-height: 810px;
     width: 61%;
     padding: 27px 40px 60px 40px;
     background-color: $color-green;
 
     @include xx-large {
+      min-height: 650px;
       padding: 30px;
     }
 
@@ -38,6 +38,7 @@
       display: flex;
       flex-direction: column-reverse;
       width: 100%;
+      min-height: auto;
       padding: 0 90px 0;
       background-color: transparent;
     }
@@ -45,12 +46,7 @@
     @include small {
       padding: 0 30px 0;
     }
-
-    @include x-small {
-      padding: 0 15px 0;
-    }
   }
-
   &__right {
     position: relative;
     width: 42%;
@@ -78,7 +74,7 @@
     }
 
     @include x-small {
-      padding: 45px 15px 0;
+      padding: 45px 30px 0;
     }
   }
 
@@ -110,6 +106,8 @@
     opacity: 0.8;
     transform: rotate(0);
     transition: opacity 0.2s ease-in, transform 0.3s ease;
+    pointer-events: all;
+    z-index: 5;
 
     @include xx-large {
       top: 20px;
@@ -145,6 +143,30 @@
   &__dish-wrap {
     @include large {
       color: #fff;
+    }
+  }
+
+  &__empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    color: #30a343;
+    text-shadow: 0px -1px 0 #13640e8c;
+    -webkit-background-clip: text;
+
+    @include large {
+      color: #3d3d3d;
+      text-shadow: 0px -1px 0 #0000008c;
+    }
+
+    @include small {
+      height: 100vh;
+      color: #303030;
+      text-shadow: 0px -1px 0 rgb(0 0 0 / 60%);
+      font-size: 35px;
     }
   }
 
@@ -248,8 +270,8 @@
   }
 
   &__programs-item {
-    margin-bottom: 35px;
-    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff3;
 
     @include xx-large {
       margin-bottom: 20px;
@@ -269,7 +291,7 @@
   }
 
   &__about-plan {
-    padding: 10px 0 25px;
+    padding: 10px 0 20px;
 
     @include large {
       padding: 10px 0 0;
@@ -277,7 +299,6 @@
   }
 
   &__cCal {
-    font-size: 18px;
     color: #ffffff80;
 
     @include xx-large {
@@ -295,9 +316,21 @@
   }
 
   &__program {
+    position: relative;
     line-height: 1.3;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
+
+    &.active {
+      color: #ffffff;
+      text-shadow: 0 0 10px #6a80ff;
+      font-weight: 600;
+
+      @include large {
+        text-shadow: none;
+        font-weight: 400;
+      }
+    }
 
     @include xx-large {
       font-size: 16px;
@@ -309,6 +342,14 @@
 
     @include small {
       margin-bottom: 10px;
+    }
+  }
+
+  &__programs-list-mobile {
+    display: none;
+
+    @include large {
+      display: block;
     }
   }
 

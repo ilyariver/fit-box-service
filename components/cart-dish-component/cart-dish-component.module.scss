@@ -32,6 +32,10 @@ $lines-to-show: 2;
 
   }
 
+  @include x-small {
+    min-width: 170px;
+  }
+
   &__img-wrap {
     margin-bottom: 12px;
   }

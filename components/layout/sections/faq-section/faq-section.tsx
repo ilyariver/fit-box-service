@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './faq-section.module.scss'
 import SectionTitle from '../../../shared/section-title/section-title'
 import OftenQuestionsBtn from '../../../shared/often-questions-btn/often-questions-btn'
 import AccordionComponent from '../../../accordion-component/accordion-component'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import Aos from 'aos'
 
 const FaqSection = () => {
 	const typeFaq = useTypedSelector(active => active.faq)
+
+	useEffect(() => {
+		Aos.init({
+			disable: false,
+			once: true,
+			duration: 800,
+		})
+	}, [])
 
 	return (
 		<div className={style.faq}>

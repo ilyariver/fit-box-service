@@ -15,7 +15,7 @@ const FirstSection = () => {
 				<div className={`${style.girl_wrap}`} data-aos="zoom-out">
 					<Image src={girl} alt="Девушка" width={637} height={786} />
 				</div>
-				<div className={style.girl_ellipse} data-aos="zoom-in" data-aos-delay="1000">
+				<div className={style.girl_ellipse} data-aos-duration="1500" data-aos="zoom-in" data-aos-delay="1000">
 					<Image src={girlEllipse} alt="Круг"/>
 				</div>
 				<h1 className={style.title} data-aos="fade-right" >

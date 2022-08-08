@@ -228,12 +228,16 @@ $lines-to-show: 2;
     padding-left: 20px;
 
     @include large {
-      padding-left: 0;
-      padding-right: 40px;
+      padding-left: 30px;
+      padding-right: 70px;
       justify-content: space-evenly;
     }
 
-    @include small {
+    @include tablets {
+      padding: 0 30px;
+    }
+
+    @include x-small {
       padding: 0;
     }
   }

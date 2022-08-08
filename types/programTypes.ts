@@ -10,7 +10,8 @@ export interface ProgramState {
 		active: boolean
 		cost: number
 		numberOfDays: number
-		menu: ProgramTypes[]
+		number: number
+		menu: ProgramTypes | null
 	}
 	cart: OrderTypes[]
 }
@@ -40,9 +41,11 @@ export interface OptionsBtns {
 }
 
 export interface OrderTypes {
+	menu: any
 	id: number
 	cost: number
 	numberOfDays: number
+	active: boolean
 }
 
 export interface ProgramTypeSet {
@@ -72,7 +75,8 @@ export enum ProgramActionTypes {
 	SET_ACTIVE_SET = 'SET_ACTIVE_SET',
 	CHOICE_WEEK_DAY = 'CHOICE_WEEK_DAY',
 	SET_NUMBER_OF_DAYS = 'SET_NUMBER_OF_DAYS',
-	PLACE_AN_ORDER = 'PLACE_AN_ORDER'
+	ADD_TO_CART = 'ADD_TO_CART',
+	NEXT_CARDS = 'NEXT_CARDS'
 }
 
 interface ActiveProgramSetAction {
@@ -91,8 +95,13 @@ interface SetNumberOfDaysAction {
 }
 
 interface PlaceOrderAction {
-	type: ProgramActionTypes.PLACE_AN_ORDER
+	type: ProgramActionTypes.ADD_TO_CART
+}
+
+interface GetNextCardsAction {
+	type: ProgramActionTypes.NEXT_CARDS
+	payload: number
 }
 
 export type ProgramAction =
-	ActiveProgramSetAction | SetWeekdayAction | SetNumberOfDaysAction | PlaceOrderAction
+	ActiveProgramSetAction | SetWeekdayAction | SetNumberOfDaysAction | PlaceOrderAction | GetNextCardsAction

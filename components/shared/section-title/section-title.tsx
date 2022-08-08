@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import style from './section-title.module.scss'
+import Aos from 'aos'
 
 interface SectionTitleTypes {
     title: string
@@ -8,6 +9,11 @@ interface SectionTitleTypes {
 }
 
 const SectionTitle: FC<SectionTitleTypes> = ({title, color, className}) => {
+    useEffect(() => {
+        Aos.init({
+            disable: false,
+        })
+    }, [])
 
     return (
         <div data-aos="fade-left"

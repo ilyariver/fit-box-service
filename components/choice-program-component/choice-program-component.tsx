@@ -1,4 +1,5 @@
 import style from './choice-program-component.module.scss'
+import dynamic from 'next/dynamic'
 import CaloriesChoiceBtn from '../shared/calories-choiсe-btn/calories-choiсe-btn'
 import CalculatorComponent from '../calculator-component/calculator-component'
 import WeekDaysIndicator from '../shared/week-days-indicator/week-days-indicator'
@@ -11,6 +12,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { MainButton } from '../shared/mainButton/mainButton'
 import { useActions } from '../../hooks/useAction'
+
 
 
 const ChoiceProgramComponent = () => {
@@ -55,6 +57,7 @@ const ChoiceProgramComponent = () => {
 							modules={[Navigation]}
 							slidesPerView={1}
 							navigation
+							loopAdditionalSlides={5}
 							breakpoints={{
 								1200: {
 									slidesPerView: 1.65,
@@ -62,9 +65,9 @@ const ChoiceProgramComponent = () => {
 							}}
 						>
 							{
-								currentWeekDay.map(day => {
+								currentWeekDay.map((day,idx) => {
 									return (
-										<SwiperSlide key={day.id}>
+										<SwiperSlide key={day.id + idx}>
 											{ <MenuItem context={day} /> }
 										</SwiperSlide>
 									)

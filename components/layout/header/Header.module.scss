@@ -5,19 +5,15 @@
 .fixed_cart {
   display: none;
   position: fixed;
-  justify-content: center;
-  align-items: center;
   right: 30px;
-  bottom: 30px;
+  bottom: 70px;
   background-color: #fff;
-  min-width: 60px;
-  min-height: 60px;
+  box-shadow: 0 0 14px 0 #00000038;
   border-radius: 50%;
   z-index: 3;
-  box-shadow: 0 0 14px 0 #00000038;
 
   @include large {
-    display: flex;
+    display: block;
   }
 
   @include small {
@@ -26,8 +22,7 @@
 }
 
 .cart_number {
-  top: -16px!important;
-  left: -14px!important;
+  top: 4px!important;
 }
 
 .header {

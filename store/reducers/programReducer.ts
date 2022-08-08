@@ -485,7 +485,7 @@ const programs = [
 		id: 2,
 		active: false,
 		type: {
-			title: 'Офис +',
+			title: 'Офис\u00A0+',
 			cCal: 350
 		},
 		offer: {
@@ -545,7 +545,7 @@ const programs = [
 		id: 6,
 		active: false,
 		type: {
-			title: 'Классик +',
+			title: 'Классик\u00A0+',
 			cCal: 250
 		},
 		offer: {
@@ -571,11 +571,16 @@ const initialState: ProgramState = {
 		{number: 28, active: false},
 	],
 	order: {
-		id: -1,
-		active: false,
+		id: 1,
+		active: true,
 		numberOfDays: 1,
-		cost: 0,
-		menu: []
+		number: 1,
+		cost: programs
+			.filter(cost => cost.active)
+			.reduce((num, sum) => {
+				return num = sum.offer.description.cost
+			},0),
+		menu: programs.find(program => program.active) ?? null
 	},
 	cart: []
 }
@@ -583,23 +588,32 @@ const initialState: ProgramState = {
 export const programReducer = (state = initialState, action: ProgramAction): ProgramState => {
 	switch (action.type) {
 		case ProgramActionTypes.SET_ACTIVE_SET:
+			const setActiveCurrentMenu = state.programs.map(program => {
+				return (
+					{
+						...program,
+						active: program.id === action.payload
+					}
+				)
+			})
+
 			return {
 				...state,
-				programs: state.programs.map(program => {
-					return (
-						{
-							...program,
-							active: program.id === action.payload
-						}
-					)
-				}),
+				programs: setActiveCurrentMenu,
 				choiceWeek: state.weekdays.filter(week => {
 					if (week.lookupId === action.payload) return ({ ...week })
 				}),
 				order: {
 					...state.order,
+					id: state.cart.length + 1,
+					active: state.cart.length + 1 === 1,
 					numberOfDays: 1,
-					cost: 0
+					cost: setActiveCurrentMenu
+						.filter(cost => cost.active)
+						.reduce((num, sum) => {
+							return num = sum.offer.description.cost
+						},0),
+					menu: setActiveCurrentMenu.find(program => program.active) ?? null
 				},
 				optionsBtns: state.optionsBtns.map(btn => ({ ...btn, active: false }))
 			}
@@ -649,18 +663,33 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 						.reduce((num, sum) => {
 							return num = sum.offer.description.cost * action.payload
 						},0),
-					menu: state.programs.filter(program => {
-						if (program.active) {
-							return program
-						}
-					})
-				}
+					menu: state.programs.find(program => program.active) ?? null
+				},
+
 			}
-		case ProgramActionTypes.PLACE_AN_ORDER:
+		case ProgramActionTypes.ADD_TO_CART:
+			const item: any = {}
 			state.cart.push(state.order)
+
 			return {
 				...state,
-				cart: state.cart
+				cart: state.cart.filter(({id}) => (!item[id] && (item[id] = 1)))
+			}
+		case ProgramActionTypes.NEXT_CARDS:
+			return {
+				...state,
+				cart: state.cart.map(itemCart => {
+					if (itemCart.id === action.payload) {
+						return {
+							...itemCart,
+							active: itemCart.active = true
+						}
+					}
+					return {
+						...itemCart,
+						active: itemCart.active = false
+					}
+				})
 			}
 		default:
 			return state

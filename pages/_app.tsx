@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             once: true,
             duration: 800,
 
-        });
+        })
     }, [])
   return (
       <>
