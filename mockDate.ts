@@ -13,7 +13,7 @@ import personThree from './public/images/3.png'
 import personFour from './public/images/4.png'
 import location from './public/images/icons/icon-location.svg'
 import call from './public/images/icons/icon-call.svg'
-import logo from './public/images/logo.png'
+import logo from './public/images/logo.svg'
 import plate from './public/images/plate@x1.png'
 
 const optionsBtns = [
@@ -46,7 +46,7 @@ export const state = {
 		},
 		location: {
 			icon: location,
-			cities: [cities[0].title],
+			cities,
 		},
 		navigation: [{ title:'Рационы меню', link: '#section-menu' }, { title:'Доставка и оплата', link: '#' }, { title:'Обеды в офис', link: '#section-cost' }]
 	},

@@ -116,6 +116,18 @@
     z-index: 3;
   }
 
+  @include xx-large {
+    &_3 {
+      left: 38%;
+    }
+    &_4 {
+      right: 230px;
+    }
+    &_5 {
+      right: 80px;
+    }
+  }
+
   @include x-large {
     &_3 {
       right: 29%;

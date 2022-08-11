@@ -13,7 +13,7 @@ export interface ProgramState {
 		number: number
 		menu: ProgramTypes | null
 	}
-	cart: OrderTypes[]
+	cart: CartList[]
 }
 
 export interface ProgramTypes {
@@ -37,7 +37,6 @@ export interface WeekdaysTypes {
 export interface OptionsBtns {
 	number: number
 	active: boolean
-	className?: string
 }
 
 export interface OrderTypes {
@@ -55,9 +54,9 @@ export interface ProgramTypeSet {
 
 export interface ProgramDescription {
 	description: {
-		text: string,
-		cost: number,
-		deliverDescription: string
+		text: string
+		cost: number
+  		deliverDescription: string
 	}
 }
 
@@ -76,7 +75,9 @@ export enum ProgramActionTypes {
 	CHOICE_WEEK_DAY = 'CHOICE_WEEK_DAY',
 	SET_NUMBER_OF_DAYS = 'SET_NUMBER_OF_DAYS',
 	ADD_TO_CART = 'ADD_TO_CART',
-	NEXT_CARDS = 'NEXT_CARDS'
+	NEXT_CARDS = 'NEXT_CARDS',
+	CART_DAYS_DURATION = 'CART_DAYS_DURATION',
+	REMOVE_PROGRAM_FROM_CART = 'REMOVE_PROGRAM_FROM_CART',
 }
 
 interface ActiveProgramSetAction {
@@ -103,5 +104,21 @@ interface GetNextCardsAction {
 	payload: number
 }
 
+interface GetCartDaysDurationAction {
+	type: ProgramActionTypes.CART_DAYS_DURATION
+	payload: number
+}
+
+interface RemoveProgramFromCartAction {
+	type: ProgramActionTypes.REMOVE_PROGRAM_FROM_CART
+	payload: number
+}
+
 export type ProgramAction =
-	ActiveProgramSetAction | SetWeekdayAction | SetNumberOfDaysAction | PlaceOrderAction | GetNextCardsAction
+	ActiveProgramSetAction
+	| SetWeekdayAction
+	| SetNumberOfDaysAction
+	| PlaceOrderAction
+	| GetNextCardsAction
+	| GetCartDaysDurationAction
+	| RemoveProgramFromCartAction

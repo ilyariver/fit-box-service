@@ -30,6 +30,10 @@ $lines-to-show: 2;
       margin-bottom: 25px;
     }
 
+    @include small {
+      width: calc(50% - 22.5px);
+    }
+
     &:not(:last-child) {
       margin-right: 30px;
 

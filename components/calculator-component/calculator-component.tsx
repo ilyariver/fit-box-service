@@ -16,8 +16,7 @@ interface OrderTypes {
 
 const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 	const { optionsBtns, order } = useTypedSelector(buttons => buttons.program)
-	const { placeAnOrderActive } = useActions()
-	console.log(useActions())
+	const { placeAnOrderActive, numberOfDaysActive } = useActions()
 	const NUMBER_LETTERS_IN_TITLE = 6
 	const controlTitleFS = program.type.title.length >= NUMBER_LETTERS_IN_TITLE
 
@@ -41,8 +40,10 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 					{
 						optionsBtns.map(btn => <OptionsDayBtn
 							key={btn.number}
-							number={btn.number}
-							active={btn.active}/>)
+							types={btn}
+							onClick={() => numberOfDaysActive(btn.number)
+							}
+						/>)
 					}
 				</div>
 			</div>

@@ -17,6 +17,15 @@ export const placeAnOrderActive = (): ProgramAction => {
 	return { type: ProgramActionTypes.ADD_TO_CART }
 }
 
-export const nextMenuCards = (payload: number): ProgramAction => {
+export const nextMenuCardsActive = (payload: number): ProgramAction => {
 	return { type: ProgramActionTypes.NEXT_CARDS, payload }
 }
+
+export const setDaysDurationAction = (payload: number): ProgramAction => {
+	return { type: ProgramActionTypes.CART_DAYS_DURATION, payload }
+}
+
+export const removeProgramFromCartAction = (payload: number): ProgramAction => {
+	return { type: ProgramActionTypes.REMOVE_PROGRAM_FROM_CART, payload }
+}
+

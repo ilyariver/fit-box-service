@@ -211,13 +211,9 @@ $border: 2px;
   }
 
   & .btn {
-   &.disabled {
-     opacity: 0.3;
-     cursor: auto;
-
-     &:hover {
-       background-color: $color-pink;
-     }
+   &:active {
+     background-color: rgb(180, 30, 48);
+     transform: translateY(1px);
    }
   }
 }

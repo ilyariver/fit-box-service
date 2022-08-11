@@ -17,6 +17,11 @@
     align-items: center;
     padding: 0;
     transition: transform 0.4s $easing-back-out;
+
+    @include small {
+      width: 18px;
+      height: 18px
+    }
   }
 
   &__title-content {
@@ -47,6 +52,11 @@
       font-size: 13px;
       line-height: 1.5;
     }
+
+    @include xx-small {
+      padding: 10px 25px 10px 0;
+      font-size: 12px;
+    }
   }
 
   &__description {
@@ -57,6 +67,11 @@
     font-size: 14px;
     transition: all 0.3s $easing-back-out;
     opacity: 0.5;
+
+    @include xx-small {
+      line-height: 20px;
+      font-size: 11px;
+    }
   }
 }
 

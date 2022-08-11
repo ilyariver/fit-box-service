@@ -225,10 +225,9 @@ $tiles-bottom-xxl: 25px;
   }
 
   .swiper-button-prev {
-    display: none !important;
+    left: 30px !important;
 
     @include tablets {
-      display: flex !important;
       left: 20px !important;
     }
 
@@ -310,7 +309,11 @@ $tiles-bottom-xxl: 25px;
       display: flex;
       justify-content: center;
       width: 100% !important;
-      min-height: 286px
+      min-height: 286px;
+
+      &:last-child {
+        display: none!important;
+      }
     }
 
     &:first-child {

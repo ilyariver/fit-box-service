@@ -471,6 +471,7 @@ const programs = [
 		active: true,
 		type: {
 			title: 'Офис',
+			link: 'office',
 			cCal: 250
 		},
 		offer: {
@@ -486,6 +487,7 @@ const programs = [
 		active: false,
 		type: {
 			title: 'Офис\u00A0+',
+			link: 'office+',
 			cCal: 350
 		},
 		offer: {
@@ -501,6 +503,7 @@ const programs = [
 		active: false,
 		type: {
 			title: 'Фитнес',
+			link: 'fitness',
 			cCal: 150
 		},
 		offer: {
@@ -516,6 +519,7 @@ const programs = [
 		active: false,
 		type: {
 			title: 'Классик мини',
+			link: 'classicMini',
 			cCal: 280
 		},
 		offer: {
@@ -531,6 +535,7 @@ const programs = [
 		active: false,
 		type: {
 			title: 'Классик',
+			link: 'classic',
 			cCal: 250
 		},
 		offer: {
@@ -546,6 +551,7 @@ const programs = [
 		active: false,
 		type: {
 			title: 'Классик\u00A0+',
+			link: 'classic+',
 			cCal: 250
 		},
 		offer: {
@@ -688,6 +694,52 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 					return {
 						...itemCart,
 						active: itemCart.active = false
+					}
+				})
+			}
+		case ProgramActionTypes.CART_DAYS_DURATION:
+			console.log('1', state.optionsBtns.map(btn => {
+				if (btn.number === action.payload) {
+					return {
+						...btn,
+						active: btn.active = true
+					}
+				}
+				return {
+					...btn,
+					active: btn.active = false
+				}
+			}))
+			return {
+				...state,
+				optionsBtns: state.optionsBtns.map(btn => {
+					if (btn.number === action.payload) {
+						return {
+							...btn,
+							active: btn.active = true
+						}
+					}
+					return {
+						...btn,
+						active: btn.active = false
+					}
+				})
+			}
+		case ProgramActionTypes.REMOVE_PROGRAM_FROM_CART:
+			const newState = {
+				...state,
+				cart: state.cart.filter(itemCart => itemCart.id !== action.payload)
+			}
+
+			return {
+				...newState,
+				cart: newState.cart.map((cartItem, idx) => {
+					const firstItem = idx + 1
+
+					return {
+						...cartItem,
+						id: firstItem,
+						active: firstItem === 1
 					}
 				})
 			}

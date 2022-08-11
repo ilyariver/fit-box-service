@@ -1,4 +1,5 @@
 import React, {useEffect, useState } from 'react'
+import Link from 'next/link'
 import style from './cart-component.module.scss'
 import CartDishComponent from '../cart-dish-component/cart-dish-component'
 import WeekDaysIndicatorCart from '../shared/week-days-indicator-cart/week-days-indicator'
@@ -7,24 +8,24 @@ import { MainButton } from '../shared/mainButton/mainButton'
 import OptionsDayBtn from '../shared/options-day-btn/options-day-btn'
 import { useActions } from '../../hooks/useAction'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
-import Link from 'next/link'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { OptionsBtns, ProgramMenuList } from '../../types/programTypes'
+import { setDaysDurationAction } from '../../store/actions-creators/program'
 
 let count: number = 1
 
 const CartComponent = () => {
 	const largeScreen = 1199.98
 	const { optionsBtns, cart, choiceWeek, weekdays } = useTypedSelector(btns => btns.program)
-	const { modalActive } = useActions()
-	const { nextMenuCards } = useActions()
+	const { nextMenuCardsActive, modalActive, setDaysDurationAction, removeProgramFromCartAction } = useActions()
 	const [widthCart, setWidthCart] = useState(false)
 	const [activeSwiper, setActiveSwiper] = useState(false)
-	let currentWeekDay: ProgramMenuList[] = []
+	const [countCart, setCountCart] = useState(2)
 	const btns: OptionsBtns[] = []
+	let currentWeekDay: ProgramMenuList[] = []
 
 	const styleEmptyText = {
 		flexGrow: 1,
@@ -34,7 +35,7 @@ const CartComponent = () => {
 	const setNextProgramCards = () => {
 		count++
 		if (count <= cart.length) {
-			nextMenuCards(count)
+			nextMenuCardsActive(count)
 		}
 		if (count === cart.length) {
 			count = 0
@@ -49,18 +50,25 @@ const CartComponent = () => {
 		})
 	}).reduce((acc, val) => acc.concat(val), [])
 
+	let daysButtons: {[key: string]: OptionsBtns[]} = {}
 
 	optionsBtns.forEach(btn => {
 		cart.forEach(item => {
 			debugger
+			if (typeof daysButtons[item.menu.type.title] === 'undefined') {
+				daysButtons[item.menu.type.title] = []
+			}
 			if (item.active && item.numberOfDays === btn.number) {
-				btns.push({ ...btn, active: true })
+				daysButtons[item.menu.type.title].push({ ...btn, active: true })
 			}
 			if (item.active && item.numberOfDays !== btn.number) {
-				btns.push({ ...btn, active: false })
+				daysButtons[item.menu.type.title].push({ ...btn, active: false })
 			}
+
 		})
 	})
+
+	console.log('daysButtons', daysButtons)
 
 	const sum = cart.reduce((acc, goods) => acc + goods.cost, 0)
 
@@ -73,8 +81,6 @@ const CartComponent = () => {
 			}
 		}
 	}
-
-	console.log('cart',cart)
 
 	selectedMenu
 		.forEach(item => {
@@ -159,11 +165,19 @@ const CartComponent = () => {
 								})
 							}
 							{
-								currentWeekDay.map((dish,idx) => {
+								cart.map((itemCart,idx) => {
+
 									return (
-										dish.id === currentWeekDay.length && <SwiperSlide key={dish.id + idx}>
-											<div className={style['cart-component__dish-wrap']}>
-												<NextProgramButton onClick={setNextProgramCards}/>
+										itemCart.id === countCart && <SwiperSlide key={itemCart.id + idx}>
+											<div className={`${style['cart-component__dish-wrap']} ${style['cart-component__next-btn']}`}>
+												{cart.length > 1 && <NextProgramButton title={String(itemCart.id)} onClick={() => {
+													setNextProgramCards()
+													if (cart.length > countCart) {
+														setCountCart(prevState => ++prevState)
+													} else {
+														setCountCart(1)
+													}
+												}}/>}
 											</div>
 										</SwiperSlide>
 									)
@@ -179,8 +193,10 @@ const CartComponent = () => {
 					<div className={style['cart-component__buttons-group']}>
 					  {btns.map((btn, idx) => <OptionsDayBtn
 						  key={btn.number + idx}
-						  number={btn.number}
-						  active={btn.active}
+						  types={btn}
+						  onClick={() => {
+							  setDaysDurationAction(btn.number)
+						  }}
 						  className={style['cart-component__options-btn']}/>)}
 					</div>
 					<div className={style['cart-component__programs-description']}>
@@ -189,13 +205,19 @@ const CartComponent = () => {
 								{cart.map((item, idx) => {
 									return (
 										<li key={item.id + idx} className={style['cart-component__programs-item']}>
+											<button
+												onClick={() => removeProgramFromCartAction(item.id)}
+												className={style['cart-component__remove-item']}
+												aria-label={`Удалить программу питания ${item.menu?.type.title}`}> </button>
 											<div
+												id={String(item.id)}
 												className={style['cart-component__cCal']}>{item.menu?.type.cCal} Ккал
 											</div>
 											<div className={style['cart-component__about-plan']}>
 												<div
-													className={`${style['cart-component__program']} ${item.active ? style['active'] : ''}`}>Программа
-													питания «{item.menu?.type.title}»
+													className={`${style['cart-component__program']} ${item.active && cart.length > 1 ? style['active'] : ''}`}
+												>
+													Программа питания <br />«{item.menu?.type.title}»
 												</div>
 											</div>
 										</li>
@@ -225,7 +247,7 @@ const CartComponent = () => {
 						</div>
 						<div className={style['cart-component__cost']}>
 							<div className={style['cart-component__sum']}>{sum} ₽</div>
-							<NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>
+							{cart.length > 1 && <NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>}
 						</div>
 					</div>
 					{(!widthCart && !activeSwiper) && <Link href={'/order'}>

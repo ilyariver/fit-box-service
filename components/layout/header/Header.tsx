@@ -46,7 +46,7 @@ const Header = () => {
                     <div className={style.logo}>
                         <Link href="/">
                             <a>
-                                <Image src={state.header.logo.img} alt={state.header.logo.alt} width={70} height={47}/>
+                                <Image src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
                             </a>
                         </Link>
                     </div>
@@ -64,14 +64,21 @@ const Header = () => {
                                         <div className={style.phone_text}>8 900 999 99 99</div>
                                     </a>
                                 </div>
-                                <button className={style.geo}>
-                                    <Image alt="Локация" className={style.geo_icon} src={state.header.location.icon} width={17}
-                                           height={17}/>
+                                <div className={style.geo}>
+                                    <Image
+                                        alt="Локация"
+                                        className={style.geo_icon}
+                                        src={state.header.location.icon}
+                                        width={17}
+                                        height={17}
+                                    />
                                     <div className={style.geo_cities}>
-                                        {state.header.location.cities.map(city =>
-                                            <div key={city} className={style.city}>{city}</div>)}
+                                        <select className={style.city}>
+                                            {state.header.location.cities.map(city =>
+                                                <option key={city.title} value={city.title}>{city.title}</option>)}
+                                        </select>
                                     </div>
-                                </button>
+                                </div>
                                 <button className={style.callback_btn}>Заказать звонок</button>
                             </div>
                         </div>

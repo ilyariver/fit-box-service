@@ -228,15 +228,16 @@
     max-height: 340px;
     overflow-y: auto;
     margin-bottom: 20px;
+    scroll-behavior: smooth;
 
     @include xx-large {
-      min-height: 155px;
-      max-height: 155px;
+      min-height: 195px;
+      max-height: 195px;
     }
 
     @include x-large {
-      min-height: 110px;
-      max-height: 110px;
+      min-height: 155px;
+      max-height: 155px;
     }
 
     @include large {
@@ -250,8 +251,7 @@
     scrollbar-color: $color-background $color-black;
 
     &::-webkit-scrollbar {
-      width: 10px; /* ширина всей полосы прокрутки */
-
+      width: 5px; /* ширина всей полосы прокрутки */
     }
 
     &::-webkit-scrollbar-track {
@@ -261,7 +261,7 @@
     &::-webkit-scrollbar-thumb {
       background-color: $color-background;    /* цвет бегунка */
       border-radius: 20px;       /* округлось бегунка */
-      border: 3px solid $color-black;  /* отступ вокруг бегунка */
+      border: 3px solid $color-background;  /* отступ вокруг бегунка */
     }
   }
 
@@ -270,6 +270,7 @@
   }
 
   &__programs-item {
+    position: relative;
     margin-bottom: 20px;
     border-bottom: 1px solid #fff3;
 
@@ -287,6 +288,25 @@
       &:not(:first-child) {
         display: none;
       }
+    }
+  }
+
+  &__remove-item {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    background-image: url(#{$IMG_PATH}/icons/icon-remove.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    opacity: 0.4;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
     }
   }
 
@@ -373,7 +393,8 @@
     color: #ffffff80;
 
     @include xx-large {
-      font-size: 60px;
+      margin-bottom: 15px;
+      font-size: 50px;
     }
 
     @include large {
@@ -390,7 +411,9 @@
   }
 
   &__sum {
-    margin-bottom: 45px;
+    @include large {
+      margin-bottom: 45px;
+    }
   }
 }
 
