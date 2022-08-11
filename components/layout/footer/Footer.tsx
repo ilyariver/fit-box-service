@@ -3,7 +3,8 @@ import style from './Footer.module.scss'
 import logo from '../../../public/images/logo-footer.svg'
 
 const Footer = () => {
-
+    const currentYear = new Date()
+        .toLocaleDateString('ru-RU', {year: 'numeric'})
     return (
        <footer className={style.footer}>
             <div className="container">
@@ -12,7 +13,7 @@ const Footer = () => {
                         <div className={style.logo_wrap}>
                             <Image src={logo} alt="Логотип"/>
                         </div>
-                        <small className={style.copyrights}>2016-{2022} © Все права защищены</small>
+                        <small className={style.copyrights}>2016-{currentYear} © Все права защищены</small>
                     </div>
                     <div className={style.navigation_wrap}>
                         <ul className={style.list}>

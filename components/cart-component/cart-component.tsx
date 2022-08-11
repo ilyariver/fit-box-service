@@ -50,25 +50,20 @@ const CartComponent = () => {
 		})
 	}).reduce((acc, val) => acc.concat(val), [])
 
-	let daysButtons: {[key: string]: OptionsBtns[]} = {}
 
 	optionsBtns.forEach(btn => {
 		cart.forEach(item => {
-			debugger
-			if (typeof daysButtons[item.menu.type.title] === 'undefined') {
-				daysButtons[item.menu.type.title] = []
-			}
+
 			if (item.active && item.numberOfDays === btn.number) {
-				daysButtons[item.menu.type.title].push({ ...btn, active: true })
+				btns.push({ ...btn, active: true })
 			}
 			if (item.active && item.numberOfDays !== btn.number) {
-				daysButtons[item.menu.type.title].push({ ...btn, active: false })
+				btns.push({ ...btn, active: false })
 			}
 
 		})
 	})
-
-	console.log('daysButtons', daysButtons)
+	
 
 	const sum = cart.reduce((acc, goods) => acc + goods.cost, 0)
 

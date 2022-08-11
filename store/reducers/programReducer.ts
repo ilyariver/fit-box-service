@@ -645,6 +645,9 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 				})
 			}
 		case ProgramActionTypes.SET_NUMBER_OF_DAYS:
+			const removeNullElement = 1
+			const firstElementInArray = 1
+
 			return {
 				...state,
 				optionsBtns: state.optionsBtns.map(btn => {
@@ -661,8 +664,8 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 				}),
 				order: {
 					...state.order,
-					id: state.cart.length + 1,
-					active: state.cart.length + 1 === 1,
+					id: state.cart.length + removeNullElement,
+					active: state.cart.length + removeNullElement === firstElementInArray,
 					numberOfDays: action.payload,
 					cost: state.programs
 						.filter(cost => cost.active)
