@@ -1,6 +1,7 @@
 import dish from '../../public/images/dish.png'
 import dishMin from '../../public/images/dish-min2.png'
 import { ProgramAction, ProgramActionTypes, ProgramState } from '../../types/programTypes'
+import { number } from 'prop-types'
 
 const weekdays = [
 	{
@@ -563,23 +564,23 @@ const programs = [
 		}
 	},
 ]
-
+const optionsBtns = [
+	{number: 1, active: true},
+	{number: 5, active: false},
+	{number: 6, active: false},
+	{number: 7, active: false},
+	{number: 14, active: false},
+	{number: 28, active: false},
+]
 const initialState: ProgramState = {
 	programs,
 	weekdays,
 	choiceWeek: [weekdays[0]],
-	optionsBtns: [
-		{number: 1, active: false},
-		{number: 5, active: false},
-		{number: 6, active: false},
-		{number: 7, active: false},
-		{number: 14, active: false},
-		{number: 28, active: false},
-	],
+	optionsBtns,
 	order: {
 		id: 1,
 		active: true,
-		numberOfDays: 1,
+		numberOfDays: optionsBtns,
 		number: 1,
 		cost: programs
 			.filter(cost => cost.active)
@@ -594,6 +595,7 @@ const initialState: ProgramState = {
 export const programReducer = (state = initialState, action: ProgramAction): ProgramState => {
 	switch (action.type) {
 		case ProgramActionTypes.SET_ACTIVE_SET:
+			const firstDay = 1
 			const setActiveCurrentMenu = state.programs.map(program => {
 				return (
 					{
@@ -613,7 +615,17 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 					...state.order,
 					id: state.cart.length + 1,
 					active: state.cart.length + 1 === 1,
-					numberOfDays: 1,
+					numberOfDays: state.optionsBtns.map(day => {
+						if (day.number === firstDay)
+							return {
+								...day,
+								active: true
+							}
+						return {
+							...day,
+							active: false
+						}
+					}),
 					cost: setActiveCurrentMenu
 						.filter(cost => cost.active)
 						.reduce((num, sum) => {
@@ -621,7 +633,17 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 						},0),
 					menu: setActiveCurrentMenu.find(program => program.active) ?? null
 				},
-				optionsBtns: state.optionsBtns.map(btn => ({ ...btn, active: false }))
+				optionsBtns: state.optionsBtns.map(btn => {
+					if (btn.number === firstDay)
+						return {
+							...btn,
+							active: true
+						}
+					return {
+						...btn,
+						active: false
+					}
+				})
 			}
 		case ProgramActionTypes.CHOICE_WEEK_DAY:
 			return {
@@ -648,25 +670,39 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 			const removeNullElement = 1
 			const firstElementInArray = 1
 
-			return {
-				...state,
-				optionsBtns: state.optionsBtns.map(btn => {
-					if (btn.number === action.payload) {
-						return {
-							...btn,
-							active: btn.active = true
-						}
-					}
+			const optionsBtns = state.optionsBtns.map(btn => {
+				if (btn.number === action.payload) {
 					return {
 						...btn,
-						active: btn.active = false
+						active: btn.active = true
 					}
-				}),
+				}
+				return {
+					...btn,
+					active: btn.active = false
+				}
+			})
+
+			return {
+				...state,
+				optionsBtns,
 				order: {
 					...state.order,
 					id: state.cart.length + removeNullElement,
 					active: state.cart.length + removeNullElement === firstElementInArray,
-					numberOfDays: action.payload,
+					numberOfDays: state.optionsBtns.map(day => {
+						if (day.number === action.payload) {
+							return {
+								...day,
+								active: true
+							}
+						}
+						return {
+							...day,
+							active: false
+						}
+					}),
+					number: action.payload,
 					cost: state.programs
 						.filter(cost => cost.active)
 						.reduce((num, sum) => {
@@ -682,7 +718,7 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 
 			return {
 				...state,
-				cart: state.cart.filter(({id}) => (!item[id] && (item[id] = 1)))
+				cart: state.cart.filter(({id}) => (!item[id] && (item[id] = 1))),
 			}
 		case ProgramActionTypes.NEXT_CARDS:
 			return {
@@ -701,30 +737,33 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 				})
 			}
 		case ProgramActionTypes.CART_DAYS_DURATION:
-			console.log('1', state.optionsBtns.map(btn => {
-				if (btn.number === action.payload) {
-					return {
-						...btn,
-						active: btn.active = true
-					}
-				}
-				return {
-					...btn,
-					active: btn.active = false
-				}
-			}))
 			return {
 				...state,
-				optionsBtns: state.optionsBtns.map(btn => {
-					if (btn.number === action.payload) {
+				cart: state.cart.map(item => {
+					if (item.id === action.id) {
 						return {
-							...btn,
-							active: btn.active = true
+							...item,
+							number: action.payload,
+							numberOfDays: state.optionsBtns.map(day => {
+								if (day.number === action.payload)
+									return {
+										...day,
+										active: true
+									}
+								return {
+									...day,
+									active: false
+								}
+							}),
+							cost: state.programs
+								.filter(cost => cost.active)
+								.reduce((num, sum) => {
+									return num = sum.offer.description.cost * action.payload
+								},0),
 						}
 					}
 					return {
-						...btn,
-						active: btn.active = false
+						...item,
 					}
 				})
 			}
@@ -745,6 +784,27 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 						active: firstItem === 1
 					}
 				})
+			}
+		case ProgramActionTypes.CHANGE_DIET_FROM_CART:
+			return {
+				...state,
+				choiceWeek: state.choiceWeek.map(day => {
+					return {
+						...day,
+						days: day.days.map(current => {
+							if (current.title.min === action.payload) {
+								return {
+									...current,
+									active: true
+								}
+							}
+							return {
+								...current,
+								active: false
+							}
+						})
+					}
+				}),
 			}
 		default:
 			return state

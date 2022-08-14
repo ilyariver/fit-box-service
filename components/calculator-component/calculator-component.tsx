@@ -7,6 +7,7 @@ import { ProgramTypes } from '../../types/programTypes'
 import { declOfNum } from '../shared/declOfNum/declOfNum'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useActions } from '../../hooks/useAction'
+import Counter from '../layout/counter/counter'
 
 interface OrderTypes {
 	program: ProgramTypes
@@ -20,6 +21,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 	const NUMBER_LETTERS_IN_TITLE = 6
 	const controlTitleFS = program.type.title.length >= NUMBER_LETTERS_IN_TITLE
 
+	console.log(optionsBtns)
 	return (
 		<div className={style['calculator-component']}>
 			<div className={style['calculator-component__content']}>
@@ -31,7 +33,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 					<div className={style['calculator-component__right']}>
 						<div className={style['calculator-component__description']}>{program.offer.description.text}</div>
 						<div className={style['calculator-component__text']}>
-							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за <CountUp duration={0.5} end={program.offer.description.cost}/> ₽
+							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за <Counter end={program.offer.description.cost}/> ₽
 						</div>
 						<div className={style['calculator-component__deliveryText']}>{program.offer.description.deliverDescription}</div>
 					</div>
@@ -52,9 +54,9 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 				<div className={style['calculator-component__total-text-wrap']}>
 					<div className={style['calculator-component__total-text']}>
 						{order.cost !== 0 ?
-							`Итого за ${order.numberOfDays} ${declOfNum(order.numberOfDays, ['день', 'дня', 'дней'])}:` : `Итого:`}
+							`Итого за ${order.number} ${declOfNum(order.number, ['день', 'дня', 'дней'])}:` : `Итого:`}
 					</div>
-					<div className={style['calculator-component__total-sum']}><CountUp duration={0.5} end={order.cost}/> ₽</div>
+					<div className={style['calculator-component__total-sum']}><Counter end={order.cost}/> ₽</div>
 				</div>
 				<MainButton
 					className={style.btn}

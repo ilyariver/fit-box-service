@@ -308,6 +308,14 @@
     &:hover {
       opacity: 0.9;
     }
+
+    @include tablets {
+      position: static;
+
+      &:hover {
+        opacity: 0.4;
+      }
+    }
   }
 
   &__about-plan {
@@ -363,6 +371,10 @@
     @include small {
       margin-bottom: 10px;
     }
+  }
+
+  &__menu-title {
+    margin-right: 10px;
   }
 
   &__programs-list-mobile {

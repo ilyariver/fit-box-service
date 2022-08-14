@@ -1,21 +1,19 @@
 import {FC} from 'react'
 import style from './week-days-indicator-cart.module.scss'
-import { useActions } from '../../../hooks/useAction'
 
 interface Weekday {
     title: string
     active: boolean
     classList?: string
+    onClick: () => void
 }
 
-const WeekDaysIndicatorCart: FC<Weekday> = ({title, active, classList}) => {
-    const { weekdayActive } = useActions()
-    const choiceWeekDay = () => weekdayActive(title)
+const WeekDaysIndicatorCart: FC<Weekday> = ({title, active, classList, onClick}) => {
 
     return (
         <div className={`${style['week-days-indicator-cart']} ${classList}`}>
             <button
-                onClick={choiceWeekDay}
+                onClick={onClick}
                 aria-label={title}
                 className={`${style['week-days-indicator-cart__btn']} ${active && style['week-days-indicator-cart__btn--active']} `}
             >

@@ -4,27 +4,33 @@ import style from './cart-component.module.scss'
 import CartDishComponent from '../cart-dish-component/cart-dish-component'
 import WeekDaysIndicatorCart from '../shared/week-days-indicator-cart/week-days-indicator'
 import NextProgramButton from '../shared/next-program-button/next-program-button'
-import { MainButton } from '../shared/mainButton/mainButton'
 import OptionsDayBtn from '../shared/options-day-btn/options-day-btn'
+import Counter from '../layout/counter/counter'
+import { MainButton } from '../shared/mainButton/mainButton'
 import { useActions } from '../../hooks/useAction'
+import { setDaysDurationAction } from '../../store/actions-creators/program'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { OptionsBtns, ProgramMenuList } from '../../types/programTypes'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { OptionsBtns, ProgramMenuList } from '../../types/programTypes'
-import { setDaysDurationAction } from '../../store/actions-creators/program'
 
 let count: number = 1
 
 const CartComponent = () => {
 	const largeScreen = 1199.98
 	const { optionsBtns, cart, choiceWeek, weekdays } = useTypedSelector(btns => btns.program)
-	const { nextMenuCardsActive, modalActive, setDaysDurationAction, removeProgramFromCartAction } = useActions()
+	const {
+		nextMenuCardsActive,
+		modalActive,
+		setDaysDurationAction,
+		removeProgramFromCartAction,
+		changeDietAction,
+	} = useActions()
 	const [widthCart, setWidthCart] = useState(false)
 	const [activeSwiper, setActiveSwiper] = useState(false)
 	const [countCart, setCountCart] = useState(2)
-	const btns: OptionsBtns[] = []
 	let currentWeekDay: ProgramMenuList[] = []
 
 	const styleEmptyText = {
@@ -48,22 +54,16 @@ const CartComponent = () => {
 				return day
 			}
 		})
-	}).reduce((acc, val) => acc.concat(val), [])
-
-
-	optionsBtns.forEach(btn => {
-		cart.forEach(item => {
-
-			if (item.active && item.numberOfDays === btn.number) {
-				btns.push({ ...btn, active: true })
-			}
-			if (item.active && item.numberOfDays !== btn.number) {
-				btns.push({ ...btn, active: false })
-			}
-
-		})
 	})
-	
+		.reduce((acc, val) => acc.concat(val), [])
+
+	selectedMenu
+		.forEach(item => {
+			item.days.forEach(weekday => {
+				if (weekday.active && weekday.menu)
+					return currentWeekDay = weekday.menu
+			})
+		})
 
 	const sum = cart.reduce((acc, goods) => acc + goods.cost, 0)
 
@@ -77,14 +77,6 @@ const CartComponent = () => {
 		}
 	}
 
-	selectedMenu
-		.forEach(item => {
-			item.days.forEach(weekday => {
-				if (weekday.active && weekday.menu)
-					return currentWeekDay = weekday.menu
-			})
-		})
-
 	useEffect(() => {
 		setWidthCart(window.innerWidth < largeScreen)
 		if (typeof typeof window !== 'undefined') {
@@ -92,13 +84,15 @@ const CartComponent = () => {
 			return () => window.removeEventListener('resize', updateDimensions)
 		}
 	},[])
-
+	console.log('selectedMenu', selectedMenu)
 	return (
 		<div className={style['cart-component']}>
 			<button onClick={() => modalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
 			{ cart.length !== 0 && (widthCart || activeSwiper) && <Link href={'/order'}>
 			  		<a>
-					  <MainButton className={style.main_button}>Оформить заказ</MainButton>
+					  <MainButton
+						onClick={() => modalActive()}
+						className={style.main_button}>Оформить заказ</MainButton>
 				  	</a>
 				</Link> }
 			<div style={cart.length === 0 ? styleEmptyText : {}} className={style['cart-component__left']}>
@@ -106,8 +100,10 @@ const CartComponent = () => {
 					<div className={style['cart-component__week']}>
 						{
 							choiceWeek.map(day => {
+								debugger
 								return day.days.map((weekday, idx) => {
 									return <WeekDaysIndicatorCart
+										onClick={() => changeDietAction(weekday.title.min)}
 										key={day.lookupId + idx}
 										title={weekday.title.min}
 										active={weekday.active}
@@ -186,13 +182,16 @@ const CartComponent = () => {
 				{cart.length !== 0 && <div>
 					<div className={style['cart-component__right-title']}>Количество дней</div>
 					<div className={style['cart-component__buttons-group']}>
-					  {btns.map((btn, idx) => <OptionsDayBtn
-						  key={btn.number + idx}
-						  types={btn}
-						  onClick={() => {
-							  setDaysDurationAction(btn.number)
-						  }}
-						  className={style['cart-component__options-btn']}/>)}
+						{cart.map(item => {
+							if (item.active)
+								return item.numberOfDays.map((btn, idx) => <OptionsDayBtn
+									key={btn.number + idx}
+									types={btn}
+									onClick={() => {
+										setDaysDurationAction(btn.number, item.id)
+									}}
+									className={style['cart-component__options-btn']}/>)
+						})}
 					</div>
 					<div className={style['cart-component__programs-description']}>
 						<div className={style['cart-component__programs-list-wrap']}>
@@ -227,7 +226,15 @@ const CartComponent = () => {
 												<div className={style['cart-component__cCal']}>{item.menu?.type.cCal} Ккал</div>
 												<div className={style['cart-component__about-plan']}>
 													<div className={`${style['cart-component__program']} ${item.active ? style['active'] : ''}`}>
-														Программа питания <br />«{item.menu?.type.title}»
+														Программа питания <br />
+														<div style={{display: 'flex', alignItems: 'center'}}>
+															<div className={style['cart-component__menu-title']}>«{item.menu?.type.title}»</div>
+															<button
+																onClick={() => removeProgramFromCartAction(item.id)}
+																className={style['cart-component__remove-item']}
+																aria-label={`Удалить программу питания ${item.menu?.type.title}`}>
+															</button>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -241,7 +248,7 @@ const CartComponent = () => {
 							</div>
 						</div>
 						<div className={style['cart-component__cost']}>
-							<div className={style['cart-component__sum']}>{sum} ₽</div>
+							<div className={style['cart-component__sum']}><Counter end={sum}/> ₽</div>
 							{cart.length > 1 && <NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>}
 						</div>
 					</div>

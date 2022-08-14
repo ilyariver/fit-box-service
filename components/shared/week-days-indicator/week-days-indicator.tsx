@@ -6,16 +6,16 @@ interface Weekday {
     title: string
     active: boolean
     idx: number
+    onClick: () => void
 }
 
-const WeekDaysIndicator: FC<Weekday> = ({title, active, idx= 0}) => {
+const WeekDaysIndicator: FC<Weekday> = ({title, active, idx= 0, onClick}) => {
     const { weekdayActive } = useActions()
-    const choiceWeekDay = () => weekdayActive(title)
 
     return (
         <div className={style['weekday-indicator']} data-aos="fade-up" data-aos-delay={idx * 100}>
             <button
-                onClick={choiceWeekDay}
+                onClick={onClick}
                 aria-label={title}
                 className={`${style['weekday-indicator__btn']} ${active && style['weekday-indicator__btn--active']}`}
             >

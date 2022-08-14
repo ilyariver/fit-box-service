@@ -1,12 +1,9 @@
 import style from './order-form-component.module.scss'
 import InputText from '../calculator-component/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
-import { declOfNum } from '../shared/declOfNum/declOfNum'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { cities } from '../../mockDate'
 
 const OrderFormComponent = () => {
-	const { programs, optionsBtns } = useTypedSelector(plan => plan.program)
 
 	return (
 		<form className={style['order-form-component']}>
@@ -16,28 +13,6 @@ const OrderFormComponent = () => {
 					<div className={style['order-form-component__inputs']}>
 						<InputText label={'Имя пользователя'}/>
 						<InputText label={'E-mail'}/>
-					</div>
-				</div>
-				<div className={`${style['order-form-component__plan']} ${style['order-form-component__block']}`}>
-					<div className={ style['order-form-component__select-content']}>
-						<div className={style['order-form-component__area-title']}>Программа</div>
-						<div className={style['order-form-component__inputs']}>
-							<div>
-								<select className={style['select']}>
-									{ programs.map(plan => <option key={plan.id} value={plan.type.title}>{plan.type.title}</option>) }
-								</select>
-							</div>
-						</div>
-					</div>
-					<div className={ style['order-form-component__select-content']}>
-						<div className={style['order-form-component__area-title']}>Длительность</div>
-						<div className={style['order-form-component__inputs']}>
-							<select className={style['select']}>
-								{ optionsBtns.map(button => <option
-									key={button.number}
-									value={button.number}>{button.number} {declOfNum(button.number, ['день', 'дня', 'дней'])}</option>) }
-							</select>
-						</div>
 					</div>
 				</div>
 				<div className={style['order-form-component__address']}>

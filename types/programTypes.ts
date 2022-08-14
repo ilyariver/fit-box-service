@@ -9,7 +9,7 @@ export interface ProgramState {
 		id: number
 		active: boolean
 		cost: number
-		numberOfDays: number
+		numberOfDays: OptionsBtns[]
 		number: number
 		menu: ProgramTypes | null
 	}
@@ -43,7 +43,7 @@ export interface OrderTypes {
 	menu: any
 	id: number
 	cost: number
-	numberOfDays: number
+	numberOfDays: OptionsBtns[]
 	active: boolean
 }
 
@@ -78,6 +78,7 @@ export enum ProgramActionTypes {
 	NEXT_CARDS = 'NEXT_CARDS',
 	CART_DAYS_DURATION = 'CART_DAYS_DURATION',
 	REMOVE_PROGRAM_FROM_CART = 'REMOVE_PROGRAM_FROM_CART',
+	CHANGE_DIET_FROM_CART = 'CHANGE_DIET_FROM_CART',
 }
 
 interface ActiveProgramSetAction {
@@ -107,12 +108,19 @@ interface GetNextCardsAction {
 interface GetCartDaysDurationAction {
 	type: ProgramActionTypes.CART_DAYS_DURATION
 	payload: number
+	id: number
 }
 
 interface RemoveProgramFromCartAction {
 	type: ProgramActionTypes.REMOVE_PROGRAM_FROM_CART
 	payload: number
 }
+
+interface ChangeDietFromCartAction {
+	type: ProgramActionTypes.CHANGE_DIET_FROM_CART
+	payload: string
+}
+
 
 export type ProgramAction =
 	ActiveProgramSetAction
@@ -122,3 +130,4 @@ export type ProgramAction =
 	| GetNextCardsAction
 	| GetCartDaysDurationAction
 	| RemoveProgramFromCartAction
+	| ChangeDietFromCartAction

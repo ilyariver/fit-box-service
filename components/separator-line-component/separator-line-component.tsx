@@ -11,7 +11,7 @@ const SeparatorLineComponent: FC<SeparatorLineTypes> = ({ title,color = '#FFFFFF
 	return (
 		<div className={`${style['separator-line-component']} ${className}`}>
 			<div className={style['separator-line-component__title']} style={{color}}>{title}</div>
-			<div className={style['separator-line-component__line']} style={{backgroundColor: color}} aria-label="Линия заголовка"></div>
+			<div className={style['separator-line-component__line']} style={{backgroundColor: color}}> </div>
 		</div>
 	)
 }

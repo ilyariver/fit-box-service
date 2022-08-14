@@ -16,9 +16,8 @@ import { useActions } from '../../hooks/useAction'
 
 
 const ChoiceProgramComponent = () => {
-	const { choiceWeek } = useTypedSelector(buttons => buttons.program)
-	const { placeAnOrderActive } = useActions()
-	let programsArray = useTypedSelector(state => state.program)
+	const { choiceWeek, programs } = useTypedSelector(buttons => buttons.program)
+	const { placeAnOrderActive, weekdayActive } = useActions()
 	let currentWeekDay: ProgramMenuList[] = []
 
 	choiceWeek
@@ -33,7 +32,7 @@ const ChoiceProgramComponent = () => {
 		<div className={style['choice-program']}>
 			<div className={style['choice-program__buttons']}>
 				{
-					programsArray.programs?.map((program, idx) =>
+					programs?.map((program, idx) =>
 						(<div className={style['choice-program__button']} key={program.type.title} data-aos="fade-up" data-aos-delay={`${idx * 200}`}>
 							<CaloriesChoiceBtn id={program.id} type={program.type} active={program.active} />
 						</div>))
@@ -42,7 +41,7 @@ const ChoiceProgramComponent = () => {
 			<div className={style['choice-program__content']}>
 				<div className={style['choice-program__calc-wrap']}>
 					{
-						programsArray.programs?.map(program => {
+						programs?.map(program => {
 							if (program.active) {
 								return <CalculatorComponent key={program.id} program={program} numberDishes={currentWeekDay.length}/>
 							}
@@ -77,9 +76,15 @@ const ChoiceProgramComponent = () => {
 					</div>
 					<div className={style['choice-program__weekdays']}>
 						{
-							programsArray.choiceWeek.map(day => {
+							choiceWeek.map(day => {
 								return day.days.map((day,idx) => {
-									return <WeekDaysIndicator idx={idx} key={day.title.min} title={day.title.min} active={day.active} />
+									return <WeekDaysIndicator
+										onClick={() => weekdayActive(day.title.min)}
+										idx={idx}
+										key={day.title.min}
+										title={day.title.min}
+										active={day.active}
+									/>
 								})
 							})
 						}
