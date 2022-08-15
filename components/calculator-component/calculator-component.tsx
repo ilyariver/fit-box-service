@@ -21,7 +21,6 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 	const NUMBER_LETTERS_IN_TITLE = 6
 	const controlTitleFS = program.type.title.length >= NUMBER_LETTERS_IN_TITLE
 
-	console.log(optionsBtns)
 	return (
 		<div className={style['calculator-component']}>
 			<div className={style['calculator-component__content']}>

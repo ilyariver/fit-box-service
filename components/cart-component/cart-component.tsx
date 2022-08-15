@@ -20,7 +20,7 @@ let count: number = 1
 
 const CartComponent = () => {
 	const largeScreen = 1199.98
-	const { optionsBtns, cart, choiceWeek, weekdays } = useTypedSelector(btns => btns.program)
+	const { cart, choiceWeek, weekdays } = useTypedSelector(btns => btns.program)
 	const {
 		nextMenuCardsActive,
 		modalActive,
@@ -220,8 +220,8 @@ const CartComponent = () => {
 							<div className={style['cart-component__programs-list-mobile']}>{cart.map((item, idx) => {
 								if (item.active) {
 									return (
-										<>
-											<div key={item.id + idx} className={style['cart-component__programs-item']}>
+										<div key={item.id + idx}>
+											<div className={style['cart-component__programs-item']}>
 												<div className={style['cart-component__cCal']}>{item.menu?.type.cCal} Ккал</div>
 												<div className={style['cart-component__about-plan']}>
 													<div className={`${style['cart-component__program']} ${item.active ? style['active'] : ''}`}>
@@ -240,7 +240,7 @@ const CartComponent = () => {
 											<div className={style['cart-component__description']}>
 												{item.menu?.offer.description.text}
 											</div>
-										</>
+										</div>
 									)
 								}
 							})}

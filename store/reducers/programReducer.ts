@@ -1,7 +1,6 @@
 import dish from '../../public/images/dish.png'
 import dishMin from '../../public/images/dish-min2.png'
 import { ProgramAction, ProgramActionTypes, ProgramState } from '../../types/programTypes'
-import { number } from 'prop-types'
 
 const weekdays = [
 	{
@@ -565,12 +564,12 @@ const programs = [
 	},
 ]
 const optionsBtns = [
-	{number: 1, active: true},
+	{number: 1, active: false},
 	{number: 5, active: false},
 	{number: 6, active: false},
 	{number: 7, active: false},
 	{number: 14, active: false},
-	{number: 28, active: false},
+	{number: 28, active: true},
 ]
 const initialState: ProgramState = {
 	programs,
@@ -581,11 +580,11 @@ const initialState: ProgramState = {
 		id: 1,
 		active: true,
 		numberOfDays: optionsBtns,
-		number: 1,
+		number: optionsBtns[5].number,
 		cost: programs
 			.filter(cost => cost.active)
 			.reduce((num, sum) => {
-				return num = sum.offer.description.cost
+				return num = sum.offer.description.cost * optionsBtns[5].number
 			},0),
 		menu: programs.find(program => program.active) ?? null
 	},
@@ -595,7 +594,7 @@ const initialState: ProgramState = {
 export const programReducer = (state = initialState, action: ProgramAction): ProgramState => {
 	switch (action.type) {
 		case ProgramActionTypes.SET_ACTIVE_SET:
-			const firstDay = 1
+			const lastDay = 28
 			const setActiveCurrentMenu = state.programs.map(program => {
 				return (
 					{
@@ -616,7 +615,7 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 					id: state.cart.length + 1,
 					active: state.cart.length + 1 === 1,
 					numberOfDays: state.optionsBtns.map(day => {
-						if (day.number === firstDay)
+						if (day.number === lastDay)
 							return {
 								...day,
 								active: true
@@ -629,12 +628,12 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 					cost: setActiveCurrentMenu
 						.filter(cost => cost.active)
 						.reduce((num, sum) => {
-							return num = sum.offer.description.cost
+							return num = sum.offer.description.cost * lastDay
 						},0),
 					menu: setActiveCurrentMenu.find(program => program.active) ?? null
 				},
 				optionsBtns: state.optionsBtns.map(btn => {
-					if (btn.number === firstDay)
+					if (btn.number === lastDay)
 						return {
 							...btn,
 							active: true
