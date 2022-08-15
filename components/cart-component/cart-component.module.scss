@@ -419,6 +419,13 @@
       width: 260px;
       white-space: nowrap;
     }
+
+    &.cost_font {
+     @include tablets {
+       padding-top: 27px;
+       font-size: 16px;
+     }
+    }
   }
 
   &__sum {

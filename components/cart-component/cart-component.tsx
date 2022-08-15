@@ -246,12 +246,7 @@ const CartComponent = () => {
 							})}
 							</div>
 						</div>
-						<div className={style['cart-component__cost']} style={
-							{
-								fontSize: String(sum).length > 4 ? '16px' : '24px',
-								paddingTop: String(sum).length > 4 ? '27px' : '24px'
-							}
-						}>
+						<div className={`${style['cart-component__cost']} ${String(sum).length > 4 ? style.cost_font : ''}`}>
 							<div className={style['cart-component__sum']}><Counter end={sum}/> ₽</div>
 							{cart.length > 1 && <NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>}
 						</div>
