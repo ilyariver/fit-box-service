@@ -84,7 +84,7 @@ const CartComponent = () => {
 			return () => window.removeEventListener('resize', updateDimensions)
 		}
 	},[])
-	console.log('selectedMenu', selectedMenu)
+
 	return (
 		<div className={style['cart-component']}>
 			<button onClick={() => modalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
@@ -100,7 +100,6 @@ const CartComponent = () => {
 					<div className={style['cart-component__week']}>
 						{
 							choiceWeek.map(day => {
-								debugger
 								return day.days.map((weekday, idx) => {
 									return <WeekDaysIndicatorCart
 										onClick={() => changeDietAction(weekday.title.min)}
@@ -247,7 +246,12 @@ const CartComponent = () => {
 							})}
 							</div>
 						</div>
-						<div className={style['cart-component__cost']}>
+						<div className={style['cart-component__cost']} style={
+							{
+								fontSize: String(sum).length > 4 ? '16px' : '24px',
+								paddingTop: String(sum).length > 4 ? '27px' : '24px'
+							}
+						}>
 							<div className={style['cart-component__sum']}><Counter end={sum}/> ₽</div>
 							{cart.length > 1 && <NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>}
 						</div>
