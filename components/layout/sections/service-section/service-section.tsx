@@ -9,6 +9,7 @@ import plateRice from '../../../../public/images/plate-riсe.png'
 import holodos from '../../../../public/images/holodos.png'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import { MainButton } from '../../../shared/mainButton/mainButton'
+import Link from 'next/link';
 
 const ServiceSection = () => {
 
@@ -56,7 +57,13 @@ const ServiceSection = () => {
 							Бесплатно  установим мини-магазин со свежей едой прямо у вас в офисе
 						</p>
 						<div className={style.prod_text}>Без продавцов: нужны только розетка и один квадратный метр</div>
-						<MainButton className={style.button}>Хочу холодильник с едой в офис</MainButton>
+						<MainButton className={style.button}>
+							<Link href="https://micromarket.fitbox.su/">
+								<a  target="_blank">
+									Хочу холодильник с едой в офис
+								</a>
+							</Link>
+						</MainButton>
 					</div>
 				</div>
 			</div>

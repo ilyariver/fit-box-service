@@ -65,18 +65,12 @@ const Header = () => {
                                     </a>
                                 </div>
                                 <div className={style.geo}>
-                                    <Image
-                                        alt="Локация"
-                                        className={style.geo_icon}
-                                        src={state.header.location.icon}
-                                        width={17}
-                                        height={17}
-                                    />
                                     <div className={style.geo_cities}>
-                                        <select className={style.city}>
-                                            {state.header.location.cities.map(city =>
-                                                <option key={city.title} value={city.title}>{city.title}</option>)}
-                                        </select>
+                                        <button className={style.city}>
+                                            Выберите город
+                                            {/*{state.header.location.cities.map(city =>*/}
+                                            {/*    <option key={city.title} value={city.title}>{city.title}</option>)}*/}
+                                        </button>
                                     </div>
                                 </div>
                                 <button className={style.callback_btn}>Заказать звонок</button>
@@ -89,6 +83,13 @@ const Header = () => {
                                 </li>)}
                             </ul>
                         </nav>
+                        <div className={style.enter_account}>
+                            <Link href={'#'}>
+                                <a className={style.enter_account_btn}>
+                                    Личный кабинет
+                                </a>
+                            </Link>
+                        </div>
                         <CartButton
                             onClick={() => {
                                 openRightMenu()

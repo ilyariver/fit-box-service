@@ -229,21 +229,22 @@
 }
 
 .city {
+  background-image: url(#{$IMG_PATH}/icons/icon-location.svg);
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 15px;
+  line-height: 1.4;
   background-color: transparent;
-  padding: 0 10px;
+  padding: 0 10px 0 20px;
   border: none;
   outline: none;
   cursor: pointer;
+  transition: color 0.2s ease;
+  &:hover {
+    color: $color-pink;
+  }
   @include tablets {
     cursor: auto;
-  }
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
-  &::-ms-expand {
-    /* IE */
-    display: none;
   }
 }
 
@@ -295,5 +296,17 @@
         cursor: auto;
       }
     }
+  }
+}
+
+.enter_account {
+  &_btn {
+    display: block;
+    background-image: url(#{$IMG_PATH}/icons/icon-user.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 24px;
+    padding-left: 28px;
+    line-height: 1.4;
   }
 }
