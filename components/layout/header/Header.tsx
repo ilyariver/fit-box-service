@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useActions } from '../../../hooks/useAction'
@@ -6,13 +6,25 @@ import style from './Header.module.scss'
 import { state } from '../../../mockDate'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import CartButton from '../../shared/cart-button/cart-button'
+import Modals from '../../shared/modals/modals'
+import { useRouter } from 'next/router'
+import { Cities } from '../../../types/selectCityTypes'
+import ModalCitiesContent from '../../shared/modal-cities-content/modal-cities-content'
+import ModalLoginContent from '../../shared/modal-login-content/modal-login-content'
 
-const Header = () => {
-    const [openMenu, setOpenMenu] = useState(false)
-    const [transition, setTransition] = useState(false)
-    const [activeHeader, setActiveHeader] = useState(false)
-    const { modalActive } = useActions()
+const Header: FC = () => {
+    const [openMenu, setOpenMenu] = useState<boolean>(false)
+    const [transition, setTransition] = useState<boolean>(false)
+    const [activeHeader, setActiveHeader] = useState<boolean>(false)
+    const [setCity, setSetCity] = useState<Cities[]>([])
+    const [activeSelectCityContent, setActiveSelectCityContent] = useState<boolean>(false)
+    const [activeLoginContent, setActiveLoginContent] = useState<boolean>(false)
+    const router = useRouter()
+    const { cartModalActive, dialogModalsActive } = useActions()
+
     const { cart } = useTypedSelector(cartList => cartList.program)
+    const { cities } = useTypedSelector(modal => modal.selectedCity)
+    const { activeSelectCityModal } = useTypedSelector(modal => modal.dialogModals)
 
     const openRightMenu = () => {
         setOpenMenu(!openMenu)
@@ -35,16 +47,30 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     })
 
+    useEffect(() => {
+        if (router.asPath) {
+            dialogModalsActive(false)
+        }
+    }, [])
+
+    useEffect(() => {
+        const hasSelectedCity = cities.filter(city => city.link === router.query.city)
+
+        if (hasSelectedCity.length !== 0) {
+            setSetCity(hasSelectedCity)
+        }
+    }, [router, cities])
+
     return (
         <>
             <div className={style.fixed_cart}>
-                <CartButton quantity={cart.length} className={style.cart_number} onClick={() => modalActive()}/>
+                <CartButton quantity={cart.length} className={style.cart_number} onClick={() => cartModalActive()}/>
             </div>
 
             <header className={`${style.header} ${activeHeader ? style.active : ''}`}>
                 <div className={`container ${style.container}`}>
                     <div className={style.logo}>
-                        <Link href="/">
+                        <Link href={router.asPath}>
                             <a>
                                 <Image src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
                             </a>
@@ -58,7 +84,7 @@ const Header = () => {
                         <div className={style.header_right}>
                             <div className={style.left_menu}>
                                 <div className={style.phone_number}>
-                                    <a className={style.phone_link} href={state.header.tel.link}>
+                                    <a className={style.phone_link} href={'tel:' + state.header.tel.link}>
                                         <Image alt="Телефон" className={style.phone_icon} src={state.header.tel.icon} width={17}
                                                height={17}/>
                                         <div className={style.phone_text}>8 900 999 99 99</div>
@@ -66,10 +92,16 @@ const Header = () => {
                                 </div>
                                 <div className={style.geo}>
                                     <div className={style.geo_cities}>
-                                        <button className={style.city}>
-                                            Выберите город
-                                            {/*{state.header.location.cities.map(city =>*/}
-                                            {/*    <option key={city.title} value={city.title}>{city.title}</option>)}*/}
+                                        <button
+                                            onClick={() => {
+                                                dialogModalsActive(!activeSelectCityModal)
+                                                setActiveSelectCityContent(true)
+                                            }}
+                                            className={style.city}>
+                                            {setCity.length === 0 && <span>Выберите город</span>}
+                                            {setCity.map(city =>
+                                                city.title && <span key={city.title}>{city.title}</span>
+                                            )}
                                         </button>
                                     </div>
                                 </div>
@@ -78,14 +110,18 @@ const Header = () => {
                         </div>
                         <nav className={style.navigator}>
                             <ul className={style.navigator_list}>
-                                {state.header.navigation.map(item => <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
-                                    <Link href={item.link} className={style.navigator_link}>{item.title}</Link>
-                                </li>)}
+                                {state.header.navigation.map(item =>
+                                    <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
+                                        <Link href={item.link} className={style.navigator_link}>{item.title}</Link>
+                                    </li>)}
                             </ul>
                         </nav>
                         <div className={style.enter_account}>
                             <Link href={'#'}>
-                                <a className={style.enter_account_btn}>
+                                <a className={style.enter_account_btn} onClick={() => {
+                                    dialogModalsActive(!activeSelectCityModal)
+                                    setActiveLoginContent(true)
+                                }}>
                                     Личный кабинет
                                 </a>
                             </Link>
@@ -93,12 +129,18 @@ const Header = () => {
                         <CartButton
                             onClick={() => {
                                 openRightMenu()
-                                modalActive()
+                                cartModalActive()
                             }}
                             quantity={cart.length}/>
                     </div>
                 </div>
             </header>
+            <Modals
+                active={activeSelectCityModal}
+            >
+                {/*<ModalCitiesContent/>*/}
+                {activeLoginContent && <ModalLoginContent/>}
+            </Modals>
         </>
    )
 }

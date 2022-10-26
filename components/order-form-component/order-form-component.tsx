@@ -1,9 +1,10 @@
 import style from './order-form-component.module.scss'
 import InputText from '../calculator-component/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
-import { cities } from '../../mockDate'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const OrderFormComponent = () => {
+	const { cities } = useTypedSelector(cities => cities.selectedCity)
 
 	return (
 		<form className={style['order-form-component']}>
@@ -11,8 +12,8 @@ const OrderFormComponent = () => {
 				<div className={style['order-form-component__block']}>
 					<div className={style['order-form-component__area-title']}>Ваши данные</div>
 					<div className={style['order-form-component__inputs']}>
-						<InputText label={'Имя пользователя'}/>
-						<InputText label={'E-mail'}/>
+						<InputText label={'Имя пользователя'} className={style['order-form-component__input']}/>
+						<InputText label={'E-mail'} className={style['order-form-component__input']}/>
 					</div>
 				</div>
 				<div className={style['order-form-component__address']}>

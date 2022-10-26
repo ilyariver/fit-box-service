@@ -188,8 +188,8 @@
 }
 
 .phone_number {
-  margin-right: 30px;
-  margin-left: 5px;
+  margin-right: 15px;
+  //margin-left: 5px;
 
   @include large {
     margin: 0;
@@ -209,9 +209,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 150px;
   background-color: transparent;
   border: none;
-  margin-right: 18px;
+  margin-right: 15px;
   cursor: pointer;
 
   &_cities {
@@ -235,11 +236,12 @@
   background-size: 15px;
   line-height: 1.4;
   background-color: transparent;
-  padding: 0 10px 0 20px;
+  padding: 0 10px 0 23px;
   border: none;
   outline: none;
   cursor: pointer;
   transition: color 0.2s ease;
+
   &:hover {
     color: $color-pink;
   }
@@ -254,6 +256,7 @@
   border: none;
   cursor: pointer;
   text-decoration: underline;
+  padding: 0;
 
   @include large {
     cursor: auto;
@@ -266,7 +269,7 @@
   }
 
   &_item:not(:last-child) {
-    margin-right: 45px;
+    margin-right: 25px;
 
     @include large {
       margin-right: 0;

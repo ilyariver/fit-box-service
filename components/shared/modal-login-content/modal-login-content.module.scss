@@ -1,0 +1,35 @@
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/responsive';
+@import '../../../styles/scss/breakpoint';
+
+.modal_title {
+  margin-bottom: 35px;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.modal_text {
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+.modal_input {
+  margin-bottom: 25px;
+  width: auto;
+}
+
+.main_btn_order {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.offer {
+  font-size: 12px;
+  opacity: 0.7;
+
+  & > a {
+    //border-bottom: 1px solid #fff;
+    text-decoration: underline;
+  }
+}

@@ -23,7 +23,7 @@ const CartComponent = () => {
 	const { cart, choiceWeek, weekdays } = useTypedSelector(btns => btns.program)
 	const {
 		nextMenuCardsActive,
-		modalActive,
+		cartModalActive,
 		setDaysDurationAction,
 		removeProgramFromCartAction,
 		changeDietAction,
@@ -87,11 +87,11 @@ const CartComponent = () => {
 
 	return (
 		<div className={style['cart-component']}>
-			<button onClick={() => modalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
+			<button onClick={() => cartModalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
 			{ cart.length !== 0 && (widthCart || activeSwiper) && <Link href={'/order'}>
 			  		<a>
 					  <MainButton
-						onClick={() => modalActive()}
+						onClick={() => cartModalActive()}
 						className={style.main_button}>Оформить заказ</MainButton>
 				  	</a>
 				</Link> }
@@ -253,7 +253,7 @@ const CartComponent = () => {
 					</div>
 					{(!widthCart && !activeSwiper) && <Link href={'/order'}>
 						<a>
-							<MainButton onClick={() => modalActive()} width="312px" fontSize="18px">
+							<MainButton onClick={() => cartModalActive()} width="312px" fontSize="18px">
 								Оформить заказ!
 							</MainButton>
 						</a>

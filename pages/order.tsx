@@ -6,13 +6,13 @@ import { useTypedSelector } from '../hooks/useTypedSelector'
 import OrderPage from '../components/layout/order-page/order-page'
 
 const Order = () => {
-	const { activeModal } = useTypedSelector(modal => modal.modal)
+	const { activeCartModal } = useTypedSelector(modal => modal.cartModal)
 
 	return (
 		<>
 			<Header/>
 			<OrderPage />
-			<ModalWindow active={activeModal}>
+			<ModalWindow active={activeCartModal}>
 				<CartComponent />
 			</ModalWindow>
 		</>

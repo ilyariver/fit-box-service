@@ -25,13 +25,13 @@ const optionsBtns = [
 	{number: 28, active: false},
 ]
 
-export const cities = [
-	{id: 1, title: 'Ульяновск'},
-	{id: 2, title: 'Димитровград'},
-	{id: 3, title: 'Казань'},
-	{id: 4, title: 'Самара'},
-	{id: 5, title: 'Тольятти'},
-]
+// export const cities = [
+// 	{id: 1, title: 'Ульяновск', link: '/ulyanovsk', active: false},
+// 	{id: 2, title: 'Димитровград', link: '/dimitrovgrad', active: false},
+// 	{id: 3, title: 'Казань', link: '/kazan', active: false},
+// 	{id: 4, title: 'Самара', link: '/samara', active: false},
+// 	{id: 5, title: 'Тольятти', link: '/togliatti', active: false},
+// ]
 
 export const state = {
 	header: {
@@ -44,10 +44,10 @@ export const state = {
 			number: '8 900 999 99 99',
 			link: '+79009999999'
 		},
-		location: {
-			icon: location,
-			cities,
-		},
+		// location: {
+		// 	icon: location,
+			// cities,
+		// },
 		navigation: [{ title:'Рационы меню', link: '#section-menu' }, { title:'Доставка и оплата', link: '#' }, { title:'Обеды в офис', link: '#section-cost' }]
 	},
 	menu: [

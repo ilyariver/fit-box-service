@@ -96,6 +96,10 @@ $border: 2px;
     }
   }
 
+  &__input {
+    width: calc(100% / 2 - 53px);
+  }
+
   &__plan {
     display: flex;
     justify-content: space-between;

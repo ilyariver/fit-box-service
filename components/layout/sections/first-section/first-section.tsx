@@ -1,3 +1,4 @@
+import { FC, useEffect, useState } from 'react'
 import style from './first-section.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,8 +7,22 @@ import PreviewMenu from '../../../shared/preview-menu/preview-menu'
 import girl from '../../../../public/images/girl@x3.png'
 import girlEllipse from '../../../../public/images/girl-ellipse.svg'
 import { state } from '../../../../mockDate'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import { useRouter } from 'next/router'
+import { Cities } from '../../../../types/selectCityTypes'
 
-const FirstSection = () => {
+const FirstSection: FC = () => {
+	const router = useRouter()
+	const [setCity, setSetCity] = useState<Cities[]>([])
+	const { cities } = useTypedSelector(modal => modal.selectedCity)
+
+	useEffect(() => {
+		const hasSelectedCity = cities.filter(city => city.link === router.query.city)
+
+		if (hasSelectedCity.length !== 0) {
+			setSetCity(hasSelectedCity)
+		}
+	}, [router, cities])
 
 	return (
 		<section className={style.first_section}>
@@ -19,7 +34,13 @@ const FirstSection = () => {
 					<Image src={girlEllipse} alt="Круг"/>
 				</div>
 				<h1 className={style.title} data-aos="fade-right" >
-					Правильное питание <br />с&nbsp;доставкой <br />в&nbsp;Ульяновске
+					Правильное питание <br />с&nbsp;доставкой <br />
+					{
+						setCity.map(city => {
+							return <span key={city.title}>в&nbsp;{city.where}</span>
+						})
+					}
+
 				</h1>
 				<Link href="#section-menu">
 					<a>

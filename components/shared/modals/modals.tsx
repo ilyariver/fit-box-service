@@ -1,10 +1,8 @@
 import { FC, useEffect } from 'react'
-import style from './modal-window.module.scss'
+import style from './modals.module.scss'
 import { ModalTypes } from '../../../types/modalTypes'
-import { useActions } from '../../../hooks/useAction'
 
-const ModalWindow: FC<ModalTypes> = ({ active, children }) => {
-	const { cartModalActive } = useActions()
+const Modals: FC<ModalTypes> = ({ active, children }) => {
 
 	useEffect(() => {
 		document.body.style.overflowY = `${active ? 'scroll' : ''}`
@@ -13,10 +11,7 @@ const ModalWindow: FC<ModalTypes> = ({ active, children }) => {
 	}, [active])
 
 	return (
-		<div
-			onClick={() => cartModalActive()}
-			className={`${style['modal']} ${active ? style.active : ''}`}
-		>
+		<div className={`${style['modal']} ${active ? style.active : ''}`}>
 			<div className={style['modal__wrap']}>
 				<div onClick={e => e.stopPropagation()} className={`${style['modal__content']} ${active ? style.active : ''}`}>
 					{ children }
@@ -26,4 +21,4 @@ const ModalWindow: FC<ModalTypes> = ({ active, children }) => {
 	)
 }
 
-export default ModalWindow
+export default Modals

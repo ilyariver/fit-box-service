@@ -1,6 +1,6 @@
 import React from 'react'
 
 export interface ModalTypes {
-	active: boolean
+	active?: boolean
 	children: React.ReactNode
 }
