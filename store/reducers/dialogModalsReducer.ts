@@ -1,19 +1,67 @@
 import {
+	AddSSNValueTypes,
 	CartModalAction,
 	MainCartModalState,
-	ModalActionTypes, SelectCityModalState
-} from '../../types/mainCartModalTypes'
+	ModalActionTypes,
+	ShowDialogWindowState,
+} from '../../types/mainCartModalTypes';
+import { number } from 'prop-types';
 
-const initialState: SelectCityModalState = {
-	activeSelectCityModal: false
+const initialState: ShowDialogWindowState = {
+	activeDialogModal: false,
+	activeCitiesContent: false,
+	activeLoginContent: false,
+	activeEnterSMSContent: false,
+	getNumberPhone: '',
+	sendCodeRepeat: false,
+	addSSNValue: [],
+	activeEnterPasswordContent: false
 }
 
-export const dialogModalsReducer = (state = initialState, action: CartModalAction): SelectCityModalState => {
+export const dialogModalsReducer = (
+	state = initialState,
+	action: CartModalAction
+	): ShowDialogWindowState => {
 	switch (action.type) {
 		case ModalActionTypes.SET_ACTIVE_DIALOG_MODALS:
 			return {
 				...state,
-				activeSelectCityModal: action.payload
+				activeDialogModal: action.payload
+			}
+		case ModalActionTypes.SET_ACTIVE_CITIES:
+			return {
+				...state,
+				activeCitiesContent: action.payload
+			}
+		case ModalActionTypes.SET_ACTIVE_LOGIN:
+			return {
+				...state,
+				activeLoginContent: action.payload
+			}
+		case ModalActionTypes.SET_ACTIVE_ENTER_SMS_CODE:
+			return {
+				...state,
+				activeEnterSMSContent: action.payload
+			}
+		case ModalActionTypes.GET_NUMBER_PHONE:
+			return {
+				...state,
+				getNumberPhone: action.payload
+			}
+		case ModalActionTypes.SEND_CODE_REPEAT:
+			return {
+				...state,
+				sendCodeRepeat: action.payload
+			}
+		case ModalActionTypes.ADD_SSN_VALUE:
+			return {
+				...state,
+				addSSNValue: state.addSSNValue.push(action.payload)
+			}
+		case ModalActionTypes.SET_ACTIVE_ENTER_PASSWORD:
+			return {
+				...state,
+				activeEnterPasswordContent: action.payload
 			}
 		default:
 			return state

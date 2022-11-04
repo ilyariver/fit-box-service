@@ -1,5 +1,5 @@
 import style from './order-form-component.module.scss'
-import InputText from '../calculator-component/input-text/input-text'
+import InputText from '../shared/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 

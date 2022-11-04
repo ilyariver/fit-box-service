@@ -5,11 +5,18 @@ import { useActions } from '../../../hooks/useAction'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 
 const ModalCitiesContent: FC = () => {
-	const { cartModalActive, dialogModalsActive, setCurrentCityActive } = useActions()
+	const {
+		dialogModalsActive,
+		setCurrentCityActive,
+		citiesContentActive
+	} = useActions()
 
 	const { cart } = useTypedSelector(cartList => cartList.program)
 	const { cities } = useTypedSelector(modal => modal.selectedCity)
-	const { activeSelectCityModal } = useTypedSelector(modal => modal.dialogModals)
+	const {
+		activeDialogModal,
+		activeCitiesContent,
+	} = useTypedSelector(modal => modal.dialogModals)
 
 	return (
 		<>
@@ -21,7 +28,8 @@ const ModalCitiesContent: FC = () => {
 							<div key={city.title} className={style.modal_cities_item}>
 								<Link href={`/city/${city.link}`}>
 									<a onClick={() => {
-										dialogModalsActive(false)
+										dialogModalsActive(!activeDialogModal)
+										citiesContentActive(!activeCitiesContent)
 										setCurrentCityActive(city.id)
 									}
 									} className={style.city_title}>{ city.title }</a>

@@ -1,0 +1,86 @@
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/responsive';
+@import '../../../styles/scss/breakpoint';
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+.close_modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background-image: url("#{$IMG_PATH}/icons/icon-close.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.1s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.modal_title {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.modal_text {
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.edit_number {
+  margin-bottom: 20px;
+  padding: 0;
+  background-color: transparent;
+  font-size: 12px;
+  color: $color-pink;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.code_inputs_group {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.code_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 18px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  outline: none;
+  font-weight: 300;
+  font-size: 35px;
+  color: #ccc;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+}
+
+.repeat_send {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}

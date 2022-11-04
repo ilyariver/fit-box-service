@@ -2,6 +2,26 @@
 @import '../../../styles/scss/responsive';
 @import '../../../styles/scss/breakpoint';
 
+.close_modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background-image: url("#{$IMG_PATH}/icons/icon-close.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.1s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .modal_title {
   margin-bottom: 35px;
   font-size: 18px;
@@ -22,6 +42,11 @@
 .main_btn_order {
   margin-bottom: 20px;
   width: 100%;
+  font-size: 18px;
+
+  &:active {
+    background-color: #1e938d!important;
+  }
 }
 
 .offer {
@@ -33,3 +58,62 @@
     text-decoration: underline;
   }
 }
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  @include large {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__area {
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  &__label {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    color: #ffffffB3;
+    font-size: 14px;
+    transform: translateY(100%);
+    transition: transform 0.2s $easing-back-out;
+
+    &.active {
+      transform: translateY(0);
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 35px;
+    padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+
+    &.error_input {
+      border-bottom: 1px solid $color-error;
+      color: $color-error;
+    }
+  }
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  bottom: -17px;
+  font-size: 12px;
+  color: $color-error;
+}
+

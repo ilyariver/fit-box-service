@@ -11,20 +11,30 @@ import { useRouter } from 'next/router'
 import { Cities } from '../../../types/selectCityTypes'
 import ModalCitiesContent from '../../shared/modal-cities-content/modal-cities-content'
 import ModalLoginContent from '../../shared/modal-login-content/modal-login-content'
+import ModalEnterSmsContent from '../../shared/modal-enter-sms-content/modal-enter-sms-content';
 
 const Header: FC = () => {
     const [openMenu, setOpenMenu] = useState<boolean>(false)
     const [transition, setTransition] = useState<boolean>(false)
     const [activeHeader, setActiveHeader] = useState<boolean>(false)
     const [setCity, setSetCity] = useState<Cities[]>([])
-    const [activeSelectCityContent, setActiveSelectCityContent] = useState<boolean>(false)
-    const [activeLoginContent, setActiveLoginContent] = useState<boolean>(false)
     const router = useRouter()
-    const { cartModalActive, dialogModalsActive } = useActions()
+    const {
+        cartModalActive,
+        dialogModalsActive,
+        loginContentActive,
+        citiesContentActive,
+    } = useActions()
 
     const { cart } = useTypedSelector(cartList => cartList.program)
     const { cities } = useTypedSelector(modal => modal.selectedCity)
-    const { activeSelectCityModal } = useTypedSelector(modal => modal.dialogModals)
+    const {
+        activeDialogModal,
+        activeCitiesContent,
+        activeEnterSMSContent,
+        activeLoginContent,
+        activeEnterPasswordContent
+    } = useTypedSelector(modal => modal.dialogModals)
 
     const openRightMenu = () => {
         setOpenMenu(!openMenu)
@@ -55,7 +65,7 @@ const Header: FC = () => {
 
     useEffect(() => {
         const hasSelectedCity = cities.filter(city => city.link === router.query.city)
-
+        citiesContentActive(false)
         if (hasSelectedCity.length !== 0) {
             setSetCity(hasSelectedCity)
         }
@@ -94,8 +104,8 @@ const Header: FC = () => {
                                     <div className={style.geo_cities}>
                                         <button
                                             onClick={() => {
-                                                dialogModalsActive(!activeSelectCityModal)
-                                                setActiveSelectCityContent(true)
+                                                dialogModalsActive(!activeDialogModal)
+                                                citiesContentActive(!activeCitiesContent)
                                             }}
                                             className={style.city}>
                                             {setCity.length === 0 && <span>Выберите город</span>}
@@ -119,8 +129,8 @@ const Header: FC = () => {
                         <div className={style.enter_account}>
                             <Link href={'#'}>
                                 <a className={style.enter_account_btn} onClick={() => {
-                                    dialogModalsActive(!activeSelectCityModal)
-                                    setActiveLoginContent(true)
+                                    dialogModalsActive(!activeDialogModal)
+                                    loginContentActive(!activeLoginContent)
                                 }}>
                                     Личный кабинет
                                 </a>
@@ -136,10 +146,13 @@ const Header: FC = () => {
                 </div>
             </header>
             <Modals
-                active={activeSelectCityModal}
+                active={activeDialogModal}
+                // active={true}
             >
-                {/*<ModalCitiesContent/>*/}
-                {activeLoginContent && <ModalLoginContent/>}
+                { activeCitiesContent && <ModalCitiesContent /> }
+                { activeLoginContent && <ModalLoginContent /> }
+                { activeEnterSMSContent && <ModalEnterSmsContent/> }
+
             </Modals>
         </>
    )
