@@ -712,9 +712,16 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 
 			}
 		case ProgramActionTypes.ADD_TO_CART:
-			const item: any = {}
-			state.cart.push(state.order)
 
+			const item: any = {}
+			if (state.cart.length === 0) {
+				state.cart.push({
+					...state.order,
+					active: true
+				})
+			} else {
+				state.cart.push(state.order)
+			}
 			return {
 				...state,
 				cart: state.cart.filter(({id}) => (!item[id] && (item[id] = 1))),

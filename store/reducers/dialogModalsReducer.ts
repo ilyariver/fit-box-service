@@ -5,7 +5,6 @@ import {
 	ModalActionTypes,
 	ShowDialogWindowState,
 } from '../../types/mainCartModalTypes';
-import { number } from 'prop-types';
 
 const initialState: ShowDialogWindowState = {
 	activeDialogModal: false,
@@ -13,6 +12,7 @@ const initialState: ShowDialogWindowState = {
 	activeLoginContent: false,
 	activeEnterSMSContent: false,
 	getNumberPhone: '',
+	getEmail: '',
 	sendCodeRepeat: false,
 	addSSNValue: [],
 	activeEnterPasswordContent: false
@@ -48,6 +48,11 @@ export const dialogModalsReducer = (
 				...state,
 				getNumberPhone: action.payload
 			}
+		case ModalActionTypes.GET_EMAIL:
+			return {
+				...state,
+				getEmail: action.payload
+			}
 		case ModalActionTypes.SEND_CODE_REPEAT:
 			return {
 				...state,
@@ -56,7 +61,7 @@ export const dialogModalsReducer = (
 		case ModalActionTypes.ADD_SSN_VALUE:
 			return {
 				...state,
-				addSSNValue: state.addSSNValue.push(action.payload)
+				// addSSNValue: state.addSSNValue.push(action.payload)
 			}
 		case ModalActionTypes.SET_ACTIVE_ENTER_PASSWORD:
 			return {

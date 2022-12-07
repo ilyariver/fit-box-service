@@ -1,67 +1,5 @@
 @import '../../../styles/scss/variables';
-@import '../../../styles/scss/responsive';
 @import '../../../styles/scss/breakpoint';
-
-.close_modal {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  background-image: url("#{$IMG_PATH}/icons/icon-close.svg");
-  background-repeat: no-repeat;
-  background-color: transparent;
-  background-size: 100%;
-  width: 30px;
-  height: 30px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.1s ease;
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.modal_title {
-  margin-bottom: 35px;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-.modal_text {
-  margin-bottom: 35px;
-  font-size: 14px;
-}
-
-.input_text {
-  margin-bottom: 25px;
-}
-
-.modal_input {
-  margin-bottom: 25px;
-  width: auto;
-}
-
-.main_btn_order {
-  margin-bottom: 20px;
-  width: 100%;
-  font-size: 18px;
-
-  &:active {
-    background-color: #1e938d!important;
-  }
-}
-
-.offer {
-  font-size: 12px;
-  opacity: 0.7;
-
-  & > a {
-    //border-bottom: 1px solid #fff;
-    text-decoration: underline;
-  }
-}
 
 .input-text {
   display: flex;
@@ -105,6 +43,7 @@
     border-bottom: 1px solid #fff;
     outline: none;
     color: #fff;
+    font-size: 14px;
 
     &.error_input {
       border-bottom: 1px solid $color-error;

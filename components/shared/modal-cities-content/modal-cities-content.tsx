@@ -28,10 +28,12 @@ const ModalCitiesContent: FC = () => {
 							<div key={city.title} className={style.modal_cities_item}>
 								<Link href={`/city/${city.link}`}>
 									<a onClick={() => {
-										dialogModalsActive(!activeDialogModal)
-										citiesContentActive(!activeCitiesContent)
-										setCurrentCityActive(city.id)
-									}
+											dialogModalsActive(!activeDialogModal)
+											citiesContentActive(!activeCitiesContent)
+											if (city.id != null) {
+												setCurrentCityActive(city.id)
+											}
+										}
 									} className={style.city_title}>{ city.title }</a>
 								</Link>
 							</div>)

@@ -13,6 +13,11 @@
     border: solid 2px transparent;
     border-radius: 24px;
 
+    @include tablets {
+      width: 100%;
+      min-width: 100%;
+    }
+
     &:before {
       content: "";
       position: absolute;

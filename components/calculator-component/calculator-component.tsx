@@ -32,7 +32,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 					<div className={style['calculator-component__right']}>
 						<div className={style['calculator-component__description']}>{program.offer.description.text}</div>
 						<div className={style['calculator-component__text']}>
-							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за <Counter end={program.offer.description.cost}/> ₽
+							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за <Counter end={program.offer.description.cost}/>₽
 						</div>
 						<div className={style['calculator-component__deliveryText']}>{program.offer.description.deliverDescription}</div>
 					</div>
@@ -55,7 +55,7 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 						{order.cost !== 0 ?
 							`Итого за ${order.number} ${declOfNum(order.number, ['день', 'дня', 'дней'])}:` : `Итого:`}
 					</div>
-					<div className={style['calculator-component__total-sum']}><Counter end={order.cost}/> ₽</div>
+					<div className={style['calculator-component__total-sum']}><Counter end={order.cost}/>₽</div>
 				</div>
 				<MainButton
 					className={style.btn}

@@ -27,8 +27,33 @@ $border: 2px;
     padding: 39px 22px 40px;
   }
 
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    background-image: url("#{$IMG_PATH}/icons/icon-close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &__block {
     margin-bottom: 50px;
+
+    @include large {
+      margin-bottom: 20px;
+    }
 
     @include small {
       margin-bottom: 40px;
@@ -36,6 +61,10 @@ $border: 2px;
 
     &--inputs {
       margin-bottom: 60px;
+
+      @include large {
+        margin-bottom: 20px;
+      }
 
       @include small {
         margin-bottom: 20px;
@@ -92,12 +121,20 @@ $border: 2px;
     justify-content: space-between;
 
     @include large {
-      flex-direction: column;
+
     }
   }
 
   &__input {
-    width: calc(100% / 2 - 53px);
+    width: calc(100% / 2 - 53px)!important;
+
+    @include large {
+      margin-bottom: 20px;
+    }
+
+    @include small {
+      width: calc(100% / 2 - 20px)!important;
+    }
   }
 
   &__plan {
@@ -182,30 +219,24 @@ $border: 2px;
   }
 }
 
-.selects {
-  width: 55%;
-  display: flex;
-  justify-content: space-between;
-
-  @include large {
-    width: 100%;
-  }
-}
-
 .select {
   width: 220px;
 
   @include large {
-    width: 100%;
+    margin-bottom: 30px;
+    width: calc(50% - 53px);
+  }
+
+  @include small {
+    width: calc(50% - 20px);
   }
 }
 
 .date {
-  width: 220px;
+  width: 100%;
 
   @include large {
     margin-bottom: 30px;
-    width: 100%;
   }
 
   @include small {

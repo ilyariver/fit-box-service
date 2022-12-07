@@ -1,16 +1,14 @@
-import React, { FC, FormEvent, useState } from 'react';
-import style from './modal-login-content.module.scss'
-import InputText from '../input-text/input-text'
-import { MainButton } from '../mainButton/mainButton'
-import Link from 'next/link'
-import { useRouter } from 'next/router';
+import React, { FC, useState } from 'react'
 import { useActions } from '../../../hooks/useAction';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import Input from 'react-phone-number-input/input';
-import InputPhone from '../input-phone/input-phone'
-import { onChange } from 'input-format'
+import style from './modal-enter-password-content.module.scss'
+import InputText from '../input-text/input-text'
+import { MainButton } from '../mainButton/mainButton'
+import { useRouter } from 'next/router'
 
-const ModalLoginContent: FC = () => {
+
+const ModalEnterPasswordContent: FC = () => {
+	const router = useRouter()
 	const {
 		activeLoginContent,
 		activeDialogModal,
@@ -28,8 +26,11 @@ const ModalLoginContent: FC = () => {
 	const [phoneValidate, setPhoneValidate] = useState<boolean>(false)
 	const [phone, setPhone] = useState<string>(ruCode)
 	const [mail, setMail] = useState<string>('')
-	const [errorMsg, setErrorMsg] = useState<string>('')
+	const [password, setPassword] = useState<string>('')
+	const [errorEmailMsg, setErrorEmailMsg] = useState<string>('')
+	const [errorPasswordMsg, setErrorPasswordMsg] = useState<string>('')
 	const [mailValidate, setMailValidate] = useState<boolean>(true)
+	const [mailPass, setPassValidate] = useState<boolean>(true)
 
 
 	function handleSubmit(event: any = null): void {
@@ -38,11 +39,22 @@ const ModalLoginContent: FC = () => {
 		const trueMail = validateEmail.test(mail.trim())
 
 		if (trueMail) {
-			onNextAction(mail.trim())
 			setMailValidate(true)
 		} else {
-			setErrorMsg('Некорректная почта')
+			setErrorEmailMsg('Пользователь не зарегистрирован')
 			setMailValidate(false)
+		}
+
+		if (password.trim().length > 3) {
+			setPassValidate(true)
+
+			if (mailPass && mailValidate) {
+				onNextAction(true)
+			} else {
+				setErrorPasswordMsg('Не верный логин либо пароль')
+			}
+		} else {
+			setPassValidate(false)
 		}
 	}
 
@@ -53,10 +65,17 @@ const ModalLoginContent: FC = () => {
 		}
 	}
 
-	function onNextAction(mail: string): void {
-		getEmailActive(mail)
-		loginContentActive(!activeLoginContent)
-		enterSMSContentActive(!activeEnterSMSContent)
+	function onChangePassword(value: React.SetStateAction<string>) {
+		setPassword(value)
+		if (value) {
+			setPassValidate(true)
+		}
+	}
+
+	function onNextAction(access: boolean): void {
+		if (access) {
+			router.push('/profile')
+		}
 	}
 
 
@@ -70,7 +89,6 @@ const ModalLoginContent: FC = () => {
 				}}
 			/>
 			<h2 className={style.modal_title}>вход в личный кабинет</h2>
-			<div className={style.modal_text}>Введите свой E-mail, чтобы получить <br/>код на почту для входа</div>
 
 			<form onSubmit={handleSubmit}>
 				<InputText
@@ -79,23 +97,29 @@ const ModalLoginContent: FC = () => {
 					className={style.input_text}
 					onChange={(e: { target: { value: React.SetStateAction<string> } }) => onChangeInput(e.target.value)}
 					value={mail}
-					errorMsg={errorMsg}
+					errorMsg={errorEmailMsg}
+					validate={mailValidate}
+				/>
+				<InputText
+					type={'password'}
+					label={'Пароль'}
+					className={style.input_password}
+					onChange={(e: { target: { value: React.SetStateAction<string> } }) => onChangePassword(e.target.value)}
+					value={password}
+					errorMsg={errorPasswordMsg}
 					validate={mailValidate}
 				/>
 				<MainButton
 					className={style.main_btn_order}
 					onClick={() => handleSubmit()}
-				>Продолжить</MainButton>
+				>Войти</MainButton>
 			</form>
 
-			<div className={style.offer}>
-				<Link href={'/'}>
-					<a download>Нажимая кнопку «Продолжить», вы соглашаетесь<br/>с условиями оферты и
-						политикой<br/>конфиденциальности.</a>
-				</Link>
+			<div className={style.password_recovery}>
+				забыли пароль?
 			</div>
 		</div>
-	);
+	)
 }
 
-export default ModalLoginContent
+export default ModalEnterPasswordContent

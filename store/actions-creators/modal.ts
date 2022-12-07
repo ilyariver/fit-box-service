@@ -33,9 +33,13 @@ export const getPhoneNumberActive = (payload: string): CartModalAction => {
 	return { type: ModalActionTypes.GET_NUMBER_PHONE, payload }
 }
 
-export const addSSNValuesActive = (payload: AddSSNValueTypes[] = []): CartModalAction => {
-	return { type: ModalActionTypes.ADD_SSN_VALUE, payload }
+export const getEmailActive = (payload: string): CartModalAction => {
+	return { type: ModalActionTypes.GET_EMAIL, payload }
 }
+
+// export const addSSNValuesActive = (payload: AddSSNValueTypes[] = []): CartModalAction => {
+// 	return { type: ModalActionTypes.ADD_SSN_VALUE, payload }
+// }
 
 export const enterPasswordContentActive = (payload: boolean): CartModalAction => {
 	return { type: ModalActionTypes.SET_ACTIVE_ENTER_PASSWORD, payload }

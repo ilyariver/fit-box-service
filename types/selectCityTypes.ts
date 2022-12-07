@@ -4,7 +4,7 @@ export interface SelectCityTypes {
 }
 
 export interface Cities {
-	id: number
+	id?: number
 	title: string
 	where: string
 	link: string

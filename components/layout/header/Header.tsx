@@ -12,8 +12,13 @@ import { Cities } from '../../../types/selectCityTypes'
 import ModalCitiesContent from '../../shared/modal-cities-content/modal-cities-content'
 import ModalLoginContent from '../../shared/modal-login-content/modal-login-content'
 import ModalEnterSmsContent from '../../shared/modal-enter-sms-content/modal-enter-sms-content';
+import ModalEnterPasswordContent from '../../shared/modal-enter-password-content/modal-enter-password-content'
 
-const Header: FC = () => {
+interface HeaderTypes {
+    getHomeLink?: string
+}
+
+const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
     const [openMenu, setOpenMenu] = useState<boolean>(false)
     const [transition, setTransition] = useState<boolean>(false)
     const [activeHeader, setActiveHeader] = useState<boolean>(false)
@@ -80,7 +85,7 @@ const Header: FC = () => {
             <header className={`${style.header} ${activeHeader ? style.active : ''}`}>
                 <div className={`container ${style.container}`}>
                     <div className={style.logo}>
-                        <Link href={router.asPath}>
+                        <Link href={getHomeLink || router.asPath}>
                             <a>
                                 <Image src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
                             </a>
@@ -151,7 +156,8 @@ const Header: FC = () => {
             >
                 { activeCitiesContent && <ModalCitiesContent /> }
                 { activeLoginContent && <ModalLoginContent /> }
-                { activeEnterSMSContent && <ModalEnterSmsContent/> }
+                { activeEnterSMSContent && <ModalEnterPasswordContent /> }
+                {/*{ activeEnterSMSContent && <ModalEnterPasswordContent/> }*/}
 
             </Modals>
         </>

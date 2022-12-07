@@ -26,7 +26,7 @@
   &__left {
     min-height: 810px;
     width: 61%;
-    padding: 27px 40px 60px 40px;
+    padding: 27px 40px 60px;
     background-color: $color-green;
 
     @include xx-large {
@@ -51,7 +51,7 @@
     position: relative;
     width: 42%;
     background-image: $gradient-black;
-    padding: 40px 105px 50px 105px;
+    padding: 40px 105px 50px;
     color: #fff;
 
     @include xx-large {

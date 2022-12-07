@@ -1,5 +1,3 @@
-import { number } from 'prop-types';
-
 export interface MainCartModalState {
 	activeCartModal: boolean
 }
@@ -10,6 +8,7 @@ export interface ShowDialogWindowState {
 	activeLoginContent: boolean
 	activeEnterSMSContent: boolean
 	getNumberPhone: string
+	getEmail: string
 	sendCodeRepeat: boolean
 	addSSNValue: AddSSNValueTypes[]
 	activeEnterPasswordContent: boolean
@@ -26,6 +25,7 @@ export enum ModalActionTypes {
 	SET_ACTIVE_LOGIN = 'SET_ACTIVE_LOGIN',
 	SET_ACTIVE_ENTER_SMS_CODE = 'SET_ACTIVE_ENTER_SMS_CODE',
 	GET_NUMBER_PHONE = 'GET_NUMBER_PHONE',
+	GET_EMAIL = 'GET_EMAIL',
 	SEND_CODE_REPEAT = 'SEND_CODE_REPEAT',
 	SET_ACTIVE_ENTER_PASSWORD = 'SET_ACTIVE_ENTER_PASSWORD',
 	ADD_SSN_VALUE = 'ADD_SSN_VALUE',
@@ -60,6 +60,11 @@ interface GetNumberPhoneAction {
 	payload: string
 }
 
+interface GetEmailAction {
+	type: ModalActionTypes.GET_EMAIL,
+	payload: string
+}
+
 interface SendCodeRepeatAction {
 	type: ModalActionTypes.SEND_CODE_REPEAT,
 	payload: boolean
@@ -82,6 +87,7 @@ export type CartModalAction =
 	| ActiveLoginAction
 	| ActiveEnterSMSAction
 	| GetNumberPhoneAction
+	| GetEmailAction
 	| SendCodeRepeatAction
 	| AddSSNValueAction
 	| ActiveEnterPasswordAction

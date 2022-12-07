@@ -1,0 +1,50 @@
+@import "../../../../styles/scss/variables";
+@import "../../../../styles/scss/breakpoint";
+
+.block {
+  margin-right: 40px;
+
+  @include tablets {
+    margin: 0 0 27px;
+  }
+
+  &_title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.current_block {
+  margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 27px;
+  }
+}
+
+.title_wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.input_wrap {
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.input {
+  margin-bottom: 5px;
+}
+
+.correct_btn {
+  margin-right: 12px;
+  padding: 0;
+  background-color: transparent;
+  font-size: 12px;
+  color: $color-pink;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}

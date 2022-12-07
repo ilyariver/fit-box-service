@@ -4,7 +4,7 @@ import { useActions } from './useAction';
 import { AddSSNValueTypes } from '../types/mainCartModalTypes';
 
 export const useSSNFields = () => {
-    const { addSSNValuesActive } = useActions()
+    // const { addSSNValuesActive } = useActions()
     const [ssnValues, setValue] = useState<AddSSNValueTypes>({
         ssn1: '',
         ssn2: '',

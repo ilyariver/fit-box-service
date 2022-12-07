@@ -2,11 +2,11 @@ import { Cities, CurrentCityAction, SelectCityActionTypes, SelectCityTypes } fro
 
 const initialState: SelectCityTypes = {
 	cities: [
-		{id: 1, title: 'Ульяновск', where: 'Ульяновске', link: 'ulyanovsk', active: false},
+		{id: 1, title: 'Казань', where: 'Казани', link: 'kazan', active: false},
 		{id: 2, title: 'Димитровград', where: 'Димитровграде', link: 'dimitrovgrad', active: false},
-		{id: 3, title: 'Казань', where: 'Казани', link: 'kazan', active: false},
-		{id: 4, title: 'Самара', where: 'Самаре', link: 'samara', active: false},
-		{id: 5, title: 'Тольятти', where: 'Тольятти', link: 'togliatti', active: false},
+		{id: 3, title: 'Самара', where: 'Самаре', link: 'samara', active: false},
+		{id: 4, title: 'Тольятти', where: 'Тольятти', link: 'togliatti', active: false},
+		{id: 5, title: 'Ульяновск', where: 'Ульяновске', link: 'ulyanovsk', active: false},
 	]
 }
 

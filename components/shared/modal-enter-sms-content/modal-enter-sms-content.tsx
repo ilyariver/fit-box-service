@@ -20,6 +20,7 @@ const ModalEnterSmsContent: FC = () => {
 		activeDialogModal,
 		activeLoginContent,
 		getNumberPhone,
+		getEmail,
 		sendCodeRepeat,
 	} = useTypedSelector(modal => modal.dialogModals)
 	const {
@@ -40,18 +41,23 @@ const ModalEnterSmsContent: FC = () => {
 				}}
 			/>
 			<div className={style.content}>
-				<h2 className={style.modal_title}>Код из sms</h2>
+				<h2 className={style.modal_title}>Код из почты</h2>
 				<div className={style.modal_text}>
 					Мы {sendCodeRepeat ?
 					<span style={{color: '#FF576A'}}>снова</span>
-					: ''} отправили его на номер {formatPhoneNumber(getNumberPhone)}
+					: ''} отправили его<br/>на<span style={
+						{
+							fontWeight: '700',
+							color: '#FF576A'
+						}
+					}> {getEmail}</span>
 				</div>
 				<button
 					onClick={() => {
 						loginContentActive(!activeLoginContent)
 						enterSMSContentActive(!activeEnterSMSContent)
 					}}
-					className={style.edit_number}>Исправить номер</button>
+					className={style.edit_number}>Исправить почту</button>
 				<div className={style.code_inputs_group}>
 					<input
 						name="ssn-1"

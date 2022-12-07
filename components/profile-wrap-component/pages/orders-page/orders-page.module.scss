@@ -1,0 +1,21 @@
+@import "../../../../styles/scss/variables";
+@import "../../../../styles/scss/breakpoint";
+
+.right_content {
+  position: relative;
+  padding: 60px 80px;
+  width: 75%;
+  z-index: 0;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.wrap {
+  display: flex;
+}

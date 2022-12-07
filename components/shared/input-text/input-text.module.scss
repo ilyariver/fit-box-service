@@ -30,6 +30,10 @@
     &.active {
       transform: translateY(0);
     }
+
+    &.error_input {
+      color: $color-error;
+    }
   }
 
   &__input {
@@ -51,6 +55,9 @@
 }
 
 .error {
+  position: absolute;
+  left: 0;
+  bottom: -15px;
   font-size: 12px;
   color: $color-error;
 }

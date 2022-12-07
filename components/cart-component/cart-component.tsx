@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
 import style from './cart-component.module.scss'
 import CartDishComponent from '../cart-dish-component/cart-dish-component'
@@ -12,7 +12,7 @@ import { setDaysDurationAction } from '../../store/actions-creators/program'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { OptionsBtns, ProgramMenuList } from '../../types/programTypes'
+import { ProgramMenuList } from '../../types/programTypes'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -154,9 +154,11 @@ const CartComponent = () => {
 									)
 								})
 							}
+							{cart.length === 1 && <SwiperSlide>
+								<div className={style['cart-component__dish-wrap']}/>
+							</SwiperSlide>}
 							{
 								cart.map((itemCart,idx) => {
-
 									return (
 										itemCart.id === countCart && <SwiperSlide key={itemCart.id + idx}>
 											<div className={`${style['cart-component__dish-wrap']} ${style['cart-component__next-btn']}`}>
@@ -201,7 +203,8 @@ const CartComponent = () => {
 											<button
 												onClick={() => removeProgramFromCartAction(item.id)}
 												className={style['cart-component__remove-item']}
-												aria-label={`Удалить программу питания ${item.menu?.type.title}`}> </button>
+												title={`Удалить программу питания "${item.menu?.type.title}"`}
+												aria-label={`Удалить программу питания ${item.menu?.type.title}`} />
 											<div
 												id={String(item.id)}
 												className={style['cart-component__cCal']}>{item.menu?.type.cCal} Ккал
@@ -247,7 +250,7 @@ const CartComponent = () => {
 							</div>
 						</div>
 						<div className={`${style['cart-component__cost']} ${String(sum).length > 4 ? style.cost_font : ''}`}>
-							<div className={style['cart-component__sum']}><Counter end={sum}/> ₽</div>
+							<div className={style['cart-component__sum']}><Counter end={sum}/>₽</div>
 							{cart.length > 1 && <NextProgramButton className={style.next_btn} onClick={setNextProgramCards}/>}
 						</div>
 					</div>

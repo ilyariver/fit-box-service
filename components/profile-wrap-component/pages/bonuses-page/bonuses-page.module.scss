@@ -1,0 +1,10 @@
+@import "../../../../styles/scss/variables";
+@import "../../../../styles/scss/breakpoint";
+
+.bonuses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+}
