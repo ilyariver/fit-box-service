@@ -2,6 +2,7 @@
 @import "../../styles/scss/breakpoint";
 
 .section {
+  padding-top: 80px;
   position: relative;
   flex: 1 1 100%;
   background-image: linear-gradient(270deg, #323232 0%, #323232 79%, $color-grey 79%, $color-grey 100%);
@@ -9,6 +10,10 @@
   @include large {
     background-image: none;
     background-color: #323232FF;
+  }
+
+  @include x-small {
+    padding-top: 60px;
   }
 }
 
@@ -183,6 +188,10 @@
   @include small {
     width: 80%;
     font-size: 28px;
+  }
+
+  @include x-small {
+    margin-bottom: 290px;
   }
 }
 

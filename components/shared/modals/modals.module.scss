@@ -50,6 +50,10 @@
       padding: 40px 75px;
     }
 
+    @include x-small {
+      padding: 40px 25px;
+    }
+
     &:after {
       content: "";
       position: absolute;

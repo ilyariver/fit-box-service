@@ -20,11 +20,9 @@ const Profile: FC = () => {
     return (
         <>
             <Header getHomeLink={selectedCity ? '/city/' + selectedCity : '/'} />
-            <div style={{paddingTop: '80px'}}>
-                <ProfileWrapComponent pageTitle={'Александр Герасимов'} menuItem={'Профиль'}>
-                    <ProfilePage />
-                </ProfileWrapComponent>
-            </div>
+            <ProfileWrapComponent pageTitle={'Александр Герасимов'} menuItem={'Профиль'}>
+                <ProfilePage />
+            </ProfileWrapComponent>
             <Footer />
         </>
     )

@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 1;
 
   @include large {
     width: 100%;
@@ -27,6 +28,14 @@
     transform: translateY(100%);
     transition: transform 0.2s $easing-back-out;
 
+    @include x-small {
+      font-size: 12px;
+    }
+
+    @include xx-small {
+      font-size: 11px;
+    }
+
     &.active {
       transform: translateY(0);
     }
@@ -46,6 +55,10 @@
     outline: none;
     color: #fff;
     font-size: 14px;
+
+    @include x-small {
+      height: 30px;
+    }
 
     &.error_input {
       border-bottom: 1px solid $color-error;

@@ -95,6 +95,10 @@
     @include x-small {
       font-size: 11px;
     }
+
+    @include xx-small {
+      font-size: 10px;
+    }
   }
 
   &_right {
@@ -310,6 +314,6 @@
     background-position: center left;
     background-size: 24px;
     padding-left: 28px;
-    line-height: 1.4;
+    line-height: 2;
   }
 }

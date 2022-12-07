@@ -16,7 +16,7 @@ const InputText: FC<InputTextTypes> = (
 	const [activeLabel, setActiveLabel] = useState<boolean>(false)
 
 	return (
-		<form className={`${style['input-text']} ${className}`} style={ inlineStyle }>
+		<div className={`${style['input-text']} ${className}`} style={ inlineStyle }>
 			<div>
 				<label
 					className={
@@ -37,7 +37,7 @@ const InputText: FC<InputTextTypes> = (
 			</div>
 			{!validate &&
 			  <div className={style.error}>{errorMsg}</div>}
-		</form>
+		</div>
 	)
 }
 

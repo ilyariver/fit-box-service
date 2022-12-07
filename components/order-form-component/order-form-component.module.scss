@@ -119,10 +119,6 @@ $border: 2px;
   &__inputs {
     display: flex;
     justify-content: space-between;
-
-    @include large {
-
-    }
   }
 
   &__input {
@@ -134,6 +130,10 @@ $border: 2px;
 
     @include small {
       width: calc(100% / 2 - 20px)!important;
+    }
+
+    @include x-small {
+      margin-bottom: 0;
     }
   }
 
@@ -214,6 +214,10 @@ $border: 2px;
   color: #fff;
   outline: none;
 
+  @include x-small {
+    height: 30px;
+  }
+
   option {
     color: $color-black;
   }
@@ -230,6 +234,15 @@ $border: 2px;
   @include small {
     width: calc(50% - 20px);
   }
+
+  @include x-small {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  @include xx-small {
+    font-size: 11px;
+  }
 }
 
 .date {
@@ -241,6 +254,14 @@ $border: 2px;
 
   @include small {
     margin-bottom: 22px;
+  }
+
+  @include x-small {
+    font-size: 12px;
+  }
+
+  @include xx-small {
+    font-size: 11px;
   }
 }
 

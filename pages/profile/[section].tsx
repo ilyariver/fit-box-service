@@ -38,13 +38,11 @@ const ProfileSection: FC = () => {
     return (
         <>
             <Header getHomeLink={selectedCity ? '/city/' + selectedCity : '/'} />
-            <div style={{paddingTop: '80px'}}>
-                <ProfileWrapComponent pageTitle={currentNamePage} menuItem={currentNamePage}>
-                    {router.query.section === 'orders' && <OrdersPage/>}
-                    {router.query.section === 'bonuses' && <BonusesPage/>}
-                    {router.query.section === 'invite' && <InvitePage/>}
-                </ProfileWrapComponent>
-            </div>
+            <ProfileWrapComponent pageTitle={currentNamePage} menuItem={currentNamePage}>
+                {router.query.section === 'orders' && <OrdersPage/>}
+                {router.query.section === 'bonuses' && <BonusesPage/>}
+                {router.query.section === 'invite' && <InvitePage/>}
+            </ProfileWrapComponent>
             <Footer />
         </>
     )
