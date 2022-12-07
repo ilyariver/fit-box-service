@@ -3,10 +3,13 @@ import InputText from '../shared/input-text/input-text'
 import { MainButton } from '../shared/mainButton/mainButton'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import Link from 'next/link'
+
 import InputPhone from '../shared/input-phone/input-phone'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const OrderFormComponent = () => {
+	const router = useRouter()
 	const [nameValue, setNameValue] = useState<string>('')
 	const [mailValue, setMailValue] = useState<string>('')
 	const [addressValue, setAddressValue] = useState<string>('')
@@ -45,6 +48,14 @@ const OrderFormComponent = () => {
 
 	const onChangePromo = (e: any) => {
 		setPromoCodeValue(e.target.value)
+	}
+
+	function onOrderBuy(e: any) {
+		debugger
+		e.preventDefault()
+		console.log('cities', cities)
+		debugger
+		router.push('/city/' + url)
 	}
 
 	return (
@@ -133,7 +144,11 @@ const OrderFormComponent = () => {
 					</div>
 				</div>
 				<div style={{display: 'flex', justifyContent: 'center'}}>
-					<MainButton className={style.main_btn_order} fontSize="18px" >Оформить заказ</MainButton>
+					<MainButton
+						className={style.main_btn_order}
+						fontSize="18px"
+						onClick={onOrderBuy}
+					>Оформить заказ</MainButton>
 				</div>
 			</div>
 		</form>

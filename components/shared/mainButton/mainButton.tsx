@@ -2,7 +2,7 @@ import React, {FC} from 'react'
 import style from './main-button.module.scss'
 
 export interface TextButton {
-    onClick?: () => void,
+    onClick?: any,
     children: React.ReactNode
     width?: string
     fontSize?: string
