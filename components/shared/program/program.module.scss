@@ -1,9 +1,9 @@
 @import "../../../styles/scss/variables";
 @import "../../../styles/scss/breakpoint";
 
-$desk-width: 170px;
-$x-large-width: 130px;
-$large-width: 110px;
+$desk-width: 137px;
+$x-large-width: 110px;
+$large-width: 95px;
 
 .program {
   display: flex;
@@ -80,9 +80,9 @@ $large-width: 110px;
 
   &_text {
     width: 110px;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
-    line-height: 22px;
+    line-height: 1.4;
     font-weight: 500;
 
     @include x-large {

@@ -135,8 +135,14 @@
 
 .socials {
   display: flex;
-}
 
-.telegram {
-  margin-right: 32px
+  &_item {
+    &:not(:last-child) {
+      margin-right: 32px;
+
+      @include xx-small {
+        margin-right: 20px;
+      }
+    }
+  }
 }

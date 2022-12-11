@@ -1,6 +1,7 @@
 import dish from '../../public/images/dish.png'
 import dishMin from '../../public/images/dish-min2.png'
 import { ProgramAction, ProgramActionTypes, ProgramState } from '../../types/programTypes'
+import { state } from '../../mockDate'
 
 const weekdays = [
 	{
@@ -476,7 +477,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Трёxразовое питание на 2000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Офис'],
 				cost: 2350,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
@@ -492,7 +493,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Десятиразвовое питание на 10000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Офис+'],
 				cost: 2150,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
@@ -508,7 +509,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Двухразовое питание на 2000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Фитнес'],
 				cost: 1050,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
@@ -524,7 +525,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Пятиразовое питание на 2000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Классик мини'],
 				cost: 1350,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
@@ -540,7 +541,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Пятиразовое питание на 2000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Классик'],
 				cost: 1500,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
@@ -556,7 +557,7 @@ const programs = [
 		},
 		offer: {
 			description: {
-				text: 'Пятиразовое питание на 2000 ккал/день для поддержания оПТимальной формы при тренировках и просто активном образе жизни',
+				text: state.programList['Классик+'],
 				cost: 1250,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},

@@ -18,7 +18,7 @@ const FaqSection = () => {
 	}, [])
 
 	return (
-		<div className={style.faq}>
+		<div className={style.faq} id="faq">
 			<div className={style.faq_title}>
 				<SectionTitle className={style.title} title="Частые вопросы" color="#fff"/>
 			</div>

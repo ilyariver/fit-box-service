@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 import { Cities } from '../../../types/selectCityTypes'
 import ModalCitiesContent from '../../shared/modal-cities-content/modal-cities-content'
 import ModalLoginContent from '../../shared/modal-login-content/modal-login-content'
-import ModalEnterSmsContent from '../../shared/modal-enter-sms-content/modal-enter-sms-content';
 import ModalEnterPasswordContent from '../../shared/modal-enter-password-content/modal-enter-password-content'
 
 interface HeaderTypes {
@@ -38,7 +37,6 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
         activeCitiesContent,
         activeEnterSMSContent,
         activeLoginContent,
-        activeEnterPasswordContent
     } = useTypedSelector(modal => modal.dialogModals)
 
     const openRightMenu = () => {
@@ -127,7 +125,11 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
                             <ul className={style.navigator_list}>
                                 {state.header.navigation.map(item =>
                                     <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
-                                        <Link href={item.link} className={style.navigator_link}>{item.title}</Link>
+                                        <Link href={item.link} className={style.navigator_link}>
+                                            <a target={item.target ? '_blank' : ''}>
+                                                {item.title}
+                                            </a>
+                                        </Link>
                                     </li>)}
                             </ul>
                         </nav>

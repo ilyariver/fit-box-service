@@ -49,9 +49,16 @@
   }
 
   &__small-text {
+    margin-bottom: 10px;
     color: #2323234D;
     line-height: 18px;
     font-size: 12px;
+  }
+
+  &__link {
+    color: $color-pink;
+    font-size: 12px;
+    text-decoration: underline;
   }
 }
 

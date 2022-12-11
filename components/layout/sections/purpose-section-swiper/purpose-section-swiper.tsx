@@ -20,7 +20,6 @@ const PurposeSectionSwiper = () => {
 				<div className={style.purpose_wrap}>
 					<Swiper
 						modules={[Navigation]}
-						loop={true}
 						slidesPerView={1}
 						navigation
 					>

@@ -28,7 +28,7 @@ $border: 2px;
 
   &__content {
     position: relative;
-    padding: 25px 25px 5px 25px;
+    padding: 25px 25px 5px;
     z-index: 3;
 
     @include tablets {
@@ -41,7 +41,11 @@ $border: 2px;
     margin-bottom: 32px;
 
     @include tablets {
-      margin-bottom: 22px;
+      margin-bottom: 85px;
+    }
+
+    @include small {
+      margin-bottom: 0;
     }
   }
 
@@ -78,8 +82,15 @@ $border: 2px;
   }
 
   &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding-right: 20px;
     height: 165px;
+
+    @include tablets {
+      height: 185px;
+    }
 
     @include small {
       padding-right: 0;
@@ -117,14 +128,43 @@ $border: 2px;
     font-weight: 500;
     font-size: 12px;
     color: #ffffff99;
+
+    @include tablets {
+      position: absolute;
+      left: 0;
+      bottom: 90px;
+    }
+
+    @include small {
+      bottom: 0;
+    }
   }
 
   &__buttonsGroup {
     display: flex;
     flex-wrap: wrap;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    & {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
 
     @include tablets {
-      display: none;
+      flex-wrap: nowrap;
+      margin-bottom: 30px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    @include small {
+      position: absolute;
+      left: 0;
+      bottom: -130px;
     }
   }
 
@@ -145,12 +185,24 @@ $border: 2px;
 
   &__total-wrap {
     position: relative;
-    padding: 0 25px 55px 25px;
+    padding: 0 25px 55px;
     line-height: 35px;
     z-index: 3;
 
     @include tablets {
-      display: none;
+      position: absolute;
+      bottom: 160px;
+      left: 0;
+      width: 100%;
+      padding: 0;
+    }
+
+    @include small {
+      bottom: 40px;
+    }
+
+    @include x-small {
+      bottom: 30px;
     }
   }
 
@@ -159,19 +211,37 @@ $border: 2px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+
+    @include tablets {
+      margin: 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ffffff66;
+    }
+
+    @include x-small {
+      padding-bottom: 10px;
+    }
   }
 
   &__total-text {
     font-weight: 500;
+
+    @include tablets {
+      font-size: 14px;
+    }
   }
 
   &__total-sum {
     font-size: 44px;
     color: #ffffff99;
+
+    @include tablets {
+      font-size: 30px;
+    }
   }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     z-index: -1;
@@ -215,5 +285,9 @@ $border: 2px;
      background-color: rgb(180, 30, 48);
      transform: translateY(1px);
    }
+
+    @include tablets {
+      display: none;
+    }
   }
 }

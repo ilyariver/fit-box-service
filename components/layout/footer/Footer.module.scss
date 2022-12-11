@@ -22,11 +22,18 @@
 .logo {
   display: flex;
   align-items: center;
-  margin-bottom: 100px;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #4D4D4D;
 
-
+  &_left {
+    display: flex;
+    align-items: center;
+  }
 
   @include x-small {
+    flex-wrap: wrap;
     margin-bottom: 43px;
   }
 }
@@ -41,6 +48,10 @@
   @include x-small {
     padding-left: 30px;
   }
+}
+
+.tel_link {
+  font-size: 14px;
 }
 
 .navigation_wrap {
@@ -166,10 +177,12 @@
 
 .socials {
   display: flex;
-}
 
-.instagram {
-  margin-right: 30px;
+  &_item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 }
 
 .copyrights, .public_offer {

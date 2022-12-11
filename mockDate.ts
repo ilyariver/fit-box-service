@@ -1,8 +1,3 @@
-import runImgIcon from './public/images/icons/icon-runner.png'
-import personImgIcon from './public/images/icons/icon-person.png'
-import workerImgIcon from './public/images/icons/icon-worker.png'
-import sportImgIcon from './public/images/icons/icon-sport.png'
-import gymImgIcon from './public/images/icons/icon-gym.png'
 import orderIcon from './public/images/icons/icon-order.svg'
 import enjoyIcon from './public/images/icons/icon-enjoy.svg'
 import cookingIcon from './public/images/icons/icon-cooking.svg'
@@ -11,7 +6,6 @@ import personOne from './public/images/1.png'
 import personTwo from './public/images/2.png'
 import personThree from './public/images/3.png'
 import personFour from './public/images/4.png'
-import location from './public/images/icons/icon-location.svg'
 import call from './public/images/icons/icon-call.svg'
 import logo from './public/images/logo.svg'
 import plate from './public/images/plate@x1.png'
@@ -48,19 +42,23 @@ export const state = {
 		// 	icon: location,
 			// cities,
 		// },
-		navigation: [{ title:'Рационы меню', link: '#section-menu' }, { title:'Доставка и оплата', link: '#' }, { title:'Обеды в офис', link: '#section-cost' }]
+		navigation: [
+			{ title:'Рационы меню', link: '#section-menu', target: false },
+			{ title:'Доставка и оплата', link: '#faq', target: false },
+			{ title:'Обеды в офис', link: 'https://micromarket.fitbox.su/', target: true }]
 	},
 	menu: [
 		{id:1, title: 'Омлет с куриным филе', img: plate},
 		{id:2, title: 'Омлет с говяжим филе', img: plate},
 	],
-	programList: [
-		{id: 1,title: 'Кушай на работе больше', img: workerImgIcon, text: 'Пятиразовое питание на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни ', active: false},
-		{id: 2,title: 'Похудей активно', img: sportImgIcon, text: 'Похудей активно на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни ', active: true},
-		{id: 3,title: 'Не готовь весь день', img: personImgIcon, text: 'Не готовь весь день на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни', active: true},
-		{id: 4,title: 'Будь в форме', img: runImgIcon, text: 'Будь в форме на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни', active: true},
-		{id: 5,title: 'Набери форму', img: gymImgIcon, text: 'Набери форму на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни', active: true},
-	],
+	programList: {
+		'Офис': 'Трехразовое питание на 900 ккал/день разнообразит ваш привычный рацион и поможет избежать ежедневных вопросов "что бы сегодня поесть?"',
+		'Офис+': 'Трехразовое питание на 1500 ккал/день разнообразит ваш привычный рацион увеличенными порциями и поможет избежать ежедневных вопросов "что бы сегодня поесть?"',
+		'Фитнес': 'Пятиразовое питание на 1100 ккал / день поможет вам быстро и комфортно снизить вес',
+		'Классик мини': 'Пятиразовое питание на 1 400 ккал/день для тех, кто занимается спортом, и для тех, кто не делает этого, но заботится о своем ежедневном рационе',
+		'Классик': 'Пятиразовое питание на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни ',
+		'Классик+': 'Пятиразовое питание на 2 500 ккал/день подходит для активного набора мышечной массы',
+	},
 	programOptions: {
 
 	},

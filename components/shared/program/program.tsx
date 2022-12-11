@@ -4,9 +4,11 @@ import { useActions } from '../../../hooks/useAction'
 import { PurposeState } from '../../../types/purposeTypes'
 
 const Program: FC<PurposeState> = ({id,title , img, active }) => {
-	const { purposeActive } = useActions()
-	const setActivePurpose = () => purposeActive(id)
-
+	const { purposeActive, programActive } = useActions()
+	const setActivePurpose = (): void => {
+		purposeActive(id)
+		programActive(id)
+	}
 	return (
 		<button
 			onClick={setActivePurpose}

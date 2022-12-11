@@ -60,11 +60,7 @@ $lines-to-show: 2;
     }
 
     @include small {
-      margin-bottom: 70px;
-    }
-
-    @include x-small {
-      margin-bottom: 30px;
+      margin-bottom: 130px;
     }
   }
 

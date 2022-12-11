@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import style from './calculator-component.module.scss'
-import CountUp from 'react-countup';
 import OptionsDayBtn from '../shared/options-day-btn/options-day-btn'
 import { MainButton } from '../shared/mainButton/mainButton'
 import { ProgramTypes } from '../../types/programTypes'
@@ -15,7 +14,7 @@ interface OrderTypes {
 }
 
 
-const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
+const CalculatorComponent: FC<OrderTypes> = ({ program}) => {
 	const { optionsBtns, order } = useTypedSelector(buttons => buttons.program)
 	const { placeAnOrderActive, numberOfDaysActive } = useActions()
 	const NUMBER_LETTERS_IN_TITLE = 6
@@ -31,9 +30,6 @@ const CalculatorComponent: FC<OrderTypes> = ({ program, numberDishes }) => {
 					</div>
 					<div className={style['calculator-component__right']}>
 						<div className={style['calculator-component__description']}>{program.offer.description.text}</div>
-						<div className={style['calculator-component__text']}>
-							{numberDishes} { declOfNum(numberDishes, ['блюдо', 'блюда', 'блюд']) } в день за <Counter end={program.offer.description.cost}/>₽
-						</div>
 						<div className={style['calculator-component__deliveryText']}>{program.offer.description.deliverDescription}</div>
 					</div>
 				</div>

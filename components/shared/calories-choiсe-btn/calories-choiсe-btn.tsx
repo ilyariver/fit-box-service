@@ -10,12 +10,16 @@ interface CaloriesChoiceInterface {
 }
 
 const CaloriesChoiceBtn: FC<CaloriesChoiceInterface> = ({id, type, active} ) => {
-	const { programActive } = useActions()
+	const { programActive, purposeActive } = useActions()
 
+	const setActivePurpose = (): void => {
+		purposeActive(id)
+		programActive(id)
+	}
 	return (
 		<div className={style['calories-choice-btn']}>
 			<button
-				onClick={() => programActive(id)}
+				onClick={setActivePurpose}
 				className={`${style['calories-choice-btn__button']} ${active && style['calories-choice-btn__button--active']}`}>
 				<div className={style['calories-choice-btn__title']}>{type.title}</div>
 				<span className={style['calories-choice-btn__cCal']}>{type.cCal} ккал</span>
