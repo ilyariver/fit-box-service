@@ -12,10 +12,13 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { MainButton } from '../shared/mainButton/mainButton'
 import { useActions } from '../../hooks/useAction'
+import { FC } from 'react'
 
+interface ChioceType {
+	sliderTo: any
+}
 
-
-const ChoiceProgramComponent = () => {
+const ChoiceProgramComponent: FC<ChioceType> = ({sliderTo}) => {
 	const { choiceWeek, programs } = useTypedSelector(buttons => buttons.program)
 	const { placeAnOrderActive, weekdayActive } = useActions()
 	let currentWeekDay: ProgramMenuList[] = []
@@ -34,7 +37,7 @@ const ChoiceProgramComponent = () => {
 				{
 					programs?.map((program, idx) =>
 						(<div className={style['choice-program__button']} key={program.type.title} data-aos="fade-up" data-aos-delay={`${idx * 200}`}>
-							<CaloriesChoiceBtn id={program.id} type={program.type} active={program.active} />
+							<CaloriesChoiceBtn id={program.id} type={program.type} active={program.active} sliderTo={sliderTo} />
 						</div>))
 				}
 			</div>

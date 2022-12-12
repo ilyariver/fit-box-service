@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { FC } from 'react'
 import SeparatorLineComponent from '../../../separator-line-component/separator-line-component'
 import ChoiceProgramComponent from '../../../choice-program-component/choice-program-component'
 import BannerAdvantages from '../../../shared/banner-advantages/banner-advantages'
 import style from './program-section.module.scss'
 import { state } from '../../../../mockDate'
 
-const ProgramSection = () => {
+interface ProgramType {
+	sliderTo: any
+}
+const ProgramSection: FC<ProgramType> = ({sliderTo}) => {
 	return (
 		<div className={style.program_section} id="section-menu">
 			<div className="container">
 				<SeparatorLineComponent className={style.separate} title="выберите программу"/>
 				<div className={style.choice}>
-					<ChoiceProgramComponent />
+					<ChoiceProgramComponent sliderTo={sliderTo}/>
 				</div>
 				<div className={style.tiles}>
 					{

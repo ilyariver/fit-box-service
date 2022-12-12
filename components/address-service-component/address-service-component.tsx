@@ -35,7 +35,7 @@ const AddressServiceComponent: FC<AddressServiceTypes> = (content) => {
 			<MainButton className={style['address-service-component__button']}>{content.phoneNumber}</MainButton>
 			<div className={style['address-service-component__address-text']}>{content.addressText}</div>
 			<div className={style['address-service-component__small-text']}>{content.smallText}</div>
-			<Link href={selectCity}>
+			<Link href={selectCity || '/'}>
 				<a
 					className={style['address-service-component__link']}
 					target={'_blank'}>Зона доставки</a>

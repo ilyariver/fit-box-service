@@ -718,6 +718,7 @@ export const programReducer = (state = initialState, action: ProgramAction): Pro
 			if (state.cart.length === 0) {
 				state.cart.push({
 					...state.order,
+					id: 1,
 					active: true
 				})
 			} else {

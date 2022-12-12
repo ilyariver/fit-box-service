@@ -15,6 +15,7 @@ const Main = () => {
 	const largeScreen = 768
 	const [width, setWidth] = useState(false)
 	const [activeSwiper, setActiveSwiper] = useState(false)
+	const [sliderTo, setSliderTo] = useState(null)
 
 	const updateDimensions = () => {
 		if (typeof typeof window !== 'undefined') {
@@ -34,13 +35,17 @@ const Main = () => {
 		}
 	},[])
 
+	function setSwiperRef(value: any) {
+		setSliderTo(value)
+	}
+
 	return (
 		<main>
 			<FirstSection />
 			<section className={style.black_back} >
 				{ (!width && !activeSwiper) && <PurposeSection /> }
-				{ (width || activeSwiper) && <PurposeSectionSwiper /> }
-				<ProgramSection/>
+				{ (width || activeSwiper) && <PurposeSectionSwiper setSwiperRef={setSwiperRef}/> }
+				<ProgramSection sliderTo={sliderTo}/>
 			</section>
 			<section className={style.yellow_back}>
 				<AnswersSection />

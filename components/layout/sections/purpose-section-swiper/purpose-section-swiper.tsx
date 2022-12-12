@@ -9,22 +9,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useActions } from '../../../../hooks/useAction'
-import { useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef } from 'react'
 
-
-const PurposeSectionSwiper = () => {
-	const swiperRef = useRef(null)
-	const [swiper, setSwiper] = useState(null);
+interface PurposeType {
+	setSwiperRef: any
+}
+const PurposeSectionSwiper: FC<PurposeType> = ({setSwiperRef}) => {
 	const buttonsActive = useTypedSelector(state => state.purpose)
-	const { programs } = useTypedSelector(state => state.program)
 	const { programActive } = useActions()
-
-	const programId = programs.reduce((acc, program) => {
-		if (program.active) {
-			acc = program.id
-		}
-		return acc
-	}, 0)
+	const swiperRef = useRef()
 
 
 	return (
@@ -33,15 +26,21 @@ const PurposeSectionSwiper = () => {
 				<SeparatorLineComponent className={style.separate} title="выберите цель" />
 				<div className={style.purpose_wrap}>
 					<Swiper
-
 						modules={[Navigation]}
 						slidesPerView={1}
 						navigation
+						onSwiper={(swiper) => {
+							// @ts-ignore
+							swiperRef.current = swiper;
+							setSwiperRef(swiperRef)
+						}}
 						onSlideChange={(swiperCore) => {
 							const { realIndex } = swiperCore;
 							programActive(realIndex + 1)
 						}}
+
 					>
+
 						{
 							buttonsActive.map(btn => {
 								return (

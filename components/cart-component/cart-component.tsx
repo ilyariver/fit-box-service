@@ -85,6 +85,10 @@ const CartComponent = () => {
 		}
 	},[])
 
+	useEffect(() => {
+		console.log(cart.length)
+	}, [cart])
+
 	return (
 		<div className={style['cart-component']}>
 			<button onClick={() => cartModalActive()} className={style['cart-component__close-btn']} aria-label="Закрыть корзину"> </button>
@@ -159,6 +163,7 @@ const CartComponent = () => {
 							</SwiperSlide>}
 							{
 								cart.map((itemCart,idx) => {
+									debugger
 									return (
 										itemCart.id === countCart && <SwiperSlide key={itemCart.id + idx}>
 											<div className={`${style['cart-component__dish-wrap']} ${style['cart-component__next-btn']}`}>

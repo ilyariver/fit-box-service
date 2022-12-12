@@ -1,21 +1,26 @@
-import {FC} from 'react'
+import { FC, useEffect, useState } from 'react'
 import style from './calories-choice-btn.module.scss'
 import { ProgramTypeSet } from '../../../types/programTypes'
 import { useActions } from '../../../hooks/useAction'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
+
 
 interface CaloriesChoiceInterface {
 	id: number
 	type: ProgramTypeSet
 	active: boolean
+	sliderTo?: any
 }
 
-const CaloriesChoiceBtn: FC<CaloriesChoiceInterface> = ({id, type, active} ) => {
+const CaloriesChoiceBtn: FC<CaloriesChoiceInterface> = ({id, type, active, sliderTo} ) => {
 	const { programActive, purposeActive } = useActions()
 
 	const setActivePurpose = (): void => {
+		sliderTo?.current.slideTo(id-1)
 		purposeActive(id)
 		programActive(id)
 	}
+
 	return (
 		<div className={style['calories-choice-btn']}>
 			<button
