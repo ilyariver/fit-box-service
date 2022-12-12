@@ -63,7 +63,7 @@ const PurposeSectionSwiper = () => {
 					<div className={style.main_button}>
 						<Link href="#section-menu" >
 							<a>
-								<MainButton width="178px" fontSize="14px" className={style.tablets}>Выбрать программу {programId}</MainButton>
+								<MainButton width="178px" fontSize="14px" className={style.tablets}>Выбрать программу</MainButton>
 							</a>
 						</Link>
 					</div>
