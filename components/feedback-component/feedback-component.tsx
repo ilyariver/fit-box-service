@@ -1,7 +1,7 @@
-import React, {FC} from 'react'
+import React, { FC, useEffect } from 'react'
 import Image from 'next/image'
 import style from './feedback-component.module.scss'
-import dish from '../../public/images/dish.png'
+import Aos from 'aos'
 
 interface FeedbackTypes {
 	img: any
@@ -10,6 +10,13 @@ interface FeedbackTypes {
 }
 
 const FeedbackComponent: FC<FeedbackTypes> = ({img, name, comment}) => {
+
+	useEffect(() => {
+		Aos.init({
+			disable: 'mobile', once: true, duration: 800,
+		})
+	}, [])
+
 	return (
 		<div className={style['feedback']}>
 			<div className={style['feedback__avatar']}>

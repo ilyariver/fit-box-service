@@ -94,6 +94,10 @@ $large-width: 95px;
       width: 70px;
     }
 
+    @include tablets {
+      width: 100%;
+    }
+
     @include small {
       font-size: 14px;
     }

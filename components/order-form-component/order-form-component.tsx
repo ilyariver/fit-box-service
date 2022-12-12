@@ -53,14 +53,12 @@ const OrderFormComponent = () => {
 	function onOrderBuy(e: any) {
 		debugger
 		e.preventDefault()
-		console.log('cities', cities)
-		debugger
-		router.push('/city/' + url)
+		router.push('/')
 	}
 
 	return (
 		<form className={style['order-form-component']}>
-			<Link href={'/city/' + url}>
+			<Link href="/">
 				<a className={style['order-form-component__close']}></a>
 			</Link>
 			<div className={style['order-form-component__wrap']}>

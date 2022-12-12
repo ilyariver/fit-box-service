@@ -83,7 +83,7 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
             <header className={`${style.header} ${activeHeader ? style.active : ''}`}>
                 <div className={`container ${style.container}`}>
                     <div className={style.logo}>
-                        <Link href={getHomeLink || router.asPath}>
+                        <Link href="/">
                             <a>
                                 <Image src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
                             </a>
