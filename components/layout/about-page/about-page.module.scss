@@ -4,6 +4,7 @@
 .main {
   position: relative;
   padding: 80px 0 0;
+  overflow: hidden;
 
   @include large {
     padding: 60px 0 0;

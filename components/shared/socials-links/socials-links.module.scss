@@ -2,11 +2,21 @@
 @import '../../../styles/scss/breakpoint';
 
 .links {
+  position: relative;
   display: flex;
+  z-index: 2;
 
   &__item {
+
+    @include x-small {
+      width: 40px;
+    }
     &:not(:last-child) {
       margin-right: 25px;
+
+      @include x-small {
+        margin-right: 10px;
+      }
     }
   }
 }

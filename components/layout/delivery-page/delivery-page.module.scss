@@ -5,6 +5,7 @@
   position: relative;
   padding: 80px 0 0;
   background: radial-gradient(80.35% 104.45% at 76.87% 41.73%, #3D3B3B 0%, #121212 100%);
+  overflow: hidden;
 
   @include large {
     padding: 60px 0 0;
@@ -12,5 +13,9 @@
 
   &__wrap {
     padding: 115px 0;
+
+    @include small {
+      padding: 50px 0;
+    }
   }
 }
