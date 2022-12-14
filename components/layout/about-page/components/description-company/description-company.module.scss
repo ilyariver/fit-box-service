@@ -1,0 +1,152 @@
+@import '../../../../../styles/scss/variables';
+@import '../../../../../styles/scss/breakpoint';
+
+.description_company_section {
+  padding: 100px 0 100px;
+  background-color: $color-yellow;
+  overflow: hidden;
+
+  @include small {
+    padding: 70px 0 400px;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+
+    @include small {
+      flex-direction: column;
+    }
+  }
+
+  &__left, .plates {
+    width: 50%;
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    margin-bottom: 45px;
+    width: 220px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+
+    @include x-large {
+      font-size: 45px;
+      line-height: 1.2;
+    }
+
+    @include x-small {
+      font-size: 38px;
+    }
+
+    @include xx-small {
+      font-size: 32px;
+    }
+  }
+}
+
+.plates {
+  position: relative;
+  margin-left: 45px;
+  top: -120px;
+
+  @include x-large {
+    top: 0;
+  }
+
+  @include tablets {
+    margin-left: 0;
+  }
+
+  @include small {
+    top: auto;
+    right: -230px;
+    bottom: -20px;
+  }
+
+  @include x-small {
+    right: -130px;
+  }
+
+  @include xx-small {
+    right: -100px;
+  }
+}
+
+.plate {
+  position: absolute;
+}
+
+.salad {
+  left: 0;
+  z-index: 2;
+
+  @include x-large {
+    width: 390px;
+  }
+
+  @include small {
+    width: 310px;
+  }
+
+  @include x-small {
+    width: 380px
+  }
+}
+
+.pasta {
+  left: 429px;
+  top: 300px;
+  min-width: 340px;
+
+  @include x-large {
+    top: 180px;
+    left: 300px;
+    min-width: auto;
+    width: 240px;
+  }
+
+  @include small {
+    top: 170px;
+    left: 220px;
+    width: 190px;
+  }
+
+  @include x-small {
+    top: 190px;
+    left: -190px;
+    width: 280px;
+  }
+}
+
+.rice {
+  top: 100px;
+  left: 500px;
+
+  @include x-large {
+    top: 0;
+    left: 300px;
+    width: 140px;
+  }
+
+  @include small {
+    top: 58px;
+    left: 268px;
+    width: 100px;
+  }
+
+  @include x-small {
+    top: 38px;
+    left: -102px;
+    width: 110px;
+  }
+}

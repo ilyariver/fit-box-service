@@ -23,10 +23,10 @@ const Footer = () => {
                     </div>
                     <div className={style.navigation_wrap}>
                         <ul className={style.list}>
-                            <li className={style.item}><a href="#" className={style.link}>меню</a></li>
-                            <li className={style.item}><a href="#" className={style.link}>контакты</a></li>
-                            <li className={style.item}><a href="#" className={style.link}>доставка</a></li>
-                            <li className={style.item}><a href="#" className={style.link}>оплата</a></li>
+                            <li className={style.item}><Link href="/about" className={style.link}>о нас</Link></li>
+                            <li className={style.item}><Link href="/contacts" className={style.link}>контакты</Link></li>
+                            <li className={style.item}><Link href="/delivery" className={style.link}>доставка</Link></li>
+                            <li className={style.item}><Link href="#" className={style.link}>оплата</Link></li>
                         </ul>
                         <div className={style.connection}>
                             <div className={style.form}>

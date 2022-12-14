@@ -1,0 +1,159 @@
+@import '../../../../../styles/scss/variables';
+@import '../../../../../styles/scss/breakpoint';
+
+.our_advantages_section {
+  padding: 100px 0 100px;
+
+  @include small {
+    padding: 70px 0 0;
+  }
+
+  @include x-small {
+    padding: 60px 0 0;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+
+    @include small {
+      margin-bottom: 40px;
+      font-size: 30px;
+    }
+
+    @include x-small {
+      margin-bottom: 40px;
+      font-size: 25px;
+    }
+  }
+
+  &__list {
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    @include large {
+      margin-bottom: 20px;
+    }
+
+    @include small {
+      flex-direction: column;
+    }
+  }
+
+  &__left, &__right {
+    height: 650px;
+
+    .our_advantages_section__img {
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+    }
+
+    @include large {
+      height: 510px;
+    }
+  }
+
+  &__left, &__right, &__bottom {
+    position: relative;
+    padding: 40px 40px 0;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include tablets {
+      padding: 40px 20px 0;
+    }
+
+    @include small {
+      height: 34rem;
+    }
+
+    @include x-small {
+      height: 580px;
+      padding: 30px 20px 0;
+    }
+  }
+
+  &__left {
+    width: 40%;
+
+    @include small {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
+  &__right {
+    width: 55%;
+
+    @include large {
+      width: 58%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+
+    .our_advantages_section__text {
+      width: 45%;
+
+      @include small {
+        width: 100%;
+      }
+    }
+
+    .our_advantages_section__img {
+      right: 40px;
+      bottom: -10px;
+      width: 40%;
+
+      @include small {
+        right: 25%;
+        width: 60%;
+      }
+
+      @include x-small {
+        bottom: -50px;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 700;
+
+    @include large {
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 40px;
+    line-height: 1.6;
+
+    @include large {
+      padding-bottom: 20px;
+      font-size: 14px;
+    }
+
+    @include small {
+      line-height: 1.9;
+    }
+  }
+
+  &__img {
+    position: absolute;
+  }
+}

@@ -1,0 +1,153 @@
+@import '../../../../../styles/scss/variables';
+@import '../../../../../styles/scss/breakpoint';
+
+.delivery_text_section {
+  padding: 100px 0 100px;
+  background-color: $color-background;
+
+  @include small {
+    padding: 70px 0 460px;
+  }
+
+  @include xx-small {
+    padding: 70px 0 340px;
+  }
+
+  &__img {
+    margin-bottom: 60px;
+
+    @include small {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    width: 50%;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+
+    @include x-large {
+      font-size: 40px;
+    }
+
+    @include large {
+      font-size: 35px;
+    }
+
+    @include tablets {
+      font-size: 30px;
+    }
+
+    @include small {
+      width: 100%;
+      font-size: 38px;
+    }
+  }
+
+  &__btn {
+    margin-bottom: 50px;
+    width: 370px;
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  &__images {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    @include tablets {
+      right: -50px;
+    }
+
+    @include small {
+      top: auto;
+      right: auto;
+      left: 0;
+      bottom: -330px;
+      width: 80%;
+    }
+
+    @include x-small {
+      left: 50%;
+      bottom: -220px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__image {
+    &_top {
+      position: absolute;
+      top: -80px;
+      right: -110px;
+      z-index: 2;
+
+      @include x-large {
+        width: 90%;
+      }
+
+      @include large {
+        width: 80%;
+      }
+
+      @include tablets {
+        width: 70%;
+      }
+
+      @include small {
+        top: -20px;
+        right: auto;
+        left: 50px;
+        width: 100%;
+      }
+
+      @include x-small {
+        left: 0;
+      }
+    }
+
+    &_bottom {
+      width: 80%;
+      position: relative;
+      top: 220px;
+      right: -250px;
+      z-index: 1;
+
+      @include x-large {
+        width: 80%;
+      }
+
+      @include large {
+        width: 50%;
+        right: -430px;
+      }
+
+      @include tablets {
+        width: 50%;
+        top: 120px;
+      }
+
+      @include small {
+        top: 240px;
+        right: -220px;
+      }
+
+      @include x-small {
+        top: 170px;
+        right: -130px;
+        width: 62%;
+      }
+
+      @include xx-small {
+        top: 140px;
+        right: -110px;
+      }
+    }
+  }
+}

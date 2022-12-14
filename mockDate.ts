@@ -8,7 +8,19 @@ import personThree from './public/images/3.png'
 import personFour from './public/images/4.png'
 import call from './public/images/icons/icon-call.svg'
 import logo from './public/images/logo.svg'
+import logoBig from './public/images/logo-big.svg'
+import logoWhite from './public/images/logo-white.svg'
 import plate from './public/images/plate@x1.png'
+import vk from './public/images/icons/icon-vk.svg'
+import instagram from './public/images/icons/icon-telegram-black.svg'
+import whatsapp from './public/images/icons/icon-instagram-black.svg'
+import telegram from './public/images/icons/icon-telegram-black.svg'
+import ourFoodIcons from './public/images/icons/icon-food-1.png'
+import ourFoodIcons2 from './public/images/icons/icon-food-2.png'
+import ourFoodIcons3 from './public/images/icons/icon-food-3.png'
+import ourFoodIcons4 from './public/images/icons/icon-food-4.png'
+import ourFoodIcons5 from './public/images/icons/icon-food-5.png'
+import ourFoodIcons6 from './public/images/icons/icon-food-6.png'
 
 const optionsBtns = [
 	{number: 1, active: true},
@@ -31,6 +43,8 @@ export const state = {
 	header: {
 		logo: {
 			img: logo,
+			logoBig,
+			logoWhite,
 			alt: 'логотип FitBox'
 		},
 		tel: {
@@ -51,6 +65,12 @@ export const state = {
 		{id:1, title: 'Омлет с куриным филе', img: plate},
 		{id:2, title: 'Омлет с говяжим филе', img: plate},
 	],
+	socials: [
+		{id: 1, img: vk, title: 'VK', link: ''},
+		{id: 2, img: instagram, title: 'Instagram', link: ''},
+		{id: 3, img: whatsapp, title: 'Whatsapp', link: ''},
+		{id: 4, img: telegram, title: 'Telegram', link: ''},
+	],
 	programList: {
 		'Офис': 'Трехразовое питание на 900 ккал/день разнообразит ваш привычный рацион и поможет избежать ежедневных вопросов "что бы сегодня поесть?"',
 		'Офис+': 'Трехразовое питание на 1500 ккал/день разнообразит ваш привычный рацион увеличенными порциями и поможет избежать ежедневных вопросов "что бы сегодня поесть?"',
@@ -59,7 +79,8 @@ export const state = {
 		'Классик': 'Пятиразовое питание на 2 000 ккал/день для поддержания оптимальной формы при тренировках и просто активном образе жизни ',
 		'Классик+': 'Пятиразовое питание на 2 500 ккал/день подходит для активного набора мышечной массы',
 	},
-	programOptions: {
+	dataFaq: {
+		title: 'Частые вопросы',
 
 	},
 	weekDays: [
@@ -166,5 +187,15 @@ export const state = {
 				{title: '4Можно ли есть другие продукты вместе с вашими блюдами?', description:'Кстати, ключевые особенности структуры проекта являются только методом политического участия и разоблачены. Задача организации, в особенности же консультация с широким активом обеспечивает актуальность модели развития.'},
 			]
 		}
-	]
+	],
+	aboutPage: {
+		ourFood: [
+			{id: 1, img: ourFoodIcons, title: 'Улучшает работу мозга', text: 'Наше питание исключает вредный для организма вредное количество сахар и содержит все необходимые для грамотного функционирования мозга элементы: большое количество минералов, витаминов и полезных жиров.'},
+			{id: 2, img: ourFoodIcons2, title: 'Запускает процесс восстановления клеток', text: 'Рационы обогащены белком, который отвечает за рост и развитие клеток.'},
+			{id: 3, img: ourFoodIcons3, title: 'Заряжает энергией', text: 'За счёт «цикличности» питания организм активизирует внутренние запасы энергии, а сбалансированный состав блюд дарит вам силы и бодрость.'},
+			{id: 4, img: ourFoodIcons4, title: 'Улучшает работу мозга', text: 'Наше питание исключает вредный для организма вредное количество сахар и содержит все необходимые для грамотного функционирования мозга элементы: большое количество минералов, витаминов и полезных жиров.'},
+			{id: 5, img: ourFoodIcons5, title: 'Запускает процесс восстановления клеток', text: 'Рационы обогащены белком, который отвечает за рост и развитие клеток.'},
+			{id: 6, img: ourFoodIcons6, title: 'Заряжает энергией', text: 'За счёт «цикличности» питания организм активизирует внутренние запасы энергии, а сбалансированный состав блюд дарит вам силы и бодрость.'},
+		]
+	}
 }

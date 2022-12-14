@@ -1,0 +1,12 @@
+@import '../../../styles/scss/variables';
+@import '../../../styles/scss/breakpoint';
+
+.links {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import CommentsSection from '../sections/comments-section/comments-section'
 import ServiceSection from '../sections/service-section/service-section'
 import MapSection from '../sections/map-section/map-section'
 import PurposeSectionSwiper from '../sections/purpose-section-swiper/purpose-section-swiper'
+import { state } from '../../../mockDate'
 
 const Main = () => {
 	const largeScreen = 768
@@ -52,7 +53,7 @@ const Main = () => {
 				<ForWhomSection />
 			</section>
 			<section className={`${style.black_back} ${style.faq}`}>
-				<FaqSection />
+				<FaqSection title="Частые вопросы" />
 				<CommentsSection />
 			</section>
 			<section className={`${style.yellow_back} ${style.service_section}`}>

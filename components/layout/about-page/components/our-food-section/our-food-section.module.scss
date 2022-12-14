@@ -1,0 +1,108 @@
+@import '../../../../../styles/scss/variables';
+@import '../../../../../styles/scss/breakpoint';
+
+.our_food_section {
+  position: relative;
+  background-color: #EEEEEE;
+  padding: 100px 0 100px;
+
+  @include small {
+    padding: 70px 0 70px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    font-size: 40px;
+    font-weight: 700;
+
+    @include x-large {
+      padding: 0 150px;
+    }
+
+    @include large {
+      padding: 0 100px;
+    }
+
+    @include tablets {
+      padding: 0;
+    }
+
+    @include small {
+      margin-bottom: 70px;
+      font-size: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include x-large {
+      padding: 0 150px;
+    }
+
+    @include large {
+      padding: 0 100px;
+    }
+
+    @include tablets {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 3 - 20px);
+
+    &:first-child {
+      margin-bottom: 60px;
+    }
+
+    @include x-large {
+      width: calc(100% / 2 - 40px);
+    }
+
+    @include small {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__img {
+
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  $font-size-text: 16px;
+  $line-height-text: 1.5;
+  $lines-to-show-text: 5;
+  &__text {
+    display: block;
+    display: -webkit-box;
+    margin: 0 0 15px 0;
+    height: $font-size-text * $line-height-text * $lines-to-show-text;
+    font-size: $font-size-text;
+    line-height: $line-height-text;
+    -webkit-line-clamp: $lines-to-show-text;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include small {
+      margin: 0;
+      text-overflow: clip;
+      overflow: visible;
+      height: auto;
+      -webkit-line-clamp: none;
+      -webkit-box-orient: inline-axis;
+    }
+  }
+}
