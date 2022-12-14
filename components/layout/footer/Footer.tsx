@@ -40,7 +40,7 @@ const Footer = () => {
                             <SocialsLinks />
                         </div>
                     </div>
-                    <a target="_blank" href="https://fitbox.su/politics/terms-of-use" className={style.public_offer}>Публичная оферта</a>
+                    <a target="_blank" rel="noreferrer" href="https://fitbox.su/politics/terms-of-use" className={style.public_offer}>Публичная оферта</a>
                 </div>
             </div>
        </footer>
