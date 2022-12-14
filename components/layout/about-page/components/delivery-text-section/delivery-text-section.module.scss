@@ -136,12 +136,14 @@
       @include small {
         top: 240px;
         right: -220px;
+        height: 200px;
       }
 
       @include x-small {
         top: 170px;
         right: -130px;
         width: 62%;
+        height: 140px;
       }
 
       @include xx-small {

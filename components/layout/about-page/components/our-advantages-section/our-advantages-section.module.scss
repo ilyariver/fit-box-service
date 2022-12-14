@@ -2,14 +2,14 @@
 @import '../../../../../styles/scss/breakpoint';
 
 .our_advantages_section {
-  padding: 100px 0 100px;
+  padding: 100px 0;
 
   @include small {
-    padding: 70px 0 0;
+    padding: 70px 0;
   }
 
   @include x-small {
-    padding: 60px 0 0;
+    padding: 60px 0;
   }
 
   &__title {
@@ -72,11 +72,11 @@
     }
 
     @include small {
-      height: 34rem;
+      height: 40rem;
     }
 
     @include x-small {
-      height: 580px;
+      height: 590px;
       padding: 30px 20px 0;
     }
   }
@@ -119,8 +119,10 @@
       width: 40%;
 
       @include small {
-        right: 25%;
-        width: 60%;
+        right: auto;
+        left: 50%;
+        width: 90%;
+        transform: translateX(-50%)!important;
       }
 
       @include x-small {

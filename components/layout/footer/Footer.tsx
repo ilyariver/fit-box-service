@@ -27,7 +27,7 @@ const Footer = () => {
                             <li className={style.item}><Link href="/about" className={style.link}>о нас</Link></li>
                             <li className={style.item}><Link href="/contacts" className={style.link}>контакты</Link></li>
                             <li className={style.item}><Link href="/delivery" className={style.link}>доставка</Link></li>
-                            <li className={style.item}><Link href="#" className={style.link}>оплата</Link></li>
+                            <li className={style.item}><Link href="/payment" className={style.link}>оплата</Link></li>
                         </ul>
                         <div className={style.connection}>
                             <div className={style.form}>

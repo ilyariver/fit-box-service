@@ -87,17 +87,4 @@ $border: 2px;
     background: #252525;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
   }
-
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-    width: 240px;
-    height: 100px;
-    background: rgba(64, 176, 82, 0.4);
-    filter: blur(100px);
-    border-radius: 100%;
-    z-index: 2;
-  }
 }
