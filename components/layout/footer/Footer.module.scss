@@ -175,16 +175,6 @@
   font-size: 10px;
 }
 
-.socials {
-  display: flex;
-
-  &_item {
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
-  }
-}
-
 .copyrights, .public_offer {
   letter-spacing: 1px;
   font-size: 10px;

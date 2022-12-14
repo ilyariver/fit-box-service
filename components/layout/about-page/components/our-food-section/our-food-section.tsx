@@ -13,7 +13,11 @@ const OurFoodSection: FC = () => {
 					{
 						state.aboutPage.ourFood.map(item => {
 							return (
-								<li className={style.our_food_section__item} data-aos="fade-up" data-aos-delay={item.id * 100}>
+								<li
+									key={item.id}
+									className={style.our_food_section__item}
+									data-aos="fade-up"
+									data-aos-delay={item.id * 100}>
 									<div className={style.our_food_section__img}>
 										<Image src={item.img} />
 									</div>

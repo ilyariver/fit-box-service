@@ -132,17 +132,3 @@
     display: none;
   }
 }
-
-.socials {
-  display: flex;
-
-  &_item {
-    &:not(:last-child) {
-      margin-right: 32px;
-
-      @include xx-small {
-        margin-right: 20px;
-      }
-    }
-  }
-}

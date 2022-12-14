@@ -12,9 +12,13 @@ import logoBig from './public/images/logo-big.svg'
 import logoWhite from './public/images/logo-white.svg'
 import plate from './public/images/plate@x1.png'
 import vk from './public/images/icons/icon-vk.svg'
-import instagram from './public/images/icons/icon-telegram-black.svg'
-import whatsapp from './public/images/icons/icon-instagram-black.svg'
-import telegram from './public/images/icons/icon-telegram-black.svg'
+import instagram from './public/images/icons/icon-instagram.svg'
+import whatsapp from './public/images/icons/icon-watsapp.svg'
+import telegram from './public/images/icons/icon-telegram.svg'
+import vkBlack from './public/images/icons/icon-vk-black.svg'
+import instagramBlack from './public/images/icons/icon-instagram-black.svg'
+import whatsappBlack from './public/images/icons/icon-whatsapp-black.svg'
+import telegramBlack from './public/images/icons/icon-telegram-black.svg'
 import ourFoodIcons from './public/images/icons/icon-food-1.png'
 import ourFoodIcons2 from './public/images/icons/icon-food-2.png'
 import ourFoodIcons3 from './public/images/icons/icon-food-3.png'
@@ -66,10 +70,10 @@ export const state = {
 		{id:2, title: 'Омлет с говяжим филе', img: plate},
 	],
 	socials: [
-		{id: 1, img: vk, title: 'VK', link: ''},
-		{id: 2, img: instagram, title: 'Instagram', link: ''},
-		{id: 3, img: whatsapp, title: 'Whatsapp', link: ''},
-		{id: 4, img: telegram, title: 'Telegram', link: ''},
+		{id: 1, img: vk, color: vkBlack, title: 'VK', link: 'https://vk.com'},
+		{id: 2, img: instagram, color: instagramBlack, title: 'Instagram', link: 'https://www.instagram.com/fitbox.su/'},
+		{id: 3, img: whatsapp, color: whatsappBlack, title: 'Whatsapp', link: 'https://wa.me/79370077712'},
+		{id: 4, img: telegram, color: telegramBlack, title: 'Telegram', link: 'https://t.me/fitboxsu'},
 	],
 	programList: {
 		'Офис': 'Трехразовое питание на 900 ккал/день разнообразит ваш привычный рацион и поможет избежать ежедневных вопросов "что бы сегодня поесть?"',

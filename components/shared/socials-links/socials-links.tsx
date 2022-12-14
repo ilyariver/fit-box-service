@@ -4,16 +4,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { state } from '../../../mockDate'
 
-const SocialsLinks = () => {
+interface SocialsType {
+	color?: string
+}
+const SocialsLinks: FC<SocialsType> = ({color}) => {
 	return (
 		<div className={style.links}>
 			{
 				state.socials.map(social => {
 					return (
-						<div className={style.links__item} title={social.title}>
+						<div
+							key={social.id}
+							className={style.links__item}
+							title={social.title}>
 							<Link href={social.link}>
-								<a>
-									<Image src={social.img} alt={social.title} />
+								<a target="_blank">
+									<Image src={color === 'black' ? social.color : social.img} alt={social.title} />
 								</a>
 							</Link>
 						</div>
