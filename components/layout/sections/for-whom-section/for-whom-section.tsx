@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import SectionTitle from '../../../shared/section-title/section-title'
 import asianGirl from '../../../../public/images/girl-2@x1.png'
 import style from './for-whom-section.module.scss'
@@ -12,7 +11,7 @@ const ForWhomSection = () => {
 				<SectionTitle className={style.title} title="Кому подойдет питание" color="#2C2B2B" />
 			</div>
 			<div className={style.img_wrap}>
-				<Image src={asianGirl} alt="Девушка" className={style.img} placeholder="blur"/>
+				<img src={asianGirl.src} alt="Девушка" className={style.img} />
 			</div>
 			<div className={style.yellow_left} data-aos="zoom-in" data-aos-delay="1500">
 				<svg width="781" height="781" viewBox="0 0 781 781" fill="none" xmlns="http://www.w3.org/2000/svg">

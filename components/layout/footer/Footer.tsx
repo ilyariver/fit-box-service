@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import style from './Footer.module.scss'
 import logo from '../../../public/images/logo-footer.svg'
 import Link from 'next/link'
@@ -14,7 +13,7 @@ const Footer = () => {
                     <div className={style.logo}>
                         <div className={style.logo_left}>
                             <div className={style.logo_wrap}>
-                                <Image src={logo} alt="Логотип"/>
+                                <img src={logo.src} alt="Логотип"/>
                             </div>
                             <small className={style.copyrights}>2016-{currentYear} © Все права защищены</small>
                         </div>

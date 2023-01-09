@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react'
 import style from './first-section.module.scss'
-import Image from 'next/image'
 import Link from 'next/link'
 import { MainButton } from '../../../shared/mainButton/mainButton'
 import PreviewMenu from '../../../shared/preview-menu/preview-menu'
@@ -29,10 +28,10 @@ const FirstSection: FC = () => {
 		<section className={style.first_section}>
 			<div className={`${style.container} container`}>
 				<div className={`${style.girl_wrap}`} data-aos="zoom-out">
-					<Image src={girl} alt="Девушка" width={637} height={786} />
+					<img src={girl.src} alt="Девушка" width={637} height={786} />
 				</div>
 				<div className={style.girl_ellipse} data-aos-duration="1500" data-aos="zoom-in" data-aos-delay="1000">
-					<Image src={girlEllipse} alt="Круг"/>
+					<img src={girlEllipse} alt="Круг"/>
 				</div>
 				<h1 className={style.title} data-aos="fade-right" >
 					Правильное питание <br />с&nbsp;доставкой <br />

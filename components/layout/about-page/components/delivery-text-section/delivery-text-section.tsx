@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import style from './delivery-text-section.module.scss'
-import Image from 'next/image'
 import { state } from '../../../../../mockDate'
 import { MainButton } from '../../../../shared/mainButton/mainButton'
 import Link from 'next/link'
@@ -13,7 +12,7 @@ const DeliveryTextSection: FC = () => {
 		<section className={style.delivery_text_section}>
 			<div className="container">
 				<div className={style.delivery_text_section__img}>
-					<Image src={state.header.logo.logoWhite} alt={state.header.logo.alt} />
+					<img src={state.header.logo.logoWhite} alt={state.header.logo.alt} />
 				</div>
 				<h1 className={style.delivery_text_section__title}>
 					Доставка разнообразного и вкусного питания в удобное для вас время
@@ -24,10 +23,10 @@ const DeliveryTextSection: FC = () => {
 				<SocialsLinks />
 				<div className={style.delivery_text_section__images}>
 					<div className={style.delivery_text_section__image_top} data-aos="fade-left" data-aos-delay="500">
-						<Image src={dish} />
+						<img alt="Картинка" src={dish.src} />
 					</div>
 					<div className={style.delivery_text_section__image_bottom} data-aos="fade-left" data-aos-delay="1000">
-						<Image src={dish} />
+						<img alt="Картинка" src={dish.src} />
 					</div>
 				</div>
 			</div>

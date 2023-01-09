@@ -13,7 +13,7 @@ const HowToWorks: FC<HowToWorksInterface> = ({title,text,img, idx}) => {
 
 	return (
 		<div className={style['how-to-works']} data-aos="zoom-out-down" data-aos-delay={idx * 100}>
-			<div className={style['how-to-works__img']} style={{backgroundImage: `url(${img.src})`}}></div>
+			<div className={style['how-to-works__img']} style={{backgroundImage: `url(${img})`}}></div>
 			<h3 className={style['how-to-works__title']}>{title}</h3>
 			<p className={style['how-to-works__text']}>{text}</p>
 		</div>

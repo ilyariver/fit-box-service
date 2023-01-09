@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from 'react'
-import Image from 'next/image'
 import style from './feedback-component.module.scss'
 import Aos from 'aos'
 
@@ -20,7 +19,7 @@ const FeedbackComponent: FC<FeedbackTypes> = ({img, name, comment}) => {
 	return (
 		<div className={style['feedback']}>
 			<div className={style['feedback__avatar']}>
-				<Image src={img} alt={name} className={style['feedback__img']} width={80} height={80} placeholder="blur" />
+				<img src={img} alt={name} className={style['feedback__img']} />
 			</div>
 			<div className={style['feedback__name']}>{name}</div>
 			<div className={style['feedback__comment']}>{comment}</div>

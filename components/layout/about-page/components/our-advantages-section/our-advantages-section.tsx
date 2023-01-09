@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import style from './our-advantages-section.module.scss'
-import Image from 'next/image'
 import plates from '../../../../../public/images/plates.png'
 import salad from '../../../../../public/images/salad.png'
 import plateQiwi from '../../../../../public/images/plate-qiwi.png'
@@ -25,7 +24,7 @@ const OurAdvantagesSection: FC = () => {
 								и ограничений, поэтому наше меню яркое и сытное!
 							</p>
 							<div className={style.our_advantages_section__img} data-aos="fade-up" data-aos-delay="800">
-								<Image src={plates} />
+								<img alt="Картинка" src={plates.src} />
 							</div>
 						</article>
 						<article className={style.our_advantages_section__right} data-aos="fade-left" data-aos-delay="1000">
@@ -41,7 +40,7 @@ const OurAdvantagesSection: FC = () => {
 								проконсультировать по любым вопросам.
 							</p>
 							<div className={style.our_advantages_section__img} data-aos="fade-right" data-aos-delay="1300">
-								<Image src={salad} />
+								<img alt="Картинка" src={salad.src} />
 							</div>
 						</article>
 					</div>
@@ -59,7 +58,7 @@ const OurAdvantagesSection: FC = () => {
 							белую муку, рафинированные продукты и полуфабрикаты.
 						</p>
 						<div className={style.our_advantages_section__img} data-aos="fade-up" data-aos-delay="500">
-							<Image src={plateQiwi} />
+							<img alt="Картинка" src={plateQiwi.src} />
 						</div>
 					</article>
 				</div>

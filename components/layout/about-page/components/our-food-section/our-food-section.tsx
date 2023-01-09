@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import style from './our-food-section.module.scss'
-import Image from 'next/image'
 import { state } from '../../../../../mockDate'
 
 
@@ -19,7 +18,7 @@ const OurFoodSection: FC = () => {
 									data-aos="fade-up"
 									data-aos-delay={item.id * 100}>
 									<div className={style.our_food_section__img}>
-										<Image src={item.img} />
+										<img alt="Картинка" src={item.img} />
 									</div>
 									<h3 className={style.our_food_section__subtitle}>{item.title}</h3>
 									<p className={style.our_food_section__text}>{item.text}</p>

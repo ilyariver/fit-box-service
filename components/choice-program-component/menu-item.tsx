@@ -1,5 +1,4 @@
 import React, {FC} from 'react'
-import Image from 'next/image'
 import style from './choice-program-component.module.scss'
 import { ProgramMenuList } from '../../types/programTypes'
 
@@ -14,7 +13,7 @@ const MenuItem: FC<WeekMenuTypes> = ({context}) => {
 			<figure className={style['choice-program__figure']}>
 				<div>
 					<div className={style['choice-program__img']}>
-						<Image src={context.img} alt="Блюдо" placeholder="blur"/>
+						<img src={context.img} alt="Блюдо" />
 					</div>
 				</div>
 				<figcaption className={style['choice-program__dish-figcaption']}>

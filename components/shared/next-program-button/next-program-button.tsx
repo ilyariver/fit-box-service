@@ -1,7 +1,6 @@
 import {FC} from 'react'
 import Link from 'next/link'
 import style from './next-program-button.module.scss'
-import Image from 'next/image'
 import arrowIcon from '../../../public/images/icons/icon-arrow-right.svg'
 import { NextProgramButtonTypes } from '../../../types/nextProgramButtonTypes'
 
@@ -12,7 +11,7 @@ const NextProgramButton: FC<NextProgramButtonTypes> = ({className, onClick, titl
 				<button className={`${style['next-btn']} ${className}`} onClick={onClick}>
 					<div className={style['next-btn__day']}>Следующая программа</div>
 					<div className={style['next-btn__arrow']}>
-						<Image src={arrowIcon} alt="Стрелка"/>
+						<img src={arrowIcon} alt="Стрелка"/>
 					</div>
 				</button>
 			</a>

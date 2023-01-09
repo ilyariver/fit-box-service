@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import AboutServiceComponent from '../../../about-service-component/about-service-component'
 import style from './service-section.module.scss'
 import { state } from '../../../../mockDate'
@@ -21,13 +20,13 @@ const ServiceSection = () => {
 						<AboutServiceComponent title={state.aboutService.title} description={state.aboutService.text} />
 						<div className={style.plates}>
 							<div className={`${style.salad} ${style.plate}`} data-aos="fade-left" data-aos-delay="1000">
-								<Image src={plateSalad} alt="Тарелка" placeholder="blur" />
+								<img src={plateSalad.src} alt="Тарелка" />
 							</div>
 							<div className={`${style.pasta} ${style.plate}`} data-aos="fade-left" data-aos-delay="1800">
-								<Image src={platePasta} alt="Тарелка" placeholder="blur" />
+								<img src={platePasta.src} alt="Тарелка" />
 							</div>
 							<div className={`${style.rice} ${style.plate}`} data-aos="fade-left" data-aos-delay="1500">
-								<Image src={plateRice} alt="Тарелка" placeholder="blur" />
+								<img src={plateRice.src} alt="Тарелка" />
 							</div>
 						</div>
 					</div>
@@ -36,7 +35,7 @@ const ServiceSection = () => {
 					<div className={style.holodos}
 						 data-aos="fade-right"
 						 data-aos-delay="1000">
-						<Image src={holodos} alt="Холодильник" placeholder="blur"/>
+						<img src={holodos.src} alt="Холодильник"/>
 					</div>
 					<div className={style.red_ellipse} data-aos-duration="1500" data-aos="zoom-in" data-aos-delay="1500">
 						<svg viewBox="0 0 710 722" fill="none" xmlns="http://www.w3.org/2000/svg">

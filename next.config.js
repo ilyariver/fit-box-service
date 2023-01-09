@@ -41,6 +41,9 @@ module.exports = withPlugins([withTM], {
 
     return config;
   },
+  images: {
+    unoptimized: true,
+  },
 });
 
 module.exports = nextConfig

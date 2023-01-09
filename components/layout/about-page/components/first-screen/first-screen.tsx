@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Image from 'next/image'
 import asianGirl from '../../../../../public/images/girl-2@x1.png'
 import style from './first-screen.module.scss'
 import girlEllipse from '../../../../../public/images/girl-ellipse.svg'
@@ -19,10 +18,10 @@ const FirstScreen: FC = () => {
 					</p>
 				</div>
 				<div className={style.first_screen__girl}>
-					<Image src={asianGirl} alt="Picture of the author" data-aos="zoom-out"/>
+					<img src={asianGirl.src} alt="Picture of the author" data-aos="zoom-out"/>
 				</div>
 				<div className={style.girl_ellipse} data-aos-duration="1500" data-aos="zoom-in" data-aos-delay="1000">
-					<Image src={girlEllipse} alt="Круг"/>
+					<img src={girlEllipse} alt="Круг"/>
 				</div>
 			</div>
 		</section>

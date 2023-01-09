@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useActions } from '../../../hooks/useAction'
 import style from './Header.module.scss'
 import { state } from '../../../mockDate'
@@ -85,7 +84,7 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
                     <div className={style.logo}>
                         <Link href="/">
                             <a>
-                                <Image src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
+                                <img src={state.header.logo.img} alt={state.header.logo.alt} width={131} height={33}/>
                             </a>
                         </Link>
                     </div>
@@ -98,7 +97,7 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
                             <div className={style.left_menu}>
                                 <div className={style.phone_number}>
                                     <a className={style.phone_link} href={'tel:' + state.header.tel.link}>
-                                        <Image alt="Телефон" className={style.phone_icon} src={state.header.tel.icon} width={17}
+                                        <img alt="Телефон" className={style.phone_icon} src={state.header.tel.icon} width={17}
                                                height={17}/>
                                         <div className={style.phone_text}>8 900 999 99 99</div>
                                     </a>
