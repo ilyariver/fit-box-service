@@ -11,6 +11,7 @@ const initialState: ShowDialogWindowState = {
 	activeCitiesContent: false,
 	activeLoginContent: false,
 	activeEnterSMSContent: false,
+	activeOrderCallContent: false,
 	getNumberPhone: '',
 	getEmail: '',
 	sendCodeRepeat: false,
@@ -67,6 +68,11 @@ export const dialogModalsReducer = (
 			return {
 				...state,
 				activeEnterPasswordContent: action.payload
+			}
+		case ModalActionTypes.SET_ACTIVE_ORDER_CALL:
+			return {
+				...state,
+				activeOrderCallContent: action.payload
 			}
 		default:
 			return state

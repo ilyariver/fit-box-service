@@ -142,7 +142,7 @@ $tiles-bottom-xxl: 25px;
     justify-content: space-between;
 
     @include tablets {
-      flex-wrap: wrap;
+      //flex-wrap: wrap;
     }
 
     @include small {
@@ -150,9 +150,7 @@ $tiles-bottom-xxl: 25px;
     }
   }
   .swiper-slide {
-    width: calc(100% / 4 - 10px) !important;
-    height: auto!important;
-    margin-right: 0 !important;
+    //margin-right: 0 !important;
 
     @include tablets {
       margin-bottom: $tiles-bottom;

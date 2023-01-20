@@ -26,17 +26,19 @@ const CommentsSection = () => {
 						className="mySwiper"
 						breakpoints={{
 							768: {
-								enabled: false,
+								slidesPerView: 2,
+							},
+							992: {
 								slidesPerView: 4,
-								spaceBetween:35,
-							}
+							},
 						}}
 
 					>
 						{
 							state.feedbackPeople.map((person, idx) =>
-								<SwiperSlide data-aos="fade-down" data-aos-delay={idx * 100} key={person.name} className={style.comments_slide}>
-									<FeedbackComponent img={person.img} name={person.name} comment={person.comment} />
+								<SwiperSlide key={idx} className={style.comments_slide}>
+									{/*<FeedbackComponent img={person.img} name={person.name} comment={person.comment} />*/}
+									<FeedbackComponent img={person.img} />
 								</SwiperSlide>)
 						}
 					</Swiper>

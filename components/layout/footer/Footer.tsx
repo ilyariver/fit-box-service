@@ -29,17 +29,30 @@ const Footer = () => {
                             <li className={style.item}><Link href="/payment" className={style.link}>оплата</Link></li>
                         </ul>
                         <div className={style.connection}>
-                            <div className={style.form}>
-                                <div className={style.input_content}>
-                                    <label htmlFor="email" className={style.label}>связаться с нами</label>
-                                    <input id="email" type="text" className={style.input} placeholder="email"/>
-                                </div>
-                                <button className={style.button}>Отправить</button>
-                            </div>
                             <SocialsLinks />
                         </div>
                     </div>
-                    <a target="_blank" rel="noreferrer" href="https://fitbox.su/politics/terms-of-use" className={style.public_offer}>Публичная оферта</a>
+                    <div className={style.small_text}>
+                        <div className={style.small_text__left}>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="https://fitbox.su/politics/terms-of-use"
+                                className={style.public_offer}>Публичная оферта</a>
+                        </div>
+                        <div className={style.small_text__right}>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="mailto:fitbox.uln@gmail.com"
+                                className={`${style.public_offer} ${style.public_offer___right_top}`}>По любым вопросам пишите - fitbox.uln@gmail.com</a>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="https://fitbox.su/politics/terms-of-use"
+                                className={style.public_offer}>Наш WhatsApp/Telegram/Viber +7 937 007-77-12</a>
+                        </div>
+                    </div>
                 </div>
             </div>
        </footer>

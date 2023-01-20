@@ -85,4 +85,25 @@
       transform: translateY(0);
     }
   }
+
+  &__btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    background-image: url("#{$IMG_PATH}/icons/icon-close.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+
+    @include x-small {
+      top: 15px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

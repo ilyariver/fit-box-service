@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, MouseEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useActions } from '../../../hooks/useAction'
 import style from './Header.module.scss'
@@ -11,6 +11,8 @@ import { Cities } from '../../../types/selectCityTypes'
 import ModalCitiesContent from '../../shared/modal-cities-content/modal-cities-content'
 import ModalLoginContent from '../../shared/modal-login-content/modal-login-content'
 import ModalEnterPasswordContent from '../../shared/modal-enter-password-content/modal-enter-password-content'
+import ModalOrderCallContent from '../../shared/modal-order-call-content/modal-order-call-content'
+import { orderModalActive } from '../../../store/actions-creators/modal'
 
 interface HeaderTypes {
     getHomeLink?: string
@@ -27,6 +29,7 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
         dialogModalsActive,
         loginContentActive,
         citiesContentActive,
+        orderModalActive,
     } = useActions()
 
     const { cart } = useTypedSelector(cartList => cartList.program)
@@ -36,9 +39,11 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
         activeCitiesContent,
         activeEnterSMSContent,
         activeLoginContent,
+        activeOrderCallContent
     } = useTypedSelector(modal => modal.dialogModals)
 
     const openRightMenu = () => {
+        debugger
         setOpenMenu(!openMenu)
 
         setTimeout(() => {
@@ -72,6 +77,10 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
             setSetCity(hasSelectedCity)
         }
     }, [router, cities])
+
+    function getPath(link: string) {
+        return link.includes('https')  ? link : '/' + link
+    }
 
     return (
         <>
@@ -117,19 +126,26 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
                                         </button>
                                     </div>
                                 </div>
-                                <button className={style.callback_btn}>Заказать звонок</button>
+                                <button className={style.callback_btn} onClick={() => {
+                                    orderModalActive(!activeOrderCallContent)
+                                    dialogModalsActive(!activeDialogModal)
+                                }}>Заказать звонок</button>
                             </div>
                         </div>
                         <nav className={style.navigator}>
                             <ul className={style.navigator_list}>
-                                {state.header.navigation.map(item =>
-                                    <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
-                                        <Link href={item.link} className={style.navigator_link}>
-                                            <a target={item.target ? '_blank' : ''}>
-                                                {item.title}
-                                            </a>
-                                        </Link>
-                                    </li>)}
+                                {state.header.navigation.map(item => {
+                                   return (
+                                       <li onClick={() => openRightMenu()} key={item.title} className={style.navigator_item}>
+                                           <Link href={getPath(item.link)} className={style.navigator_link}>
+                                               <a target={item.target ? '_blank' : ''}>
+                                                   {item.title}
+                                               </a>
+                                           </Link>
+                                       </li>
+                                        )
+                                    })
+                                }
                             </ul>
                         </nav>
                         <div className={style.enter_account}>
@@ -158,6 +174,7 @@ const Header: FC<HeaderTypes> = ({ getHomeLink }) => {
                 { activeCitiesContent && <ModalCitiesContent /> }
                 { activeLoginContent && <ModalLoginContent /> }
                 { activeEnterSMSContent && <ModalEnterPasswordContent /> }
+                { activeOrderCallContent && <ModalOrderCallContent /> }
                 {/*{ activeEnterSMSContent && <ModalEnterPasswordContent/> }*/}
 
             </Modals>

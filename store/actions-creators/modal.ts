@@ -41,6 +41,6 @@ export const getEmailActive = (payload: string): CartModalAction => {
 // 	return { type: ModalActionTypes.ADD_SSN_VALUE, payload }
 // }
 
-export const enterPasswordContentActive = (payload: boolean): CartModalAction => {
-	return { type: ModalActionTypes.SET_ACTIVE_ENTER_PASSWORD, payload }
+export const orderModalActive = (payload: boolean): CartModalAction => {
+	return { type: ModalActionTypes.SET_ACTIVE_ORDER_CALL, payload }
 }

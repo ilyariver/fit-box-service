@@ -81,13 +81,6 @@ const ModalEnterPasswordContent: FC = () => {
 
 	return (
 		<div>
-			<button
-				className={style.close_modal}
-				onClick={() => {
-					loginContentActive(!activeLoginContent);
-					dialogModalsActive(!activeDialogModal);
-				}}
-			/>
 			<h2 className={style.modal_title}>вход в личный кабинет</h2>
 
 			<form onSubmit={handleSubmit}>

@@ -2,7 +2,6 @@
 @import '../../../styles/scss/responsive';
 @import '../../../styles/scss/breakpoint';
 
-
 .modal_title {
   margin-bottom: 35px;
   font-size: 18px;
@@ -16,16 +15,16 @@
 }
 
 .input_text {
-  margin-bottom: 45px;
-}
-
-.input_password {
-  margin-bottom: 30px;
-}
-
-.modal_input {
   margin-bottom: 25px;
-  width: auto;
+}
+
+.modal_input_phone {
+  margin-bottom: 25px;
+  width: 330px;
+
+  @include xx-small {
+    width: 100%;
+  }
 }
 
 .main_btn_order {
@@ -36,10 +35,6 @@
   &:active {
     background-color: #1e938d!important;
   }
-}
-
-.password_recovery {
-  text-align: center;
 }
 
 .offer {
@@ -109,3 +104,4 @@
   font-size: 12px;
   color: $color-error;
 }
+

@@ -478,7 +478,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Офис'],
-				cost: 2350,
+				cost: 750,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}
@@ -494,7 +494,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Офис+'],
-				cost: 2150,
+				cost: 850,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}
@@ -510,7 +510,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Фитнес'],
-				cost: 1050,
+				cost: 990,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}
@@ -526,7 +526,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Классик мини'],
-				cost: 1350,
+				cost: 990,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}
@@ -542,7 +542,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Классик'],
-				cost: 1500,
+				cost: 1090,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}
@@ -558,7 +558,7 @@ const programs = [
 		offer: {
 			description: {
 				text: state.programList['Классик+'],
-				cost: 1250,
+				cost: 1150,
 				deliverDescription: 'Доставка ежедневно с 12:00 до 20:00'
 			},
 		}

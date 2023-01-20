@@ -7,6 +7,7 @@ export interface ShowDialogWindowState {
 	activeCitiesContent: boolean
 	activeLoginContent: boolean
 	activeEnterSMSContent: boolean
+	activeOrderCallContent: boolean
 	getNumberPhone: string
 	getEmail: string
 	sendCodeRepeat: boolean
@@ -24,6 +25,7 @@ export enum ModalActionTypes {
 	SET_ACTIVE_CITIES = 'SET_ACTIVE_CITIES',
 	SET_ACTIVE_LOGIN = 'SET_ACTIVE_LOGIN',
 	SET_ACTIVE_ENTER_SMS_CODE = 'SET_ACTIVE_ENTER_SMS_CODE',
+	SET_ACTIVE_ORDER_CALL = 'SET_ACTIVE_ORDER_CALL',
 	GET_NUMBER_PHONE = 'GET_NUMBER_PHONE',
 	GET_EMAIL = 'GET_EMAIL',
 	SEND_CODE_REPEAT = 'SEND_CODE_REPEAT',
@@ -80,6 +82,11 @@ interface ActiveEnterPasswordAction {
 	payload: boolean
 }
 
+interface ActiveOrderCallWindowAction {
+	type: ModalActionTypes.SET_ACTIVE_ORDER_CALL,
+	payload: boolean
+}
+
 export type CartModalAction =
 	ActiveAction
 	| DialogModalsAction
@@ -91,4 +98,5 @@ export type CartModalAction =
 	| SendCodeRepeatAction
 	| AddSSNValueAction
 	| ActiveEnterPasswordAction
+	| ActiveOrderCallWindowAction
 

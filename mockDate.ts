@@ -2,10 +2,16 @@ import orderIcon from './public/images/icons/icon-order.svg'
 import enjoyIcon from './public/images/icons/icon-enjoy.svg'
 import cookingIcon from './public/images/icons/icon-cooking.svg'
 import deliveryIcon from './public/images/icons/icon-delivery.svg'
-import personOne from './public/images/1.png'
-import personTwo from './public/images/2.png'
-import personThree from './public/images/3.png'
-import personFour from './public/images/4.png'
+import one from './public/images/1.jpg'
+import two from './public/images/2.jpg'
+import three from './public/images/3.jpg'
+import four from './public/images/4.jpg'
+import five from './public/images/5.jpg'
+import six from './public/images/6.jpg'
+import seven from './public/images/7.jpg'
+import eight from './public/images/8.jpg'
+import nine from './public/images/9.jpg'
+import ten from './public/images/10.jpg'
 import call from './public/images/icons/icon-call.svg'
 import logo from './public/images/logo.svg'
 import logoBig from './public/images/logo-big.svg'
@@ -133,11 +139,23 @@ export const state = {
 			img: enjoyIcon.src,
 		},
 	],
+	// feedbackPeople: [
+	// 	{img: personOne.src, name: 'Александр', comment: 'Выберите одну из нескольких программ питания, количество блюд на день, желаемую дату начала программы и её продолжительность.'},
+	// 	{img: personTwo.src, name: 'Виктория', comment: 'Мы бережно заботимся о качестве закупаемых нами продуктов и процессе приготовления ваших блюд.'},
+	// 	{img: personThree.src, name: 'Кирилл', comment: 'Свежая продукция приедет к вам удобно, стильно и герметично упакованной в любом часовом интервале с 18:00 до 22:00. Доставка готовой еды по Ульяновску.'},
+	// 	{img: personFour.src, name: 'Ольга', comment: 'Больше никаких некачественных продуктов в вашем рационе, а ещё усталости и угрызений совести. Теперь только полезные и яркие блюда!'},
+	// ],
 	feedbackPeople: [
-		{img: personOne.src, name: 'Александр', comment: 'Выберите одну из нескольких программ питания, количество блюд на день, желаемую дату начала программы и её продолжительность.'},
-		{img: personTwo.src, name: 'Виктория', comment: 'Мы бережно заботимся о качестве закупаемых нами продуктов и процессе приготовления ваших блюд.'},
-		{img: personThree.src, name: 'Кирилл', comment: 'Свежая продукция приедет к вам удобно, стильно и герметично упакованной в любом часовом интервале с 18:00 до 22:00. Доставка готовой еды по Ульяновску.'},
-		{img: personFour.src, name: 'Ольга', comment: 'Больше никаких некачественных продуктов в вашем рационе, а ещё усталости и угрызений совести. Теперь только полезные и яркие блюда!'},
+		{img: one.src},
+		{img: two.src},
+		{img: three.src},
+		{img: four.src},
+		{img: five.src},
+		{img: six.src},
+		{img: seven.src},
+		{img: eight.src},
+		{img: nine.src},
+		{img: ten.src},
 	],
 	aboutService: {
 		title: 'FITBOX',

@@ -4,25 +4,14 @@ import Aos from 'aos'
 
 interface FeedbackTypes {
 	img: any
-	name: string
-	comment: string
 }
 
-const FeedbackComponent: FC<FeedbackTypes> = ({img, name, comment}) => {
-
-	useEffect(() => {
-		Aos.init({
-			disable: 'mobile', once: true, duration: 800,
-		})
-	}, [])
-
+const FeedbackComponent: FC<FeedbackTypes> = ({img}) => {
 	return (
 		<div className={style['feedback']}>
 			<div className={style['feedback__avatar']}>
-				<img src={img} alt={name} className={style['feedback__img']} />
+				<img src={img} alt={'отзыв'} className={style['feedback__img']} />
 			</div>
-			<div className={style['feedback__name']}>{name}</div>
-			<div className={style['feedback__comment']}>{comment}</div>
 		</div>
 	)
 }
